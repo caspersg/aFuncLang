@@ -1,0 +1,18 @@
+{
+  "name": "aFunctionLanguage",
+  "version": "1.0.0",
+  "description": "a function language",
+  "main": "index.js",
+  "dependencies": {
+    "pegjs": "^0.8.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.2",
+    "pegjs": "^0.8.0"
+  },
+  "scripts": {
+    "test": "cat test.add | coffee compile.coffee additive.pegjs"
+  },
+  "author": "casper.szy",
+  "license": "ISC"
+}
