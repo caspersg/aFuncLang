@@ -23,7 +23,7 @@ exports.getFile grammerFile, (grammer) ->
   process.stdin.on 'end', ->
     console.log "soure='#{source}'"
     try
-      output = parser.parse source.trim()
+      output = parser.parse source
       console.log output
     catch e
       console.error e

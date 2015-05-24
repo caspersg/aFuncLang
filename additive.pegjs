@@ -1,10 +1,9 @@
 start
-  = additive
+  =  _ additive _
 
 additive
   = left:multiplicative "+" right:additive { return left + right; }
   / multiplicative
-  / "\n"
 
 multiplicative
   = left:primary "*" right:multiplicative { return left * right; }
@@ -16,3 +15,6 @@ primary
 
 integer "integer"
   = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
+
+// optional whitespace
+_  = [ \t\r\n]* { return }
