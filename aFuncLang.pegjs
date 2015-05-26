@@ -6,9 +6,10 @@ def = name:symbol _ ":" _ value:expr _ { return { tag:"def", name:name, value:va
 
 symbol = name:[a-zA-Z_]+ { return name.join(""); }
 
-expr = integer
+expr = value:integer { return { tag:"integer", value: value}}
+  / def
 
-integer = [0-9]+
+integer = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
 
 // optional whitespace
 _  = [ \t\r\n]* { return }
