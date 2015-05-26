@@ -1,5 +1,9 @@
+"string"
+123
 x : 1
 xyz : 2
 tap: too: 33
 tap: too: again: 33
+(tap: too: again: 33)
+tap: (too: again: 33)
 string: "this is a string!"

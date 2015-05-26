@@ -1,13 +1,16 @@
 
 start
-  = definition+
+  = expression*
 
-definition = name:symbol _ ":" _ value:expression _ { return { tag:"definition", name:name, value:value } }
+expression = value:atom _ { return value }
+  / value:definition _ { return value }
+  / value:scope _ { return value }
+
+definition = name:symbol _ ":" _ value:expression { return { tag:"definition", name:name, value:value } }
 
 symbol = name:[a-zA-Z_]+ { return name.join(""); }
 
-expression = atom
-  / definition
+scope = "(" value:expression ")" { return { tag:"scope", value:value } }
 
 atom = value:integer { return { tag:"integer", value: value } }
   / value:string { return { tag:"string", value: value } }
