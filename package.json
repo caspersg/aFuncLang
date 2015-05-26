@@ -11,6 +11,7 @@
     "pegjs": "^0.8.0"
   },
   "scripts": {
+    "start": "coffee compile.coffee",
     "test": "cat test.add | coffee compile.coffee additive.pegjs"
   },
   "author": "casper.szy",

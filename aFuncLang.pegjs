@@ -1,10 +1,10 @@
 
 start
-  = def 
+  = def+ 
 
-def = name:symbol ":" expr:expr { return name = () -> expr } 
+def = name:symbol _ ":" _ expr:expr _ { var name = function() { return expr; }; return name;}
 
-symbol = [a-zA-Z_]
+symbol = [a-zA-Z_]+
 
 expr = integer
 
