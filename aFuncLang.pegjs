@@ -1,15 +1,19 @@
 
-start
-  = expression*
+start = line*
 
-expression = value:atom _ { return value }
-  / value:definition _ { return value }
-  / value:scope _ { return value }
+line = value:expression EOL { return value }
 
-definition = name:symbol _ params:params* ":" _ value:expression { return { tag:"definition", name:name, params: params, value:value } }
+expression = value:atom { return value }
+  / value:scope { return value }
+  / value:definition { return value }
+  / value:application { return value }
 
-params = value:symbol _ { return { tag:"param", vaue:value } }
-  / value:atom _ { return { tag:"match", vaue:value } }
+application = name:symbol _ param:param? { return { tag:"application", name:name, param:param } }
+
+definition = name:symbol _ param:param? ":" _ value:expression { return { tag:"definition", name:name, param: param, value:value } }
+
+param = value:symbol { return { tag:"symbol", value:value } }
+  / value:atom { return { tag:"match", value:value } }
 
 symbol = name:[a-zA-Z_]+ { return name.join("") }
 
@@ -26,5 +30,10 @@ integer = digits:[0-9]+ { return parseInt(digits.join(""), 10) }
 
 quotation_mark = '"'
 
-// optional whitespace
-_  = [ \t\r\n]* { return }
+// optional space
+_  = [ ]* { return }
+
+// mandatory whitespace
+__ = [ ]+ { return }
+
+EOL = "\r\n" / "\n" / "\r" { return }
