@@ -2,9 +2,9 @@
 start
   = def+ 
 
-def = name:symbol _ ":" _ expr:expr _ { var name = function() { return expr; }; return name;}
+def = name:symbol _ ":" _ value:expr _ { return { tag:"def", name:name, value:value } }
 
-symbol = [a-zA-Z_]+
+symbol = name:[a-zA-Z_]+ { return name.join(""); }
 
 expr = integer
 
