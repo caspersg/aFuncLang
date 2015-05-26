@@ -8,22 +8,25 @@ exports.getFile = (filename, callback) ->
     else
       callback data
 
+exports.parse = (grammerFile, output) ->
+  exports.getFile grammerFile, (grammer) ->
+    parser = PEG.buildParser(grammer)
+    source = ""
+    process.stdin.setEncoding 'utf8'
+    process.stdin.on 'readable', ->
+      chunk = process.stdin.read()
+      if chunk != null
+        source += chunk
+    process.stdin.on 'end', ->
+      console.log "soure='#{source}'"
+      try
+        output parser.parse source
+      catch e
+        console.error e
+
 grammerFile = process.argv[2]
 console.log "grammerFile=#{grammerFile}"
 
-exports.getFile grammerFile, (grammer) ->
-  parser = PEG.buildParser(grammer)
+exports.parse grammerFile, (ast) ->
+  console.log JSON.stringify ast, null, ' '
 
-  source = ""
-  process.stdin.setEncoding 'utf8'
-  process.stdin.on 'readable', ->
-    chunk = process.stdin.read()
-    if chunk != null
-      source += chunk
-  process.stdin.on 'end', ->
-    console.log "soure='#{source}'"
-    try
-      output = parser.parse source
-      console.log output
-    catch e
-      console.error e

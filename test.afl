@@ -10,3 +10,4 @@ string: "this is a string!"
 func param: 4
 func param param_two: 4
 map "key": 4
+map 123: 4
