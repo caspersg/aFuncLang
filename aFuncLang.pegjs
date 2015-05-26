@@ -8,7 +8,8 @@ expression = value:atom _ { return value }
 
 definition = name:symbol _ params:params* ":" _ value:expression { return { tag:"definition", name:name, params: params, value:value } }
 
-params = value:symbol _ { return value }
+params = value:symbol _ { return { tag:"param", vaue:value } }
+  / value:atom _ { return { tag:"match", vaue:value } }
 
 symbol = name:[a-zA-Z_]+ { return name.join("") }
 
