@@ -53,7 +53,8 @@ exports.compileToJS = (ast) ->
       "#{def.name}: function() {\nreturn #{compileExpression def.value}\n}"
 
   compiled = (compileExpression expression for expression in ast)
-  compiled.join "\n"
+  expressions = compiled.join "\n"
+  "module.exports = {\n#{expressions}\n}"
 
 grammerFile = process.argv[2]
 console.log "grammerFile=#{grammerFile}"
