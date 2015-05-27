@@ -34,6 +34,6 @@ grammerFile = process.argv[2]
 console.log "grammerFile=#{grammerFile}"
 
 exports.parse grammerFile, (ast) ->
-  console.log JSON.stringify ast, null, ' '
+  console.log "ast=#{JSON.stringify ast, null, ' '}"
   exports.compileToJS ast
 
