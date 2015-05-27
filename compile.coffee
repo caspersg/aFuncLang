@@ -1,5 +1,6 @@
 PEG = require 'pegjs'
 fs = require 'fs'
+beautify = require('js-beautify').js_beautify
 
 exports.getFile = (filename, callback) ->
   fs.readFile filename, 'utf8', (err,data) ->
@@ -63,7 +64,8 @@ compiledJsFile = process.argv[3]
 
 exports.parse grammerFile, (ast) ->
   console.log "ast=#{JSON.stringify ast, null, ' '}"
-  jscode = exports.compileToJS ast
+  jscode = beautify(exports.compileToJS(ast), { indent_size: 2 })
   console.log "javascript=#{jscode}"
   if compiledJsFile
     fs.writeFileSync compiledJsFile, jscode
+
