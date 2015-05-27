@@ -1,20 +1,42 @@
 "string"
 123
-x : 1
-xyz : 2
-one: too: 33
-three: three: again: 33
-(four: three: again: 33)
-five: (three: again: 33)
-string: "this is a string!"
-func param: 4
-string_map "key": 4
-int_map 123: 4
+x:
+  1
+xyz:
+  2
+one:
+  too:
+    33
+three:
+  three:
+    again:
+      33
+(four:
+  three:
+    again:
+      33)
+five:
+  (three:
+    again:
+      33)
+string:
+  "this is a string!"
+func param:
+  4
+string_map "key":
+  4
+int_map 123:
+  4
 x
 int_map 123
 string_map "key"
 one too
-y:  z: 6
-    v: 7
-    w: 8
-p: 9
+y:  
+  z:
+    6
+  v:
+    7
+  w arg:
+    8
+p:
+  9
