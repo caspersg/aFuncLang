@@ -39,10 +39,10 @@ DEDENT
   = { indent = indentStack.pop(); }
 
 expression
-  = value:atom { return value }
-  / value:lambda { return value }
+  = value:lambda { return value }
   / value:assignment { return value }
   / value:application { return value }
+  / value:atom { return value }
 
 application
   = name:symbol _ sub:application
@@ -76,7 +76,7 @@ atom
 
 string
   = quotation_mark chars:characters* quotation_mark
-    { return chars.join("") }
+    { return '"'+chars.join("")+'"' }
 
 characters
   = [\x20-\x21\x23-\x5B\x5D-\u10FFFF]

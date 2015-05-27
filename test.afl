@@ -2,32 +2,9 @@ x=
   :
     1
 xyz= :2
+id=
+  param:param
 one=
   "too":33
 fun=
   1:2
-  3:4
-  x:10
-string=
-  :"this is a string!"
-id=
-  param:param
-string_map=
-  "key":4
-y=  
-  "z":6
-  "v":7
-  "w": "arg":8
-p=
-  :9
-"string"
-123
-x
-id "value"
-string_map "key"
-map key
-int_map 123
-one too
-y z
-y w "something"
-p

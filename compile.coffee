@@ -55,20 +55,21 @@ exports.compileToJS = (ast) ->
      "#{expr.name}"
 
   compileAssignment = (expr) ->
-    if expr.children.length is 1
-      children = compileExpression expr.children[0]
+    "var #{expr.name} = #{compileLambdaGroup expr.children}"
+
+  compileLambdaGroup = (expr) ->
+    if expr.length is 1
+      "function() { #{compileLambda expr[0]} }"
     else
-      children = "{ #{(compileExpression child for child in expr.children)} }"
-    "var #{expr.name} = #{children}"
+      children = "function(){ #{(compileExpression child for child in expr.children)} }"
 
   compileLambda = (expr) ->
-    if expr.param && expr.param.tag == 'match'
-      "#{expr.name}: function() { return { #{expr.param.value.value}: #{children}} }"
-      "if(arguments[0] == \"#{expr.name}\") { return function(#{expr.param.value}) { #{children} } }"
-    if expr.param && expr.param.tag == 'symbol'
-      "function(#{expr.param.value}) { return #{compileExpression child for child in expr.children} }"
+    if expr.param?.tag == 'match'
+      "if(arguments[0] == #{expr.param.value.value}) { return #{compileExpression child for child in expr.children} }"
+    else if expr.param?.tag == 'symbol'
+      "var #{expr.param.value} = arguments[0]; return #{compileExpression child for child in expr.children} }"
     else
-      "function() { return #{compileExpression child for child in expr.children} }"
+      "return #{compileExpression child for child in expr.children}"
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"

@@ -4,34 +4,18 @@ var x = function() {
 var xyz = function() {
   return 2
 }
-var one = "too"
-var fun = {
-  1, 3,
-  function(x) {
-    return 10
-  }
-}
-var string = function() {
-  return "this is a string!"
-}
-var id = function(param) {
+var id = function() {
+  var param = arguments[0];
   return param
 }
-var string_map = "key"
-var y = {
-  "z", "v", "w"
 }
-var p = function() {
-  return 9
+var one = function() {
+  if (arguments[0] == "too") {
+    return 33
+  }
 }
-"string"
-123
-x
-id("value")
-string_map("key")
-map(key)
-int_map(123)
-one(too)
-y(z)
-y(w("something"))
-p
+var fun = function() {
+  if (arguments[0] == 1) {
+    return 2
+  }
+}
