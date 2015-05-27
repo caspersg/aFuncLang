@@ -1,109 +1,186 @@
-module.exports = function() {
-  if (arguments[0] == "x") {
-    return function() {
-      1
-    }
-  },
-  if (arguments[0] == "xyz") {
-    return function() {
-      2
-    }
-  },
-  if (arguments[0] == "one") {
-    return function() {
-      {
-        if (arguments[0] == "too") {
-          return function() {
-            33
-          }
-        }
+//TODO {
+"tag": "assignment",
+"name": "x",
+"children": [
+  null, {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+      null, {
+        "tag": "integer",
+        "value": 1,
+        "children": [
+          null,
+          null
+        ]
       }
-    }
-  },
-  if (arguments[0] == "three") {
-    return function() {
-      {
-        if (arguments[0] == "three") {
-          return function() {
-            {
-              if (arguments[0] == "again") {
-                return function() {
-                  33
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  if (arguments[0] == "string") {
-    return function() {
-      "this is a string!"
-    }
-  },
-  if (arguments[0] == "id") {
-    return function(param) {
-      param
-    }
-  },
-  if (arguments[0] == "string_map") {
-    return function() {
-      {
-        if (arguments[0] == "key") {
-          return function() {
-            4
-          }
-        }
-      }
-    }
-  },
-  if (arguments[0] == "map") {
-    return function() {
-      {
-        if (arguments[0] == "key") {
-          return function() {
-            4
-          }
-        }
-      }
-    }
-  },
-  if (arguments[0] == "y") {
-    return function() {
-      {
-        if (arguments[0] == "z") {
-          return function() {
-            6
-          }
-        },
-        if (arguments[0] == "v") {
-          return function() {
-            7
-          }
-        },
-        if (arguments[0] == "w") {
-          return function(arg) {
-            8
-          }
-        }
-      }
-    }
-  },
-  if (arguments[0] == "p") {
-    return function() {
-      9
-    }
+    ]
   }
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "xyz",
+"children": [{
+    "tag": "lambda",
+    "param": null,
+    "children": [{
+      "tag": "integer",
+      "value": 2
+    }]
+  },
+  null
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "one",
+"children": [
+  null, {
+    "tag": "string",
+    "value": "too",
+    "children": [
+      null,
+      null
+    ]
+  }
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "fun",
+"children": [
+  null, {
+    "tag": "integer",
+    "value": 1,
+    "children": [
+      null,
+      null
+    ]
+  }, {
+    "tag": "integer",
+    "value": 3,
+    "children": [
+      null,
+      null
+    ]
+  }, {
+    "tag": "lambda",
+    "param": {
+      "tag": "symbol",
+      "value": "x"
+    },
+    "children": [{
+        "tag": "integer",
+        "value": 10
+      },
+      null
+    ]
+  }
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "string",
+"children": [
+  null, {
+    "tag": "lambda",
+    "param": null,
+    "children": [{
+        "tag": "string",
+        "value": "this is a string!"
+      },
+      null
+    ]
+  }
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "id",
+"children": [
+  null, {
+    "tag": "lambda",
+    "param": {
+      "tag": "symbol",
+      "value": "param"
+    },
+    "children": [{
+        "tag": "application",
+        "name": "param",
+        "param": null
+      },
+      null
+    ]
+  }
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "string_map",
+"children": [
+  null, {
+    "tag": "string",
+    "value": "key",
+    "children": [
+      null,
+      null
+    ]
+  }
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "y",
+"children": [
+  null, {
+    "tag": "string",
+    "value": "z",
+    "children": [
+      null,
+      null
+    ]
+  }, {
+    "tag": "string",
+    "value": "v",
+    "children": [
+      null,
+      null
+    ]
+  }, {
+    "tag": "string",
+    "value": "w",
+    "children": [
+      null,
+      null
+    ]
+  }
+]
+}
+//TODO {
+"tag": "assignment",
+"name": "p",
+"children": [
+  null, {
+    "tag": "lambda",
+    "param": null,
+    "children": [{
+        "tag": "integer",
+        "value": 9
+      },
+      null
+    ]
+  }
+]
 }
 "string"
 123
-module.exports(x)
-module.exports(id("value"))
-module.exports(string_map("key"))
-module.exports(map(key))
-module.exports(int_map(123))
-module.exports(one(too))
-module.exports(y(z))
-module.exports(y(w("something")))
-module.exports(p)
+x
+id("value")
+string_map("key")
+map(key)
+int_map(123)
+one(too)
+y(z)
+y(w("something"))
+p

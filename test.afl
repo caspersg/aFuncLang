@@ -1,42 +1,33 @@
-module:
-  x:
+x=
+  :
     1
-  xyz:
-    2
-  one:
-    too:
-      33
-  three:
-    three:
-      again:
-        33
-  string:
-    "this is a string!"
-  id param:
-    param
-  string_map:
-    key:
-      4
-  map:
-    key:
-      4
-  y:  
-    z:
-      6
-    v:
-      7
-    w arg:
-      8
-  p:
-    9
+xyz= :2
+one=
+  "too":33
+fun=
+  1:2
+  3:4
+  x:10
+string=
+  :"this is a string!"
+id=
+  param:param
+string_map=
+  "key":4
+y=  
+  "z":6
+  "v":7
+  "w": "arg":8
+p=
+  :9
 "string"
 123
-module.exports x
-module.exports id "value"
-module.exports string_map "key"
-module.exports map key
-module.exports int_map 123
-module.exports one too
-module.exports y z
-module.exports y w "something"
-module.exports p
+x
+id "value"
+string_map "key"
+map key
+int_map 123
+one too
+y z
+y w "something"
+p

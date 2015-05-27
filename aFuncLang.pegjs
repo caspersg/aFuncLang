@@ -1,7 +1,7 @@
 // whitespace indent from http://stackoverflow.com/questions/11659095/parse-indentation-level-with-peg-js
 // do not use result cache, nor line and column tracking
 
-{ var indentStack = [], indent = ""; }
+{ var indentStack = [], indent = ""; var log = function(object) { console.log(JSON.stringify(object,null," ")) } }
 
 start
   = INDENT? l:line*
@@ -11,7 +11,7 @@ line
   = SAMEDENT line:(!EOL c:expression { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
       { 
-        line[0].children = children ? children : [];
+        line[0].children = [].concat(line[0].children, children);
         return line[0];
       }
 
@@ -36,14 +36,10 @@ DEDENT
   = { indent = indentStack.pop(); }
 
 expression
-  = value:module { return value }
-  / value:atom { return value }
-  / value:definition { return value }
+  = value:atom { return value }
+  / value:lambda { return value }
+  / value:assignment { return value }
   / value:application { return value }
-
-module
-  = "module:"
-    { return { tag:"module", children:[]}}
 
 application
   = name:symbol _ sub:application
@@ -51,9 +47,13 @@ application
   / name:symbol _ param:param?
     { return { tag:"application", name:name, param:param } }
 
-definition
-  = name:symbol _ param:param? ":" _
-    { return { tag:"definition", name:name, param: param, children:[]} }
+assignment
+  = name:symbol _ "=" _ expression:expression?
+    { return { tag:"assignment", name:name, children:[expression]} }
+
+lambda
+  = param:param? ":" _ expression:expression?
+    { return { tag:"lambda", param: param, children:[expression]} }
 
 param
   = value:symbol

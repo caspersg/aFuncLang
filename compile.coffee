@@ -35,7 +35,6 @@ exports.compileToJS = (ast) ->
       else
         if expr?.tag
           switch expr.tag
-            when 'module' then "module.exports = function() { #{compileExpression child for child in expr.children} }"
             when 'integer' then expr.value
             when 'string' then "\"#{expr.value}\""
             when 'match' then compileExpression expr.value
