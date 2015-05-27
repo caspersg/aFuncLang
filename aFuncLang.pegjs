@@ -29,7 +29,6 @@ DEDENT
 
 expression
   = value:atom { return value }
-  / value:scope { return value }
   / value:definition { return value }
   / value:application { return value }
 
@@ -50,10 +49,6 @@ param
 symbol
   = name:[a-zA-Z_]+
     { return name.join("") }
-
-scope
-  = "(" value:expression ")"
-    { return { tag:"scope", value:value } }
 
 atom
   = value:integer

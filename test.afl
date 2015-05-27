@@ -11,14 +11,6 @@ three:
   three:
     again:
       33
-(four:
-  three:
-    again:
-      33)
-five:
-  (three:
-    again:
-      33)
 string:
   "this is a string!"
 func param:
