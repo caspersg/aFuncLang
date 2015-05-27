@@ -29,11 +29,24 @@ exports.parse = (grammerFile, output) ->
 
 exports.compileToJS = (ast) ->
   # TODO
+  compileExpression = (expr) ->
+    switch expr
+      when 'INDENT' then "{"
+      when 'DEDENT' then "}"
+      else
+        switch expr.tag
+          when 'integer' then expr.value
+          when 'string' then "\"#{expr.value}\""
+          when 'application' then "#{expr.name}(#{expr.param})"
+          else "TODO"
+
+  compiled = (compileExpression expression for expression in ast)
+  compiled.join "\n"
 
 grammerFile = process.argv[2]
 console.log "grammerFile=#{grammerFile}"
 
 exports.parse grammerFile, (ast) ->
   console.log "ast=#{JSON.stringify ast, null, ' '}"
-  exports.compileToJS ast
-
+  jscode = exports.compileToJS ast
+  console.log "javascript=#{jscode}"

@@ -36,8 +36,8 @@
 
 /* The real grammar */
 start   = first:line tail:(EOL line)* EOL? { return start(first, tail) }
-line    = depth:indent s:text                      { return [depth, s] }
-indent  = s:" "*                                   { return indent(s) }
+line    = depth:indent s:text { return [depth, s] }
+indent  = s:" "* { return indent(s) }
 
 text = value:expression { return value }
 
