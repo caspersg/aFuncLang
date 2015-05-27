@@ -4,6 +4,7 @@ module.exports = {
   x: function() {
     return 1
   }
+  x()(null)
   xyz: function() {
     return 2
   }
@@ -29,18 +30,26 @@ module.exports = {
     return "this is a string!"
   }
   func: function(param) {
-    return 4
+    return param()(null)
   }
+  func()("value")
   string_map: function() {
     return 4
   }
+  string_map()("key")
+  map: function() {
+    return {
+      key: function() {
+        return 4
+      }
+    }
+  }
+  map().key()(null)
   int_map: function() {
     return 4
   }
-  x(null)
-  int_map(123)
-  string_map("key")
-  one(too)
+  int_map()(123)
+  one().too()(null)
   y: function() {
     return {
       z: function() {
@@ -54,6 +63,8 @@ module.exports = {
       }
     }
   }
+  y().z()(null)
+  y().w()("something")
   p: function() {
     return 9
   }

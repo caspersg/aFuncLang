@@ -2,6 +2,7 @@
 123
 x:
   1
+x
 xyz:
   2
 one:
@@ -14,14 +15,18 @@ three:
 string:
   "this is a string!"
 func param:
-  4
+  param
+func "value"
 string_map "key":
   4
+string_map "key"
+map:
+  key:
+    4
+map key
 int_map 123:
   4
-x
 int_map 123
-string_map "key"
 one too
 y:  
   z:
@@ -30,5 +35,7 @@ y:
     7
   w arg:
     8
+y z
+y w "something"
 p:
   9

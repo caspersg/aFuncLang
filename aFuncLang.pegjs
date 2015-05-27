@@ -41,7 +41,9 @@ expression
   / value:application { return value }
 
 application
-  = name:symbol _ param:param?
+  = name:symbol _ sub:application
+    { return { tag:"application", name:name, sub:sub } }
+  / name:symbol _ param:param?
     { return { tag:"application", name:name, param:param } }
 
 definition

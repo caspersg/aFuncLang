@@ -39,11 +39,17 @@ exports.compileToJS = (ast) ->
             when 'string' then "\"#{expr.value}\""
             when 'match' then compileExpression expr.value
             when 'symbol' then expr.value
-            when 'application' then "#{expr.name}(#{compileExpression expr.param})"
+            when 'application' then compileApplication expr
             when 'definition' then compileDefinition expr
             when 'scope' then "(#{compileExpression expr.value})"
             else "//TODO #{JSON.stringify expr, null, ' '}"
         else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
+
+  compileApplication = (expr) ->
+    if expr.sub
+     "#{expr.name}().#{compileExpression expr.sub}"
+    else
+     "#{expr.name}()(#{compileExpression expr.param})"
 
   compileDefinition = (def) ->
     if def.children.length is 1 and def.children[0].tag isnt 'definition'
