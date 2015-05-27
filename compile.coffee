@@ -42,16 +42,20 @@ exports.compileToJS = (ast) ->
             when 'application' then compileApplication expr
             when 'assignment' then compileAssignment expr
             when 'lambda' then compileLambdaGroup [expr]
+            when 'arithmetic' then compileArithmetic expr
             else "//TODO #{JSON.stringify expr, null, ' '}"
         else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
 
-  compileApplication = (expr) ->
-    if expr.sub
-     "#{expr.name}(#{compileExpression expr.sub})"
-    else if expr.param
-     "#{expr.name}(#{compileExpression expr.param})"
+  compileArithmetic = (arithmetic) ->
+    (operand.value for operand in arithmetic.children).join arithmetic.op
+
+  compileApplication = (app) ->
+    if app.sub
+     "#{app.name}(#{compileExpression app.sub})"
+    else if app.param
+     "#{app.name}(#{compileExpression app.param})"
     else
-     "#{expr.name}"
+     "#{app.name}"
 
   compileAssignment = (assignment) ->
     "var #{assignment.name} = #{compileLambdaGroup assignment.children}"

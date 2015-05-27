@@ -69,3 +69,6 @@ var p = function() {
   return 9
 }
 p
+1 + 2
+2 - 1
+5 - 2 - 1

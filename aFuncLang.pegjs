@@ -40,6 +40,7 @@ expression
   = value:lambda { return value }
   / value:assignment { return value }
   / value:application { return value }
+  / value:arithmetic { return value }
   / value:atom { return value }
 
 application
@@ -65,6 +66,10 @@ param
 symbol
   = name:[a-zA-Z_.]+
     { return name.join("") }
+
+arithmetic
+  = op:[+-]
+    { return { tag:"arithmetic", op:op } }
 
 atom
   = value:integer
