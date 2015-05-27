@@ -59,7 +59,11 @@ exports.compileToJS = (ast) ->
 grammerFile = process.argv[2]
 console.log "grammerFile=#{grammerFile}"
 
+compiledJsFile = process.argv[3]
+
 exports.parse grammerFile, (ast) ->
   console.log "ast=#{JSON.stringify ast, null, ' '}"
   jscode = exports.compileToJS ast
   console.log "javascript=#{jscode}"
+  if compiledJsFile
+    fs.writeFileSync compiledJsFile, jscode

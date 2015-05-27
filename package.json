@@ -11,8 +11,8 @@
     "pegjs": "^0.8.0"
   },
   "scripts": {
-    "start": "coffee compile.coffee",
-    "test": "cat test.add | coffee compile.coffee additive.pegjs"
+    "start": "coffee compile.coffee aFuncLang.pegjs",
+    "test": "cat test.afl | coffee compile.coffee aFuncLang.pegjs test.js"
   },
   "author": "casper.szy",
   "license": "ISC"
