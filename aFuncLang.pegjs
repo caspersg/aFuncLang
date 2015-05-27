@@ -12,9 +12,7 @@ line
     children:( INDENT c:line* DEDENT { return c; })?
       { 
         var filtered = [].concat(line[0].children, children).filter(function(n){ return n != undefined });
-        if(filtered.length > 0) {
-          line[0].children = filtered;
-        }
+        line[0].children = filtered;
         return line[0];
       }
 

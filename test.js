@@ -18,4 +18,10 @@ var fun = function() {
   if (arguments[0] == 1) {
     return 2
   }
+  if (arguments[0] == 3) {
+    return 4
+  }
+  var x = arguments[0];
+  return 10
+}
 }

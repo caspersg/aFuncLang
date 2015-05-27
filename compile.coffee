@@ -41,7 +41,6 @@ exports.compileToJS = (ast) ->
             when 'symbol' then expr.value
             when 'application' then compileApplication expr
             when 'assignment' then compileAssignment expr
-            when 'lambda' then compileLambda expr
             when 'scope' then "(#{compileExpression expr.value})"
             else "//TODO #{JSON.stringify expr, null, ' '}"
         else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
@@ -54,22 +53,20 @@ exports.compileToJS = (ast) ->
     else
      "#{expr.name}"
 
-  compileAssignment = (expr) ->
-    "var #{expr.name} = #{compileLambdaGroup expr.children}"
+  compileAssignment = (assignment) ->
+    "var #{assignment.name} = #{compileLambdaGroup assignment.children}"
 
-  compileLambdaGroup = (expr) ->
-    if expr.length is 1
-      "function() { #{compileLambda expr[0]} }"
-    else
-      children = "function(){ #{(compileExpression child for child in expr.children)} }"
+  compileLambdaGroup = (lambdaList) ->
+    "function(){ #{(compileLambda lambda for lambda in lambdaList).join " "} }"
 
-  compileLambda = (expr) ->
-    if expr.param?.tag == 'match'
-      "if(arguments[0] == #{expr.param.value.value}) { return #{compileExpression child for child in expr.children} }"
-    else if expr.param?.tag == 'symbol'
-      "var #{expr.param.value} = arguments[0]; return #{compileExpression child for child in expr.children} }"
+  compileLambda = (lambda) ->
+    children = (compileExpression child for child in lambda.children).join " "
+    if lambda.param?.tag == 'match'
+      "if(arguments[0] == #{lambda.param.value.value}) { return #{children} }"
+    else if lambda.param?.tag == 'symbol'
+      "var #{lambda.param.value} = arguments[0]; return #{children} }"
     else
-      "return #{compileExpression child for child in expr.children}"
+      "return #{children}"
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"
