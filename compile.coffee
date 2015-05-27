@@ -41,12 +41,14 @@ exports.compileToJS = (ast) ->
           when 'match' then compileExpression expr.value
           when 'symbol' then expr.value
           when 'application' then "#{expr.name}(#{compileExpression expr.param})"
-          when 'definition' then "var #{expr.name} = function() {\n#{compileDefinition expr.param, expr.value}\n}"
+          when 'definition' then compileDefinition expr
           else "TODO"
 
-  compileDefinition = (param, value) ->
-    compileExpression value
-
+  compileDefinition = (def) ->
+    if def.param && def.param.tag == 'match'
+      "#{def.name}: function() {\nreturn {\n#{def.param.value.value}: #{compileExpression def.value}}\n}"
+    else
+      "#{def.name}: function() {\nreturn #{compileExpression def.value}\n}"
 
   compiled = (compileExpression expression for expression in ast)
   compiled.join "\n"
