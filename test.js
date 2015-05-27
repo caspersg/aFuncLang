@@ -1,71 +1,106 @@
 module.exports = {
   "string"
   123
-  x: function() {
-    return 1
-  }
-  x()
-  xyz: function() {
-    return 2
-  }
-  one: function() {
-    return {
-      too: function() {
-        return 33
-      }
+  if (arguments[0] == "x") {
+    return function() {
+      1
     }
   }
-  three: function() {
-    return {
-      three: function() {
-        return {
-          again: function() {
-            return 33
+  x()
+  if (arguments[0] == "xyz") {
+    return function() {
+      2
+    }
+  }
+  if (arguments[0] == "one") {
+    return function() {
+      {
+        if (arguments[0] == "too") {
+          return function() {
+            33
           }
         }
       }
     }
   }
-  string: function() {
-    return "this is a string!"
+  if (arguments[0] == "three") {
+    return function() {
+      {
+        if (arguments[0] == "three") {
+          return function() {
+            {
+              if (arguments[0] == "again") {
+                return function() {
+                  33
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  id: function(param) {
-    return param()
+  if (arguments[0] == "string") {
+    return function() {
+      "this is a string!"
+    }
+  }
+  if (arguments[0] == "id") {
+    return function(param) {
+      param()
+    }
   }
   id()(function() {
     return "value"
   })
-  string_map: function() {
-    return 4
+  if (arguments[0] == "string_map") {
+    return function() {
+      {
+        if (arguments[0] == "key") {
+          return function() {
+            4
+          }
+        }
+      }
+    }
   }
   string_map()(function() {
     return "key"
   })
-  map: function() {
-    return {
-      key: function() {
-        return 4
+  if (arguments[0] == "map") {
+    return function() {
+      {
+        if (arguments[0] == "key") {
+          return function() {
+            4
+          }
+        }
       }
     }
   }
   map().key()
-  int_map: function() {
-    return 4
-  }
   int_map()(function() {
     return 123
   })
   one().too()
-  y: function() {
-    return {
-      z: function() {
-        return 6
-      },
-      v: function() {
-        return 7
-      },
-      w: function(arg) {
-        return 8
+  if (arguments[0] == "y") {
+    return function() {
+      {
+        if (arguments[0] == "z") {
+          return function() {
+            6
+          }
+        },
+        if (arguments[0] == "v") {
+          return function() {
+            7
+          }
+        },
+        if (arguments[0] == "w") {
+          return function(arg) {
+            8
+          }
+        }
       }
     }
   }
@@ -73,7 +108,10 @@ module.exports = {
   y().w()(function() {
     return "something"
   })
-  p: function() {
-    return 9
+  if (arguments[0] == "p") {
+    return function() {
+      9
+    }
   }
+  p()
 }

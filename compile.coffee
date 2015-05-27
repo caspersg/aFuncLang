@@ -60,10 +60,11 @@ exports.compileToJS = (ast) ->
       children = "{ #{(compileExpression child for child in def.children)} }"
     if def.param && def.param.tag == 'match'
       "#{def.name}: function() {\nreturn {\n#{def.param.value.value}: #{children}}\n}"
+      "if(arguments[0] == \"#{def.name}\") { return function(#{def.param.value}) { #{children} } }"
     if def.param && def.param.tag == 'symbol'
-      "#{def.name}: function(#{def.param.value}) {\nreturn #{children}\n}"
+      "if(arguments[0] == \"#{def.name}\") { return function(#{def.param.value}) { #{children} } }"
     else
-      "#{def.name}: function() {\nreturn #{children}\n}"
+      "if(arguments[0] == \"#{def.name}\") { return function() { #{children} } }"
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"
