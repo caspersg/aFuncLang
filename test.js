@@ -1,6 +1,9 @@
+"string"
+123
 var x = function() {
   return 1
 }
+x
 var xyz = function() {
   return 2
 }
@@ -9,12 +12,17 @@ var id = function() {
   return param
 }
 }
+id("value")
 var one = function() {
   if (arguments[0] == "too") {
     return 33
   }
 }
-var fun = function() {
+var too = function() {
+  return "too"
+}
+one(id(too))
+var int_map = function() {
   if (arguments[0] == 1) {
     return 2
   }
@@ -25,6 +33,7 @@ var fun = function() {
   return 10
 }
 }
+int_map(123)
 var string = function() {
   return "this is a string!"
 }
@@ -33,6 +42,8 @@ var string_map = function() {
     return 4
   }
 }
+string_map("key")
+map("key")
 var y = function() {
   if (arguments[0] == "z") {
     return 6
@@ -52,17 +63,9 @@ if (arguments[0] == "w") {
   }
 }
 }
+y("z")
+y("w")
 var p = function() {
   return 9
 }
-"string"
-123
-x
-id("value")
-string_map("key")
-map(key)
-int_map(123)
-one(too)
-y(z)
-y(w("something"))
 p

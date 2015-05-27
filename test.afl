@@ -1,33 +1,35 @@
+"string"
+123
 x=
   :
     1
+x
 xyz= :2
 id=
   param:param
+id "value"
 one=
   "too":33
-fun=
+too=
+  :"too"
+one id too
+int_map=
   1:2
   3:4
   x:10
+int_map 123
 string=
   :"this is a string!"
 string_map=
   "key":4
+string_map "key"
+map "key"
 y=  
   "z":6
   "v": x:x
   "w": "arg":8
+y "z"
+y "w"
 p=
   :9
-"string"
-123
-x
-id "value"
-string_map "key"
-map key
-int_map 123
-one too
-y z
-y w "something"
 p

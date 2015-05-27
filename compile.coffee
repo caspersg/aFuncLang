@@ -42,7 +42,6 @@ exports.compileToJS = (ast) ->
             when 'application' then compileApplication expr
             when 'assignment' then compileAssignment expr
             when 'lambda' then compileLambdaGroup [expr]
-            when 'scope' then "(#{compileExpression expr.value})"
             else "//TODO #{JSON.stringify expr, null, ' '}"
         else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
 
