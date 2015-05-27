@@ -11,9 +11,8 @@ line
   = SAMEDENT line:(!EOL c:expression { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
       { 
-        line[0].children = children;
-        console.log("line="+JSON.stringify(line,null," ")+" children="+JSON.stringify(children,null," "));
-        return line;
+        line[0].children = children ? children : null;
+        return line[0];
       }
 
 EOL
@@ -46,7 +45,7 @@ application
     { return { tag:"application", name:name, param:param } }
 
 definition
-  = name:symbol _ param:param? ":"
+  = name:symbol _ param:param? ":" _
     { return { tag:"definition", name:name, param: param, children:[]} }
 
 param

@@ -1,16 +1,14 @@
 module.exports = {
-  //TODO [
-  {
-    "tag": "definition",
-    "name": "y",
-    "param": null,
-    "children": [
-      [{
-        "tag": "integer",
-        "value": 6,
-        "children": null
-      }]
-    ]
+  y: function() {
+    return z: function() {
+      return 6
+    }, v: function() {
+      return 7
+    }, w: function(arg) {
+      return 8
+    }
   }
-]
+  p: function() {
+    return 9
+  }
 }

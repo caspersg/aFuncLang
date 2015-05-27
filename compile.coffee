@@ -31,27 +31,28 @@ exports.parse = (grammerFile, output) ->
 exports.compileToJS = (ast) ->
   compileExpression = (expr) ->
     switch expr
-      when 'INDENT' then "{"
-      when 'DEDENT' then "}"
       when null then "null"
       else
-        switch expr.tag
-          when 'integer' then expr.value
-          when 'string' then "\"#{expr.value}\""
-          when 'match' then compileExpression expr.value
-          when 'symbol' then expr.value
-          when 'application' then "#{expr.name}(#{compileExpression expr.param})"
-          when 'definition' then compileDefinition expr
-          when 'scope' then "(#{compileExpression expr.value})"
-          else "//TODO #{JSON.stringify expr, null, ' '}"
+        if expr?.tag
+          switch expr.tag
+            when 'integer' then expr.value
+            when 'string' then "\"#{expr.value}\""
+            when 'match' then compileExpression expr.value
+            when 'symbol' then expr.value
+            when 'application' then "#{expr.name}(#{compileExpression expr.param})"
+            when 'definition' then compileDefinition expr
+            when 'scope' then "(#{compileExpression expr.value})"
+            else "//TODO #{JSON.stringify expr, null, ' '}"
+        else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
 
   compileDefinition = (def) ->
+    children = (compileExpression child for child in def.children)
     if def.param && def.param.tag == 'match'
-      "#{def.name}: function() {\nreturn {\n#{def.param.value.value}: #{compileExpression def.value}}\n}"
+      "#{def.name}: function() {\nreturn {\n#{def.param.value.value}: #{children}}\n}"
     if def.param && def.param.tag == 'symbol'
-      "#{def.name}: function(#{def.param.value}) {\nreturn #{compileExpression def.value}\n}"
+      "#{def.name}: function(#{def.param.value}) {\nreturn #{children}\n}"
     else
-      "#{def.name}: function() {\nreturn #{compileExpression def.value}\n}"
+      "#{def.name}: function() {\nreturn #{children}\n}"
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"
