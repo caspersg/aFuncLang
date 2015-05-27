@@ -11,7 +11,10 @@ line
   = SAMEDENT line:(!EOL c:expression { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
       { 
-        line[0].children = [].concat(line[0].children, children);
+        var filtered = [].concat(line[0].children, children).filter(function(n){ return n != undefined });
+        if(filtered.length > 0) {
+          line[0].children = filtered;
+        }
         return line[0];
       }
 

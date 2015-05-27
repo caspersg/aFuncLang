@@ -31,7 +31,7 @@ exports.parse = (grammerFile, output) ->
 exports.compileToJS = (ast) ->
   compileExpression = (expr) ->
     switch expr
-      when null then "null"
+      when null then ""
       else
         if expr?.tag
           switch expr.tag
@@ -40,7 +40,8 @@ exports.compileToJS = (ast) ->
             when 'match' then compileExpression expr.value
             when 'symbol' then expr.value
             when 'application' then compileApplication expr
-            when 'definition' then compileDefinition expr
+            when 'assignment' then compileAssignment expr
+            #when 'lambda' then compileLambda expr
             when 'scope' then "(#{compileExpression expr.value})"
             else "//TODO #{JSON.stringify expr, null, ' '}"
         else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
@@ -53,18 +54,21 @@ exports.compileToJS = (ast) ->
     else
      "#{expr.name}"
 
-  compileDefinition = (def) ->
-    if def.children.length is 1 and def.children[0].tag isnt 'definition'
-      children = compileExpression def.children[0]
+  compileAssignment = (expr) ->
+    if expr.children.length is 1
+      children = compileExpression expr.children[0]
     else
-      children = "{ #{(compileExpression child for child in def.children)} }"
-    if def.param && def.param.tag == 'match'
-      "#{def.name}: function() { return { #{def.param.value.value}: #{children}} }"
-      "if(arguments[0] == \"#{def.name}\") { return function(#{def.param.value}) { #{children} } }"
-    if def.param && def.param.tag == 'symbol'
-      "if(arguments[0] == \"#{def.name}\") { return function(#{def.param.value}) { #{children} } }"
+      children = "{ #{(compileExpression child for child in expr.children)} }"
+    "var #{expr.name} = #{children}"
+
+  compileLambda = (expr) ->
+    if expr.param && expr.param.tag == 'match'
+      "#{expr.name}: function() { return { #{expr.param.value.value}: #{children}} }"
+      "if(arguments[0] == \"#{expr.name}\") { return function(#{expr.param.value}) { #{children} } }"
+    if expr.param && expr.param.tag == 'symbol'
+      "if(arguments[0] == \"#{expr.name}\") { return function(#{expr.param.value}) { #{children} } }"
     else
-      "if(arguments[0] == \"#{def.name}\") { return function() { #{children} } }"
+      "if(arguments[0] == \"#{expr.name}\") { return function() { #{children} } }"
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"
