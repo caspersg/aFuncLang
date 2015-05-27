@@ -47,6 +47,8 @@ exports.compileToJS = (ast) ->
   compileDefinition = (def) ->
     if def.param && def.param.tag == 'match'
       "#{def.name}: function() {\nreturn {\n#{def.param.value.value}: #{compileExpression def.value}}\n}"
+    if def.param && def.param.tag == 'symbol'
+      "#{def.name}: function(#{def.param.value}) {\nreturn #{compileExpression def.value}\n}"
     else
       "#{def.name}: function() {\nreturn #{compileExpression def.value}\n}"
 
