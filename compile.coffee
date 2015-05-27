@@ -41,7 +41,7 @@ exports.compileToJS = (ast) ->
             when 'symbol' then expr.value
             when 'application' then compileApplication expr
             when 'assignment' then compileAssignment expr
-            #when 'lambda' then compileLambda expr
+            when 'lambda' then compileLambda expr
             when 'scope' then "(#{compileExpression expr.value})"
             else "//TODO #{JSON.stringify expr, null, ' '}"
         else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
@@ -66,9 +66,9 @@ exports.compileToJS = (ast) ->
       "#{expr.name}: function() { return { #{expr.param.value.value}: #{children}} }"
       "if(arguments[0] == \"#{expr.name}\") { return function(#{expr.param.value}) { #{children} } }"
     if expr.param && expr.param.tag == 'symbol'
-      "if(arguments[0] == \"#{expr.name}\") { return function(#{expr.param.value}) { #{children} } }"
+      "function(#{expr.param.value}) { return #{compileExpression child for child in expr.children} }"
     else
-      "if(arguments[0] == \"#{expr.name}\") { return function() { #{children} } }"
+      "function() { return #{compileExpression child for child in expr.children} }"
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"

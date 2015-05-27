@@ -1,64 +1,28 @@
-var x = //TODO {
-  "tag": "lambda",
-  "param": null,
-  "children": [{
-    "tag": "integer",
-    "value": 1
-  }]
+var x = function() {
+  return 1
 }
-var xyz = //TODO {
-  "tag": "lambda",
-  "param": null,
-  "children": [{
-    "tag": "integer",
-    "value": 2
-  }]
+var xyz = function() {
+  return 2
 }
 var one = "too"
 var fun = {
-  1, 3, //TODO {
-  "tag": "lambda",
-  "param": {
-    "tag": "symbol",
-    "value": "x"
-  },
-  "children": [{
-    "tag": "integer",
-    "value": 10
-  }]
+  1, 3,
+  function(x) {
+    return 10
+  }
 }
+var string = function() {
+  return "this is a string!"
 }
-var string = //TODO {
-  "tag": "lambda",
-  "param": null,
-  "children": [{
-    "tag": "string",
-    "value": "this is a string!"
-  }]
-}
-var id = //TODO {
-  "tag": "lambda",
-  "param": {
-    "tag": "symbol",
-    "value": "param"
-  },
-  "children": [{
-    "tag": "application",
-    "name": "param",
-    "param": null
-  }]
+var id = function(param) {
+  return param
 }
 var string_map = "key"
 var y = {
   "z", "v", "w"
 }
-var p = //TODO {
-  "tag": "lambda",
-  "param": null,
-  "children": [{
-    "tag": "integer",
-    "value": 9
-  }]
+var p = function() {
+  return 9
 }
 "string"
 123
