@@ -48,8 +48,10 @@ exports.compileToJS = (ast) ->
   compileApplication = (expr) ->
     if expr.sub
      "#{expr.name}().#{compileExpression expr.sub}"
+    else if expr.param
+     "#{expr.name}()( function() { return #{compileExpression expr.param} } )"
     else
-     "#{expr.name}()(#{compileExpression expr.param})"
+     "#{expr.name}()"
 
   compileDefinition = (def) ->
     if def.children.length is 1 and def.children[0].tag isnt 'definition'

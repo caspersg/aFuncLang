@@ -14,9 +14,9 @@ three:
       33
 string:
   "this is a string!"
-func param:
+id param:
   param
-func "value"
+id "value"
 string_map "key":
   4
 string_map "key"
