@@ -44,7 +44,7 @@ module.exports = function() {
   },
   if (arguments[0] == "id") {
     return function(param) {
-      param()
+      param
     }
   },
   if (arguments[0] == "string_map") {
@@ -98,12 +98,12 @@ module.exports = function() {
 }
 "string"
 123
-x()
-id("value")
-string_map("key")
-map(key())
-int_map(123)
-one(too())
-y(z())
-y(w("something"))
-p()
+module.exports(x)
+module.exports(id("value"))
+module.exports(string_map("key"))
+module.exports(map(key))
+module.exports(int_map(123))
+module.exports(one(too))
+module.exports(y(z))
+module.exports(y(w("something")))
+module.exports(p)

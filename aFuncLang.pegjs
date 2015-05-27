@@ -62,7 +62,7 @@ param
     { return { tag:"match", value:value } }
 
 symbol
-  = name:[a-zA-Z_]+
+  = name:[a-zA-Z_.]+
     { return name.join("") }
 
 atom
