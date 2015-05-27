@@ -11,7 +11,6 @@ var id = function() {
   var param = arguments[0];
   return param
 }
-}
 id("value")
 var one = function() {
   if (arguments[0] == "too") {
@@ -31,7 +30,6 @@ var int_map = function() {
   }
   var x = arguments[0];
   return 10
-}
 }
 int_map(123)
 var string = function() {
@@ -54,14 +52,13 @@ var y = function() {
       return x
     }
   }
-}
-if (arguments[0] == "w") {
-  return function() {
-    if (arguments[0] == "arg") {
-      return 8
+  if (arguments[0] == "w") {
+    return function() {
+      if (arguments[0] == "arg") {
+        return 8
+      }
     }
   }
-}
 }
 y("z")
 y("w")
@@ -72,3 +69,13 @@ p
 1 + 2
 2 - 1
 5 - 2 - 1
+var fib = function() {
+  if (arguments[0] == 0) {
+    return 0
+  }
+  if (arguments[0] == 1) {
+    return 1
+  }
+  var n = arguments[0];
+  return fib(1)
+}
