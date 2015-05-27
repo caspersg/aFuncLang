@@ -4,13 +4,17 @@
 { var indentStack = [], indent = ""; }
 
 start
-  = INDENT? l:line
+  = INDENT? l:line*
     { return l; }
 
 line
   = SAMEDENT line:(!EOL c:expression { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
-    { var o = {}; o[line] = children; return children ? o : line.join(""); }
+      { 
+        line[0].children = children;
+        console.log("line="+JSON.stringify(line,null," ")+" children="+JSON.stringify(children,null," "));
+        return line;
+      }
 
 EOL
   = "\r\n"
@@ -18,11 +22,16 @@ EOL
   / "\r"
 
 SAMEDENT
-  = i:[ \t]* &{ return i.join("") === indent; }
+  = i:[ \t]* 
+    &{ return i.join("") === indent; }
 
 INDENT
   = &(i:[ \t]+ &{ return i.length > indent.length; }
-      { indentStack.push(indent); indent = i.join(""); pos = offset; })
+      {
+        indentStack.push(indent);
+        indent = i.join("");
+        pos = offset;
+      })
 
 DEDENT
   = { indent = indentStack.pop(); }
@@ -38,7 +47,7 @@ application
 
 definition
   = name:symbol _ param:param? ":"
-    { return { tag:"definition", name:name, param: param} }
+    { return { tag:"definition", name:name, param: param, children:[]} }
 
 param
   = value:symbol
