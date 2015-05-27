@@ -64,8 +64,8 @@ compiledJsFile = process.argv[3]
 
 exports.parse grammerFile, (ast) ->
   console.log "ast=#{JSON.stringify ast, null, ' '}"
-  jscode = beautify(exports.compileToJS(ast), { indent_size: 2 })
-  console.log "javascript=#{jscode}"
   if compiledJsFile
+    jscode = beautify(exports.compileToJS(ast), { indent_size: 2 })
+    console.log "javascript=#{jscode}"
     fs.writeFileSync compiledJsFile, jscode
 
