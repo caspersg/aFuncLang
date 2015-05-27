@@ -68,7 +68,7 @@ exports.compileToJS = (ast) ->
     if lambda.param?.tag == 'match'
       "if(arguments[0] == #{lambda.param.value.value}) { return #{children} }"
     else if lambda.param?.tag == 'symbol'
-      "var #{lambda.param.value} = arguments[0]; return #{children} }"
+      "var #{lambda.param.value} = arguments[0]; return #{children}"
     else
       "return #{children}"
 
