@@ -69,6 +69,13 @@ p
 1 + 2
 2 - 1
 5 - 2 - 1
+var rec = function() {
+  if (arguments[0] == 1) {
+    return 1
+  }
+  var x = arguments[0];
+  return rec(1)
+}
 var fib = function() {
   if (arguments[0] == 0) {
     return 0
