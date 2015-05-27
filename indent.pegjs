@@ -4,11 +4,11 @@
 { var indentStack = [], indent = ""; }
 
 start
-  = INDENT? l:line
+  = INDENT? l:line*
     { return l; }
 
 line
-  = SAMEDENT line:(!EOL c:. { return c.join(""); })+ EOL?
+  = SAMEDENT line:(!EOL c:. { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
     { var o = {}; o[line] = children; return children ? o : line.join(""); }
 
