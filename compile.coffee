@@ -28,7 +28,6 @@ exports.parse = (grammerFile, output) ->
         console.error e
 
 exports.compileToJS = (ast) ->
-  # TODO
   compileExpression = (expr) ->
     switch expr
       when 'INDENT' then "{"
@@ -42,7 +41,8 @@ exports.compileToJS = (ast) ->
           when 'symbol' then expr.value
           when 'application' then "#{expr.name}(#{compileExpression expr.param})"
           when 'definition' then compileDefinition expr
-          else "TODO"
+          when 'scope' then "(#{compileExpression expr.value})"
+          else "//TODO #{JSON.stringify expr, null, ' '}"
 
   compileDefinition = (def) ->
     if def.param && def.param.tag == 'match'
