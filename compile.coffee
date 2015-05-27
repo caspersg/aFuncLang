@@ -47,9 +47,9 @@ exports.compileToJS = (ast) ->
 
   compileApplication = (expr) ->
     if expr.sub
-     "#{expr.name}().#{compileExpression expr.sub}"
+     "#{expr.name}(#{compileExpression expr.sub})"
     else if expr.param
-     "#{expr.name}()( function() { return #{compileExpression expr.param} } )"
+     "#{expr.name}(#{compileExpression expr.param})"
     else
      "#{expr.name}()"
 

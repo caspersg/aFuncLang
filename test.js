@@ -50,9 +50,7 @@ module.exports = {
       param()
     }
   }
-  id()(function() {
-    return "value"
-  })
+  id("value")
   if (arguments[0] == "string_map") {
     return function() {
       {
@@ -64,9 +62,7 @@ module.exports = {
       }
     }
   }
-  string_map()(function() {
-    return "key"
-  })
+  string_map("key")
   if (arguments[0] == "map") {
     return function() {
       {
@@ -78,11 +74,9 @@ module.exports = {
       }
     }
   }
-  map().key()
-  int_map()(function() {
-    return 123
-  })
-  one().too()
+  map(key())
+  int_map(123)
+  one(too())
   if (arguments[0] == "y") {
     return function() {
       {
@@ -104,10 +98,8 @@ module.exports = {
       }
     }
   }
-  y().z()
-  y().w()(function() {
-    return "something"
-  })
+  y(z())
+  y(w("something"))
   if (arguments[0] == "p") {
     return function() {
       9
