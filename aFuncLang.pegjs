@@ -11,7 +11,7 @@ line
   = SAMEDENT line:(!EOL c:expression { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
       { 
-        line[0].children = children ? children : null;
+        line[0].children = children ? children : [];
         return line[0];
       }
 

@@ -46,7 +46,10 @@ exports.compileToJS = (ast) ->
         else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
 
   compileDefinition = (def) ->
-    children = (compileExpression child for child in def.children)
+    if def.children.length is 1 and def.children[0].tag isnt 'definition'
+      children = compileExpression def.children[0]
+    else
+      children = "{ #{(compileExpression child for child in def.children)} }"
     if def.param && def.param.tag == 'match'
       "#{def.name}: function() {\nreturn {\n#{def.param.value.value}: #{children}}\n}"
     if def.param && def.param.tag == 'symbol'
