@@ -1,7 +1,45 @@
+/* Initializations */
+// a stack to represent the current indent level
+{
+  function start(first, tail) {
+    var done = [first[1]];
+    for (var i = 0; i < tail.length; i++) {
+      done = done.concat(tail[i][1][0])
+      done.push(tail[i][1][1]);
+    }
+    return done;
+  }
 
-start = line*
+  var depths = [0];
 
-line = value:expression EOL { return value }
+  function indent(s) {
+    var depth = s.length;
+
+    if (depth == depths[0]) return [];
+
+    if (depth > depths[0]) {
+      depths.unshift(depth);
+      return ["INDENT"];
+    }
+
+    var dents = [];
+    while (depth < depths[0]) {
+      depths.shift();
+      dents.push("DEDENT");
+    }
+
+    if (depth != depths[0]) dents.push("BADDENT");
+
+    return dents;
+  }
+}
+
+/* The real grammar */
+start   = first:line tail:(EOL line)* EOL? { return start(first, tail) }
+line    = depth:indent s:text                      { return [depth, s] }
+indent  = s:" "*                                   { return indent(s) }
+
+text = value:expression { return value }
 
 expression = value:atom { return value }
   / value:scope { return value }
@@ -36,4 +74,4 @@ _  = [ ]* { return }
 // mandatory whitespace
 __ = [ ]+ { return }
 
-EOL = "\r\n" / "\n" / "\r" { return }
+EOL = "\r\n" / "\n" / "\r" { }

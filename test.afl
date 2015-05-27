@@ -14,3 +14,8 @@ x
 int_map 123
 string_map "key"
 one too
+y: 5
+  z: 6
+  v: 7
+    w: 8
+p: 9
