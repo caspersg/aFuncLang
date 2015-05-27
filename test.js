@@ -38,22 +38,17 @@ var y = function() {
     return 6
   }
   if (arguments[0] == "v") {
-    return 7
+    return function() {
+      var x = arguments[0];
+      return x
+    }
   }
-  if (arguments[0] == "w") {
-    return //TODO {
-    "tag": "lambda",
-    "param": {
-      "tag": "match",
-      "value": {
-        "tag": "string",
-        "value": "\"arg\""
-      }
-    },
-    "children": [{
-      "tag": "integer",
-      "value": 8
-    }]
+}
+if (arguments[0] == "w") {
+  return function() {
+    if (arguments[0] == "arg") {
+      return 8
+    }
   }
 }
 }
