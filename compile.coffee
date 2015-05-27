@@ -36,7 +36,7 @@ exports.compileToJS = (ast) ->
         if expr?.tag
           switch expr.tag
             when 'integer' then expr.value
-            when 'string' then "\"#{expr.value}\""
+            when 'string' then expr.value
             when 'match' then compileExpression expr.value
             when 'symbol' then expr.value
             when 'application' then compileApplication expr
