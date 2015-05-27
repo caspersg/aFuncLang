@@ -35,6 +35,7 @@ exports.compileToJS = (ast) ->
       else
         if expr?.tag
           switch expr.tag
+            when 'module' then "module.exports = function() { #{compileExpression child for child in expr.children} }"
             when 'integer' then expr.value
             when 'string' then "\"#{expr.value}\""
             when 'match' then compileExpression expr.value
@@ -59,7 +60,7 @@ exports.compileToJS = (ast) ->
     else
       children = "{ #{(compileExpression child for child in def.children)} }"
     if def.param && def.param.tag == 'match'
-      "#{def.name}: function() {\nreturn {\n#{def.param.value.value}: #{children}}\n}"
+      "#{def.name}: function() { return { #{def.param.value.value}: #{children}} }"
       "if(arguments[0] == \"#{def.name}\") { return function(#{def.param.value}) { #{children} } }"
     if def.param && def.param.tag == 'symbol'
       "if(arguments[0] == \"#{def.name}\") { return function(#{def.param.value}) { #{children} } }"
@@ -68,7 +69,7 @@ exports.compileToJS = (ast) ->
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"
-  "module.exports = {\n#{expressions}\n}"
+  expressions
 
 grammerFile = process.argv[2]
 console.log "grammerFile=#{grammerFile}"

@@ -36,9 +36,14 @@ DEDENT
   = { indent = indentStack.pop(); }
 
 expression
-  = value:atom { return value }
+  = value:module { return value }
+  / value:atom { return value }
   / value:definition { return value }
   / value:application { return value }
+
+module
+  = "module:"
+    { return { tag:"module", children:[]}}
 
 application
   = name:symbol _ sub:application

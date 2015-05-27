@@ -1,17 +1,14 @@
-module.exports = {
-  "string"
-  123
+module.exports = function() {
   if (arguments[0] == "x") {
     return function() {
       1
     }
-  }
-  x()
+  },
   if (arguments[0] == "xyz") {
     return function() {
       2
     }
-  }
+  },
   if (arguments[0] == "one") {
     return function() {
       {
@@ -22,7 +19,7 @@ module.exports = {
         }
       }
     }
-  }
+  },
   if (arguments[0] == "three") {
     return function() {
       {
@@ -39,18 +36,17 @@ module.exports = {
         }
       }
     }
-  }
+  },
   if (arguments[0] == "string") {
     return function() {
       "this is a string!"
     }
-  }
+  },
   if (arguments[0] == "id") {
     return function(param) {
       param()
     }
-  }
-  id("value")
+  },
   if (arguments[0] == "string_map") {
     return function() {
       {
@@ -61,8 +57,7 @@ module.exports = {
         }
       }
     }
-  }
-  string_map("key")
+  },
   if (arguments[0] == "map") {
     return function() {
       {
@@ -73,10 +68,7 @@ module.exports = {
         }
       }
     }
-  }
-  map(key())
-  int_map(123)
-  one(too())
+  },
   if (arguments[0] == "y") {
     return function() {
       {
@@ -97,13 +89,21 @@ module.exports = {
         }
       }
     }
-  }
-  y(z())
-  y(w("something"))
+  },
   if (arguments[0] == "p") {
     return function() {
       9
     }
   }
-  p()
 }
+"string"
+123
+x()
+id("value")
+string_map("key")
+map(key())
+int_map(123)
+one(too())
+y(z())
+y(w("something"))
+p()
