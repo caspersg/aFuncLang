@@ -51,9 +51,12 @@ exports.compileToJS = (ast) ->
 
   compileApplication = (app) ->
     if app.sub
-     "#{app.name}(#{compileExpression app.sub})"
-    else if app.param
-     "#{app.name}(#{compileExpression app.param})"
+      if app.sub.children
+        "#{app.name}(#{compileExpression app.sub})(#{compileExpression app.sub.children})"
+      else
+        "#{app.name}(#{compileExpression app.sub})"
+    else if app.atom
+     "#{app.name}(#{compileExpression app.atom})"
     else
      "#{app.name}"
 

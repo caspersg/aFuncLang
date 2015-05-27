@@ -86,3 +86,11 @@ var fib = function() {
   var n = arguments[0];
   return fib(1)
 }
+var cons = function() {
+  var head = arguments[0];
+  return function() {
+    var tail = arguments[0];
+    return head
+  }
+}
+cons("h")
