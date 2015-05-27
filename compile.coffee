@@ -33,12 +33,20 @@ exports.compileToJS = (ast) ->
     switch expr
       when 'INDENT' then "{"
       when 'DEDENT' then "}"
+      when null then "null"
       else
         switch expr.tag
           when 'integer' then expr.value
           when 'string' then "\"#{expr.value}\""
-          when 'application' then "#{expr.name}(#{expr.param})"
+          when 'match' then compileExpression expr.value
+          when 'symbol' then expr.value
+          when 'application' then "#{expr.name}(#{compileExpression expr.param})"
+          when 'definition' then "var #{expr.name} = function() {\n#{compileDefinition expr.param, expr.value}\n}"
           else "TODO"
+
+  compileDefinition = (param, value) ->
+    compileExpression value
+
 
   compiled = (compileExpression expression for expression in ast)
   compiled.join "\n"
