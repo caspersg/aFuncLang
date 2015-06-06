@@ -64,7 +64,7 @@ application
 
 tail
   = __ next:part tail:tail?
-    { return {tag:"application", func:next, children:[tail] } }
+    { return {tag:"application", next:next, children:[tail] } }
 
 whitespace_expression
   = value:expression __

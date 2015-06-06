@@ -54,7 +54,10 @@ exports.compileToJS = (ast) ->
       rest = ("#{compileExpression e}" for e in app.children).join " "
     else
       rest = ""
-    "(#{compileExpression app.func})#{rest}"
+    if app.func
+      "#{compileExpression app.func}#{rest}"
+    else
+      "(#{compileExpression app.next})#{rest}"
 
   compileAssignment = (assignment) ->
     "var #{assignment.name} = #{compileLambdaGroup assignment.children}"
