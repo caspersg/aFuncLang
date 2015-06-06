@@ -41,7 +41,6 @@ expression
   / value:assignment { return value }
   / value:application { return value }
   / value:reference { return value }
-  / value:arithmetic { return value }
   / value:atom { return value }
   / value:scope { return value }
 
@@ -76,10 +75,6 @@ param
 symbol
   = name:[a-zA-Z_]+
     { return name.join("") }
-
-arithmetic
-  = op:[+-]
-    { return { tag:"arithmetic", op:op } }
 
 scope
   = "(" value:expression ")"

@@ -66,9 +66,9 @@ var p = function() {
   return 9
 }
 p
-1 + 2
-2 - 1
-5 - 2 - 1
+  (add)(2)
+  (subtract)(1)
+  (subtract)(2)(1)
 var rec = function() {
   if (arguments[0] == 1) {
     return 1
@@ -84,7 +84,7 @@ var fib = function() {
       return 1
     }
     var n = arguments[0];
-    return (fib)(1)
+    return (add)(((fib)((((subtract)((n)(1))))(((fib)(((subtract)((n)(2)))))))))
   }
   (y)("z")("x")("w")
   (y)

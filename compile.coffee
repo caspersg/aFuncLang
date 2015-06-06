@@ -46,12 +46,8 @@ exports.compileToJS = (ast) ->
             when 'scope' then "(#{compileExpression expr.value})"
             when 'assignment' then compileAssignment expr
             when 'lambda' then compileLambdaGroup [expr]
-            when 'arithmetic' then compileArithmetic expr
             else "//TODO #{toString expr}"
         else "//ERROR tag=#{expr?.tag} expr=#{toString expr}"
-
-  compileArithmetic = (arithmetic) ->
-    (operand.value for operand in arithmetic.children).join arithmetic.op
 
   compileApplication = (app) ->
     rest = ("(#{compileExpression e})" for e in app.children).join " "
