@@ -7,29 +7,29 @@ x
 xyz= :2
 id=
   param:param
-id "value"
+id."value"
 one=
   "too":33
 too=
   :"too"
-one id too
+one.id.too
 int_map=
   1:2
   3:4
   x:10
-int_map 123
+int_map.123
 string=
   :"this is a string!"
 string_map=
   "key":4
-string_map "key"
-map "key"
+string_map."key"
+map."key"
 y=  
   "z":6
   "v": x:x
   "w": "arg":8
-y "z"
-y "w"
+y."z"
+y."w"
 p=
   :9
 p
@@ -38,12 +38,11 @@ p
 - 5 2 1
 rec=
   1: 1
-  x: rec 1
+  x: rec.x
 fib=
   0:0
   1:1
-  n: fib 1
-(y "z")
-y "z"
-  "x"
-y "z" "x"
+  n: fib.1
+(y."z")
+y."z"."x"."w"
+((y."z")."x")."w")

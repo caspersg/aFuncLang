@@ -2,6 +2,8 @@ PEG = require 'pegjs'
 fs = require 'fs'
 beautify = require('js-beautify').js_beautify
 
+toString = (x) -> JSON.stringify x, null, ' '
+
 exports.getFile = (filename, callback) ->
   fs.readFile filename, 'utf8', (err,data) ->
     if err
@@ -24,7 +26,7 @@ exports.parse = (grammerFile, output) ->
     exports.readStdIn (source) ->
       console.log "soure='#{source}'"
       try
-        output parser.parse source
+        output parser.parse source.trim()
       catch e
         console.error e
 
@@ -45,18 +47,15 @@ exports.compileToJS = (ast) ->
             when 'assignment' then compileAssignment expr
             when 'lambda' then compileLambdaGroup [expr]
             when 'arithmetic' then compileArithmetic expr
-            else "//TODO #{JSON.stringify expr, null, ' '}"
-        else "//ERROR tag=#{expr?.tag} expr=#{JSON.stringify expr, null, ' '}"
+            else "//TODO #{toString expr}"
+        else "//ERROR tag=#{expr?.tag} expr=#{toString expr}"
 
   compileArithmetic = (arithmetic) ->
     (operand.value for operand in arithmetic.children).join arithmetic.op
 
   compileApplication = (app) ->
-   if app.children.length > 0
-     children = (compileExpression child for child in app.children).join ", "
-     "#{app.name}(#{children})"
-   else
-     "#{app.name}"
+    rest = ("(#{compileExpression e})" for e in app.children).join " "
+    "(#{compileExpression app.func})#{rest}"
 
   compileAssignment = (assignment) ->
     "var #{assignment.name} = #{compileLambdaGroup assignment.children}"
@@ -83,7 +82,7 @@ console.log "grammerFile=#{grammerFile}"
 compiledJsFile = process.argv[3]
 
 exports.parse grammerFile, (ast) ->
-  console.log "ast=#{JSON.stringify ast, null, ' '}"
+  console.log "ast=#{toString ast}"
   if compiledJsFile
     jscode = beautify(exports.compileToJS(ast), { indent_size: 2 })
     console.log "javascript=#{jscode}"

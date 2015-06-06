@@ -10,7 +10,7 @@ start
 line
   = SAMEDENT line:(!EOL c:expression { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
-      { 
+      {
         var filtered = [].concat(line[0].children, children).filter(function(n){ return n != undefined });
         line[0].children = filtered;
         return line[0];
@@ -50,8 +50,14 @@ reference
     { return { tag:"reference", name:name} }
 
 application
-  = name:symbol __ params:expression*
-    { return { tag:"application", name:name, children:params } }
+  = name:reference _ list:(whitespace_expression)+
+    { return { tag:"application", func:name, children:list} }
+  / scope:scope _ list:(whitespace_expression)+
+    { return { tag:"application", func:scope, children:list} }
+
+whitespace_expression
+  = _ "." _ value:expression _
+    { return value }
 
 assignment
   = name:symbol _ "=" _ expression:expression?
@@ -68,7 +74,7 @@ param
     { return { tag:"match", value:value } }
 
 symbol
-  = name:[a-zA-Z_.]+
+  = name:[a-zA-Z_]+
     { return name.join("") }
 
 arithmetic
