@@ -4,68 +4,68 @@ var add = function(x) {
   }
 }
 var subtract = function(x) {
-  return function(y) {
-    return x - y
+    return function(y) {
+      return x - y
+    }
   }
-}
-"string"
-123
+  ("string")
+  (123)
 var x = function() {
-  return 1
-}
-x
+    return (1)
+  }
+  (x)
 var xyz = function() {
-  return 2
+  return (2)
 }
 var id = function() {
     var param = arguments[0];
-    return param
+    return (param)
   }
   (id)("value")
 var one = function() {
   if (arguments[0] == "too") {
-    return 33
+    return (33)
   }
 }
 var too = function() {
-    return "too"
+    return ("too")
   }
-  (one)((id)(too))
+  (one)(id)(too)
 var int_map = function() {
     if (arguments[0] == 1) {
-      return 2
+      return (2)
     }
     if (arguments[0] == 3) {
-      return 4
+      return (4)
     }
     var x = arguments[0];
-    return 10
+    return (10)
   }
   (int_map)(123)
 var string = function() {
-  return "this is a string!"
+  return ("this is a string!")
 }
 var string_map = function() {
     if (arguments[0] == "key") {
-      return 4
+      return (4)
     }
   }
   (string_map)("key")
   (map)("key")
 var y = function() {
     if (arguments[0] == "z") {
-      return 6
+      return (6)
     }
     if (arguments[0] == "v") {
       return function() {
         var x = arguments[0];
-        return x
+        return (x)
       }
     }
     if (arguments[0] == "w") {
       return function() {
         if (arguments[0] == "arg") {
-          return 8
+          return (8)
         }
       }
     }
@@ -73,38 +73,38 @@ var y = function() {
   (y)("z")
   (y)("w")
 var p = function() {
-  return 9
-}
-p
+    return (9)
+  }
+  (p)
   (add)(2)
   (subtract)(1)
   (subtract)(2)(1)
 var rec = function() {
   if (arguments[0] == 1) {
-    return 1
+    return (1)
   }
   var x = arguments[0];
   return (rec)(x)
 }
 var fib = function() {
     if (arguments[0] == 0) {
-      return 0
+      return (0)
     }
     if (arguments[0] == 1) {
-      return 1
+      return (1)
     }
     var n = arguments[0];
-    return (add)(((fib)((((((subtract)(n)))(1)))(((fib)(((((subtract)(n)))(2))))))))
+    return (add)(((fib)(((((subtract)(n)))(1)))(((fib)(((((subtract)(n)))(2)))))))
   }
   (subtract)(2)(1)
   (((subtract)(n)))(1)
   (y)("z")("x")("w")
-y
+  (y)(z)(x)(w)
   (y)
-  ("x")
-  ((y)("z"))
+  (((y)))
+  ((("x")))
+  (((y)("z")))
   (((y)("z")))("x")
-  ((((y)("z")))("x"))
-  ((((((y)("z")))("x")))("w"))
-  (y)((z)((x)(w)))
+  (((((y)("z")))("x")))
+  (((((((y)("z")))("x")))("w")))
   (((((y)(z)))(x)))(w)

@@ -46,6 +46,7 @@ fib=
 subtract 2 1
 (subtract n) 1
 y "z" "x" "w"
+y z x w
 y
 (y)
 ("x")
@@ -53,5 +54,4 @@ y
 (y "z") "x"
 ((y "z") "x")
 (((y "z") "x") "w")
-y z x w
 ((y z) x) w

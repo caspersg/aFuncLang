@@ -1,7 +1,10 @@
 // whitespace indent from http://stackoverflow.com/questions/11659095/parse-indentation-level-with-peg-js
 // do not use result cache, nor line and column tracking
 
-{ var indentStack = [], indent = ""; var log = function(object) { console.log(JSON.stringify(object,null," ")) } }
+{ var indentStack = [], indent = "";
+
+  var log = function(object) { console.log(JSON.stringify(object,null," ")) }
+}
 
 start
   = INDENT? l:line*
@@ -11,7 +14,7 @@ line
   = SAMEDENT line:(!EOL c:expression { return c; })+ EOL?
     children:( INDENT c:line* DEDENT { return c; })?
       {
-        var filtered = [].concat(line[0].children, children).filter(function(n){ return n != undefined });
+        var filtered = [].concat(line[0].children, children).filter(function(n){ return n != undefined && n != null });
         line[0].children = filtered;
         return line[0];
       }
@@ -44,18 +47,27 @@ expression
   / value:atom { return value }
   / value:scope { return value }
 
+part
+  = value:lambda { return value }
+  / value:assignment { return value }
+  / value:reference { return value }
+  / value:atom { return value }
+  / value:scope { return value }
+
 reference
   = name:symbol
     { return { tag:"reference", name:name} }
 
 application
-  = name:reference list:(whitespace_expression)+
-    { return { tag:"application", func:name, children:list} }
-  / scope:scope list:(whitespace_expression)+
-    { return { tag:"application", func:scope, children:list} }
+  = head:part tail:tail?
+    { return {tag:"application", func:head, children:[tail] } }
+
+tail
+  = __ next:part tail:tail?
+    { return {tag:"application", func:next, children:[tail] } }
 
 whitespace_expression
-  = __ value:expression
+  = value:expression __
     { return value }
 
 assignment

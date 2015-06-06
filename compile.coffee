@@ -50,7 +50,10 @@ exports.compileToJS = (ast) ->
         else "//ERROR tag=#{expr?.tag} expr=#{toString expr}"
 
   compileApplication = (app) ->
-    rest = ("(#{compileExpression e})" for e in app.children).join " "
+    if app.children
+      rest = ("#{compileExpression e}" for e in app.children).join " "
+    else
+      rest = ""
     "(#{compileExpression app.func})#{rest}"
 
   compileAssignment = (assignment) ->
