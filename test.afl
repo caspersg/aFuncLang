@@ -42,11 +42,16 @@ rec=
 fib=
   0:0
   1:1
-  n: add (fib (subtract n 1) (fib (subtract n 2)))
+  n: add (fib ((subtract n) 1) (fib ((subtract n) 2)))
+subtract 2 1
+(subtract n) 1
 y "z" "x" "w"
+y
 (y)
 ("x")
 (y "z")
 (y "z") "x"
 ((y "z") "x")
 (((y "z") "x") "w")
+y z x w
+((y z) x) w

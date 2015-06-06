@@ -94,12 +94,17 @@ var fib = function() {
       return 1
     }
     var n = arguments[0];
-    return (add)(((fib)((((subtract)((n)(1))))(((fib)(((subtract)((n)(2)))))))))
+    return (add)(((fib)((((((subtract)(n)))(1)))(((fib)(((((subtract)(n)))(2))))))))
   }
+  (subtract)(2)(1)
+  (((subtract)(n)))(1)
   (y)("z")("x")("w")
+y
   (y)
   ("x")
   ((y)("z"))
   (((y)("z")))("x")
   ((((y)("z")))("x"))
   ((((((y)("z")))("x")))("w"))
+  (y)((z)((x)(w)))
+  (((((y)(z)))(x)))(w)
