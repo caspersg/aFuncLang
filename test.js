@@ -30,7 +30,7 @@ var one = function() {
 var too = function() {
   return "too"
 }
-one(id)(too)
+one((too(null)))
 var int_map = function() {
   if (arguments[0] == 1) {
     return 2
@@ -51,7 +51,6 @@ var string_map = function() {
   }
 }
 string_map("key")
-map("key")
 var y = function() {
   if (arguments[0] == "z") {
     return 6
@@ -79,12 +78,13 @@ p
 add(2)
 subtract(1)
 subtract(2)(1)
+
 var rec = function() {
   if (arguments[0] == 1) {
     return 1
   }
   var x = arguments[0];
-  return rec(x)
+  return rec((subtract(x)(1)))
 }
 var fib = function() {
   if (arguments[0] == 0) {
@@ -97,7 +97,30 @@ var fib = function() {
   return add((fib((subtract(n)(1)))))((fib((subtract(n)(2)))))
 }
 subtract(2)(1)
-  (subtract(n))(1)
+var w = function() {
+  return 4
+}
+var x = function() {
+  var w = arguments[0];
+  return 3
+}
+var z = function() {
+  var x = arguments[0];
+  return function() {
+    var w = arguments[0];
+    return 2
+  }
+}
+var y = function() {
+  var z = arguments[0];
+  return function() {
+    var x = arguments[0];
+    return function() {
+      var w = arguments[0];
+      return 1
+    }
+  }
+}
 y("z")("x")("w")
 y(z)(x)(w)
 y
