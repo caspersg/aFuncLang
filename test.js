@@ -86,5 +86,10 @@ var fib = function() {
     var n = arguments[0];
     return (fib)(1)
   }
-  ((y)("z"))
   (y)("z")("x")("w")
+  (y)
+  ("x")
+  ((y)("z"))
+  (((y)("z")))("x")
+  ((((y)("z")))("x"))
+  ((((((y)("z")))("x")))("w"))

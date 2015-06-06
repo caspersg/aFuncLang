@@ -37,26 +37,26 @@ DEDENT
   = { indent = indentStack.pop(); }
 
 expression
-  = value:scope { return value }
-  / value:lambda { return value }
+  = value:lambda { return value }
   / value:assignment { return value }
   / value:application { return value }
   / value:reference { return value }
   / value:arithmetic { return value }
   / value:atom { return value }
+  / value:scope { return value }
 
 reference
   = name:symbol
     { return { tag:"reference", name:name} }
 
 application
-  = name:reference _ list:(whitespace_expression)+
+  = name:reference list:(whitespace_expression)+
     { return { tag:"application", func:name, children:list} }
-  / scope:scope _ list:(whitespace_expression)+
+  / scope:scope list:(whitespace_expression)+
     { return { tag:"application", func:scope, children:list} }
 
 whitespace_expression
-  = _ "." _ value:expression _
+  = __ value:expression
     { return value }
 
 assignment
@@ -65,7 +65,7 @@ assignment
 
 lambda
   = param:param? ":" _ expression:expression?
-    { return { tag:"lambda", param: param, children:[expression]} }
+    { return { tag:"lambda", param:param, children:[expression]} }
 
 param
   = value:symbol
@@ -82,7 +82,7 @@ arithmetic
     { return { tag:"arithmetic", op:op } }
 
 scope
-  = "(" _ value:expression _ ")"
+  = "(" value:expression ")"
     { return { tag:"scope", value:value } }
 
 atom
