@@ -94,7 +94,7 @@ var fib = function() {
       return (1)
     }
     var n = arguments[0];
-    return (add)(((fib)(((((subtract)(n)))(1)))(((fib)(((((subtract)(n)))(2)))))))
+    return (add)(((fib)(((subtract)(n)(1)))))(((fib)(((subtract)(n)(2)))))
   }
   (subtract)(2)(1)
   (((subtract)(n)))(1)
