@@ -40,6 +40,7 @@ exports.compileToJS = (ast) ->
             when 'match' then compileExpression expr.value
             when 'symbol' then expr.value
             when 'application' then compileApplication expr
+            when 'scope' then "(#{compileExpression expr.value})"
             when 'assignment' then compileAssignment expr
             when 'lambda' then compileLambdaGroup [expr]
             when 'arithmetic' then compileArithmetic expr

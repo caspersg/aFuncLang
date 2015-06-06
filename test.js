@@ -77,12 +77,13 @@ var rec = function() {
   return rec(1)
 }
 var fib = function() {
-  if (arguments[0] == 0) {
-    return 0
+    if (arguments[0] == 0) {
+      return 0
+    }
+    if (arguments[0] == 1) {
+      return 1
+    }
+    var n = arguments[0];
+    return fib(1)
   }
-  if (arguments[0] == 1) {
-    return 1
-  }
-  var n = arguments[0];
-  return fib(1)
-}
+  (y("z"))

@@ -37,7 +37,8 @@ DEDENT
   = { indent = indentStack.pop(); }
 
 expression
-  = value:lambda { return value }
+  = value:scope { return value }
+  / value:lambda { return value }
   / value:assignment { return value }
   / value:application { return value }
   / value:arithmetic { return value }
@@ -70,6 +71,10 @@ symbol
 arithmetic
   = op:[+-]
     { return { tag:"arithmetic", op:op } }
+
+scope
+  = "(" _ value:expression _ ")"
+    { return { tag:"scope", value:value } }
 
 atom
   = value:integer

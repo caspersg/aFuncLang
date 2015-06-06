@@ -43,10 +43,4 @@ fib=
   0:0
   1:1
   n: fib 1
-cons=
-  head tail:
-    x: x head tail
-car=
-  z (p q: p)
-cdr=
-  z (p q: q)
+(y "z")
