@@ -41,11 +41,16 @@ expression
   / value:lambda { return value }
   / value:assignment { return value }
   / value:application { return value }
+  / value:reference { return value }
   / value:arithmetic { return value }
   / value:atom { return value }
 
+reference
+  = name:symbol
+    { return { tag:"reference", name:name} }
+
 application
-  = name:symbol _ params:expression*
+  = name:symbol __ params:expression*
     { return { tag:"application", name:name, children:params } }
 
 assignment
