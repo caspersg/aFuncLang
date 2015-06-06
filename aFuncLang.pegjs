@@ -18,11 +18,8 @@ line
         line[0].children = filtered;
         return line[0];
       }
-
-EOL
-  = "\r\n"
-  / "\n"
-  / "\r"
+  / value:comment EOL { return value }
+  / value:emptyLine EOL { return value }
 
 SAMEDENT
   = i:[ \t]* 
@@ -66,10 +63,6 @@ tail
   = __ next:part tail:tail?
     { return {tag:"application", next:next, children:[tail] } }
 
-whitespace_expression
-  = value:expression __
-    { return value }
-
 assignment
   = name:symbol _ "=" _ expression:expression?
     { return { tag:"assignment", name:name, children:[expression]} }
@@ -109,8 +102,21 @@ integer
   = digits:[0-9]+
     { return parseInt(digits.join(""), 10) }
 
+comment
+  = "#" comment:(characters)*
+    { return { tag:"comment", value:comment.join("") } }
+
+emptyLine
+  = value:__*
+    { return { tag:"emptyLine"} }
+
 quotation_mark
   = '"'
+
+EOL
+  = "\r\n"
+  / "\n"
+  / "\r"
 
 // optional space
 _ 

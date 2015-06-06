@@ -46,6 +46,8 @@ exports.compileToJS = (ast) ->
             when 'scope' then "(#{compileExpression expr.value})"
             when 'assignment' then compileAssignment expr
             when 'lambda' then compileLambdaGroup [expr]
+            when 'comment' then "//#{expr.value}"
+            when 'emptyLine' then ""
             else "//TODO #{toString expr}"
         else "//ERROR tag=#{expr?.tag} expr=#{toString expr}"
 

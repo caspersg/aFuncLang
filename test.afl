@@ -55,6 +55,9 @@ y
 ((y "z") "x")
 (((y "z") "x") "w")
 ((y z) x) w
+
+# a comment
+
 multi=
   0:
     1: "a"

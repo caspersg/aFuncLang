@@ -108,6 +108,9 @@ y
   ((y("z"))("x"))
   (((y("z"))("x"))("w"))
   ((y(z))(x))(w)
+
+// a comment
+
 var multi = function() {
   if (arguments[0] == 0) {
     return function() {
