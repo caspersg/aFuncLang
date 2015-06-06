@@ -63,10 +63,14 @@ exports.compileToJS = (ast) ->
     "var #{assignment.name} = #{compileLambdaGroup assignment.children}"
 
   compileLambdaGroup = (lambdaList) ->
-    "function(){ #{(compileLambda lambda for lambda in lambdaList).join " "} }"
+    values = (compileLambda lambda for lambda in lambdaList).join " "
+    "function(){ #{values} }"
 
   compileLambda = (lambda) ->
-    children = (compileExpression child for child in lambda.children).join " "
+    if lambda.children && lambda.children[0].tag isnt "lambda"
+      children = (compileExpression child for child in lambda.children).join " "
+    else
+      children = compileLambdaGroup lambda.children
     if lambda.param?.tag == 'match'
       "if(arguments[0] == #{lambda.param.value.value}) { return #{children} }"
     else if lambda.param?.tag == 'symbol'
