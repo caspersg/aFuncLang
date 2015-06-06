@@ -51,11 +51,10 @@ exports.compileToJS = (ast) ->
     (operand.value for operand in arithmetic.children).join arithmetic.op
 
   compileApplication = (app) ->
-    if app.sub
-     "#{app.name}(#{compileExpression app.sub})"
-    else if app.param
-     "#{app.name}(#{compileExpression app.param})"
-    else
+   if app.children.length > 0
+     children = (compileExpression child for child in app.children).join ", "
+     "#{app.name}(#{children})"
+   else
      "#{app.name}"
 
   compileAssignment = (assignment) ->

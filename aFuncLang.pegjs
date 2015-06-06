@@ -45,10 +45,8 @@ expression
   / value:atom { return value }
 
 application
-  = name:symbol _ sub:application
-    { return { tag:"application", name:name, sub:sub } }
-  / name:symbol _ param:param?
-    { return { tag:"application", name:name, param:param } }
+  = name:symbol _ params:expression*
+    { return { tag:"application", name:name, children:params } }
 
 assignment
   = name:symbol _ "=" _ expression:expression?

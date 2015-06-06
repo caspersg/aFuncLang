@@ -87,3 +87,5 @@ var fib = function() {
     return fib(1)
   }
   (y("z"))
+y("z", "x")
+y("z", "x")
