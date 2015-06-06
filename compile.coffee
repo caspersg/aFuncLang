@@ -80,7 +80,9 @@ compiledJsFile = process.argv[3]
 exports.parse grammerFile, (ast) ->
   console.log "ast=#{toString ast}"
   if compiledJsFile
-    jscode = beautify(exports.compileToJS(ast), { indent_size: 2 })
-    console.log "javascript=#{jscode}"
-    fs.writeFileSync compiledJsFile, jscode
+    exports.getFile 'prelude.js', (prelude) ->
+      compiled = prelude + exports.compileToJS(ast)
+      jscode = beautify(compiled, { indent_size: 2 })
+      console.log "javascript=#{jscode}"
+      fs.writeFileSync compiledJsFile, jscode
 
