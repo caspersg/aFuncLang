@@ -72,13 +72,13 @@ lambda
     { return { tag:"lambda", param:param, children:[expression]} }
 
 param
-  = value:symbol
-    { return { tag:"symbol", value:value } }
-  / value:atom
+  = value:atom
     { return { tag:"match", value:value } }
+  / value:symbol
+    { return { tag:"symbol", value:value } }
 
 symbol
-  = name:[a-zA-Z_]+
+  = name:[a-zA-Z]+
     { return name.join("") }
 
 scope
@@ -90,6 +90,8 @@ atom
     { return { tag:"integer", value: value } }
   / value:string
     { return { tag:"string", value: value } }
+  / [_]
+    { return { tag:"nothing"}}
 
 string
   = quotation_mark chars:characters* quotation_mark

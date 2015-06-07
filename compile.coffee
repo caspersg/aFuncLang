@@ -42,6 +42,7 @@ exports.compileToJS = (ast) ->
           switch expr.tag
             when 'integer' then expr.value
             when 'string' then expr.value
+            when 'nothing' then "null"
             when 'match' then compileExpression expr.value
             when 'symbol' then expr.value
             when 'application' then compileApplication expr
@@ -74,14 +75,16 @@ exports.compileToJS = (ast) ->
   compileLambda = (lambda) ->
     if lambda.children && lambda.children[0].tag isnt "lambda"
       children = (compileExpression child for child in lambda.children).join " "
-    else
+    else if lambda.children
       children = compileLambdaGroup lambda.children
     if lambda.param?.tag == 'match'
       "if(arguments[0] == #{lambda.param.value.value}) { return #{children} }"
     else if lambda.param?.tag == 'symbol'
       "var #{lambda.param.value} = arguments[0]; return #{children}"
-    else
+    else if lambda.children
       "return #{children}"
+    else
+      ""
 
   compiled = (compileExpression expression for expression in ast)
   expressions = compiled.join "\n"

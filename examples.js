@@ -69,7 +69,7 @@ var too = function() {
   return "too"
 }
 one((too(null)))
-var int_map = function() {
+var intMap = function() {
   if (arguments[0] == 1) {
     return 2
   }
@@ -79,16 +79,16 @@ var int_map = function() {
   var x = arguments[0];
   return 10
 }
-int_map(123)
+intMap(123)
 var string = function() {
   return "this is a string!"
 }
-var string_map = function() {
+var stringMap = function() {
   if (arguments[0] == "key") {
     return 4
   }
 }
-string_map("key")
+stringMap("key")
 var y = function() {
   if (arguments[0] == "z") {
     return 6
@@ -174,6 +174,9 @@ y
 cons(1)(2)
 cons(1)((cons(2)(3)))
 head((cons(1)(2)))
+
+// null/nothing
+null
 
 // multiple argument with pattern matching
 var multi = function() {

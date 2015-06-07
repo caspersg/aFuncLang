@@ -13,16 +13,16 @@ one=
 too=
   :"too"
 one (too null)
-int_map=
+intMap=
   1:2
   3:4
   x:10
-int_map 123
+intMap 123
 string=
   :"this is a string!"
-string_map=
+stringMap=
   "key":4
-string_map "key"
+stringMap "key"
 y=  
   "z":6
   "v": x:x
@@ -63,6 +63,9 @@ y
 cons 1 2
 cons 1 (cons 2 3)
 head (cons 1 2)
+
+# null/nothing
+_
 
 # multiple argument with pattern matching
 multi=
