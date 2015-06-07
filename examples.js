@@ -16,7 +16,7 @@ var subtract = function(x) {
   //(define (cdr z)
   //  (z (lambda (p q) q)))
 
-var list = function() {
+var cons = function() {
   var x = arguments[0];
   return function() {
     var y = arguments[0];
@@ -171,9 +171,9 @@ y
   ((y(z))(x))(w)
 
 // a comment
-list(1)(2)
-
-head((list(1)(2)))
+cons(1)(2)
+cons(1)((cons(2)(3)))
+head((cons(1)(2)))
 
 // multiple argument with pattern matching
 var multi = function() {

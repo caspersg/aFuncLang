@@ -60,14 +60,14 @@ y
 ((y z) x) w
 
 # a comment
-list 1 2
-
-head (list 1 2)
+cons 1 2
+cons 1 (cons 2 3)
+head (cons 1 2)
 
 # multiple argument with pattern matching
 multi=
   0:
     1: "a"
     n: "b"
-  x: y: "c"
-
+  x: 
+    y: "c"
