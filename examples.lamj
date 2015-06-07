@@ -60,7 +60,11 @@ y
 ((y z) x) w
 
 # a comment
+list 1 2
 
+head (list 1 2)
+
+# multiple argument with pattern matching
 multi=
   0:
     1: "a"

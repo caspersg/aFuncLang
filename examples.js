@@ -171,7 +171,11 @@ y
   ((y(z))(x))(w)
 
 // a comment
+list(1)(2)
 
+head((list(1)(2)))
+
+// multiple argument with pattern matching
 var multi = function() {
   if (arguments[0] == 0) {
     return function() {

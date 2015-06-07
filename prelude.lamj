@@ -6,9 +6,9 @@
 #(define (cdr z)
 #  (z (lambda (p q) q)))
 
-#list =
-#  x: y: m: m x y
-#head =
-#  z: z (p: q: p)
-#tail =
-#  z: z (p: q: q)
+list =
+  x: y: m: m x y
+head =
+  z: z (p: q: p)
+tail =
+  z: z (p: q: q)
