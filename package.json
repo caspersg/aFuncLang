@@ -1,7 +1,7 @@
 {
-  "name": "aFunctionLanguage",
+  "name": "lamj",
   "version": "1.0.0",
-  "description": "a function language",
+  "description": "a functional language that compiles to javascript",
   "main": "index.js",
   "dependencies": {
     "js-beautify": "^1.5.5",
@@ -12,8 +12,8 @@
     "pegjs": "^0.8.0"
   },
   "scripts": {
-    "start": "coffee compile.coffee aFuncLang.pegjs",
-    "test": "cat test.afl | coffee compile.coffee aFuncLang.pegjs test.js"
+    "start": "coffee compile.coffee lamj.pegjs",
+    "test": "cat examples.lamj | compile.coffee lamj.pegjs examples.js"
   },
   "author": "casper.szy",
   "license": "ISC"
