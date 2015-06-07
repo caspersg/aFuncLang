@@ -1,0 +1,216 @@
+[
+ {
+  "tag": "comment",
+  "value": "lisp list definition"
+ },
+ {
+  "tag": "comment",
+  "value": "(define (cons x y)"
+ },
+ {
+  "tag": "comment",
+  "value": "  (lambda (m) (m x y)))"
+ },
+ {
+  "tag": "comment",
+  "value": "(define (car z)"
+ },
+ {
+  "tag": "comment",
+  "value": "  (z (lambda (p q) p)))"
+ },
+ {
+  "tag": "comment",
+  "value": "(define (cdr z)"
+ },
+ {
+  "tag": "comment",
+  "value": "  (z (lambda (p q) q)))"
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "assignment",
+  "name": "cons",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "m"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "m"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "x"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "y"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "head",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "z"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "z"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "p"
+          },
+          "children": [
+           {
+            "tag": "lambda",
+            "param": {
+             "tag": "symbol",
+             "value": "q"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "p"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "tail",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "z"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "z"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "p"
+          },
+          "children": [
+           {
+            "tag": "lambda",
+            "param": {
+             "tag": "symbol",
+             "value": "q"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "q"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]

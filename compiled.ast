@@ -1,0 +1,1582 @@
+[
+ {
+  "tag": "application",
+  "func": {
+   "tag": "string",
+   "value": "\"string\""
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "integer",
+   "value": 123
+  },
+  "children": []
+ },
+ {
+  "tag": "assignment",
+  "name": "x",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 1
+      },
+      "children": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "x"
+  },
+  "children": []
+ },
+ {
+  "tag": "assignment",
+  "name": "xyz",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 2
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "id",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "param"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "param"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "id"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "string",
+     "value": "\"value\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "one",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"too\""
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 33
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "too",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "string",
+       "value": "\"too\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "one"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "too"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "null"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "intMap",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "integer",
+      "value": 1
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 2
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "integer",
+      "value": 3
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 4
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 10
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "intMap"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "integer",
+     "value": 123
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "string",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "string",
+       "value": "\"this is a string!\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "stringMap",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"key\""
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 4
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "stringMap"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "string",
+     "value": "\"key\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "y",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"z\""
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 6
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"v\""
+     }
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "x"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "x"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"w\""
+     }
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "match",
+       "value": {
+        "tag": "string",
+        "value": "\"arg\""
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "integer",
+         "value": 8
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "y"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "string",
+     "value": "\"z\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "y"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "string",
+     "value": "\"w\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "p",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 9
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "p"
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "add"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "integer",
+     "value": 2
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "subtract"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "integer",
+     "value": 1
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "subtract"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "integer",
+     "value": 2
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "integer",
+       "value": 1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "assignment",
+  "name": "rec",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "integer",
+      "value": 1
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "rec"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "subtract"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "x"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "integer",
+               "value": 1
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "fib",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "integer",
+      "value": 0
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 0
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "integer",
+      "value": 1
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "n"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "add"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "fib"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "subtract"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "n"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "integer",
+                   "value": 1
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "fib"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "scope",
+               "value": {
+                "tag": "application",
+                "func": {
+                 "tag": "reference",
+                 "name": "subtract"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "reference",
+                   "name": "n"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "integer",
+                     "value": 2
+                    },
+                    "children": [
+                     null
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "subtract"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "integer",
+     "value": 2
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "integer",
+       "value": 1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "w",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 4
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "x",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "w"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 3
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "z",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "w"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "integer",
+         "value": 2
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "y",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "z"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "x"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "w"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "integer",
+           "value": 1
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "y"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "string",
+     "value": "\"z\""
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"x\""
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"w\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "y"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "z"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "x"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "w"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "y"
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "scope",
+   "value": {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "y"
+    },
+    "children": [
+     null
+    ]
+   }
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "scope",
+   "value": {
+    "tag": "application",
+    "func": {
+     "tag": "string",
+     "value": "\"x\""
+    },
+    "children": [
+     null
+    ]
+   }
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "scope",
+   "value": {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "y"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"z\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "scope",
+   "value": {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "y"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"z\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "string",
+     "value": "\"x\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "scope",
+   "value": {
+    "tag": "application",
+    "func": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "y"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"z\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"x\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "scope",
+   "value": {
+    "tag": "application",
+    "func": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "y"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "string",
+           "value": "\"z\""
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"x\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"w\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  },
+  "children": []
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "scope",
+   "value": {
+    "tag": "application",
+    "func": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "y"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "z"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "x"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "w"
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " a comment"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "cons"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "integer",
+     "value": 1
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "integer",
+       "value": 2
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "cons"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "integer",
+     "value": 1
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "integer",
+           "value": 2
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "integer",
+             "value": 3
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "head"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "cons"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "integer",
+         "value": 1
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "integer",
+           "value": 2
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " null/nothing"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "nothing"
+  },
+  "children": []
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " multiple argument with pattern matching"
+ },
+ {
+  "tag": "assignment",
+  "name": "multi",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "integer",
+      "value": 0
+     }
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "match",
+       "value": {
+        "tag": "integer",
+        "value": 1
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "string",
+         "value": "\"a\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "n"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "string",
+         "value": "\"b\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "string",
+         "value": "\"c\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]

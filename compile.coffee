@@ -96,8 +96,11 @@ console.log "grammerFile=#{grammerFile}"
 compiledJsFile = process.argv[3]
 
 exports.parse grammerFile, exports.getPrelude, (preludeAst) ->
+  console.log "preludeAst=#{toString preludeAst}"
+  fs.writeFileSync "prelude.ast", toString(preludeAst)
   exports.parse grammerFile, exports.readStdIn, (ast) ->
     console.log "ast=#{toString ast}"
+    fs.writeFileSync "compiled.ast", toString(ast)
     if compiledJsFile
       exports.getFile 'predefined.js', (predefined) ->
         compiled = predefined + exports.compileToJS(preludeAst) + exports.compileToJS(ast)
