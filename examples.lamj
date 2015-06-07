@@ -67,5 +67,3 @@ multi=
     n: "b"
   x: y: "c"
 
-l = list 1 2
-head l
