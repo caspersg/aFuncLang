@@ -1,0 +1,14 @@
+#lisp list definition
+#(define (cons x y)
+#  (lambda (m) (m x y)))
+#(define (car z)
+#  (z (lambda (p q) p)))
+#(define (cdr z)
+#  (z (lambda (p q) q)))
+
+#list =
+#  x: y: m: m x y
+#head =
+#  z: z (p: q: p)
+#tail =
+#  z: z (p: q: q)

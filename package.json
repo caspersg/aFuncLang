@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "coffee compile.coffee lamj.pegjs",
-    "test": "cat examples.lamj | compile.coffee lamj.pegjs examples.js"
+    "test": "cat examples.lamj | coffee compile.coffee lamj.pegjs examples.js"
   },
   "author": "casper.szy",
   "license": "ISC"

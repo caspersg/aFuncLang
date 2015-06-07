@@ -20,10 +20,13 @@ exports.readStdIn = (callback) ->
       source += chunk
   process.stdin.on 'end', -> callback source
 
-exports.parse = (grammerFile, output) ->
+exports.getPrelude = (callback) ->
+  exports.getFile 'prelude.lamj', callback
+
+exports.parse = (grammerFile, inputFunc, output) ->
   exports.getFile grammerFile, (grammer) ->
     parser = PEG.buildParser(grammer)
-    exports.readStdIn (source) ->
+    inputFunc (source) ->
       console.log "soure='#{source}'"
       try
         output parser.parse source.trim()
@@ -89,12 +92,13 @@ console.log "grammerFile=#{grammerFile}"
 
 compiledJsFile = process.argv[3]
 
-exports.parse grammerFile, (ast) ->
-  console.log "ast=#{toString ast}"
-  if compiledJsFile
-    exports.getFile 'prelude.js', (prelude) ->
-      compiled = prelude + exports.compileToJS(ast)
-      jscode = beautify(compiled, { indent_size: 2 })
-      console.log "javascript=#{jscode}"
-      fs.writeFileSync compiledJsFile, jscode
+exports.parse grammerFile, exports.getPrelude, (preludeAst) ->
+  exports.parse grammerFile, exports.readStdIn, (ast) ->
+    console.log "ast=#{toString ast}"
+    if compiledJsFile
+      exports.getFile 'predefined.js', (predefined) ->
+        compiled = predefined + exports.compileToJS(preludeAst) + exports.compileToJS(ast)
+        jscode = beautify(compiled, { indent_size: 2 })
+        console.log "javascript=#{jscode}"
+        fs.writeFileSync compiledJsFile, jscode
 

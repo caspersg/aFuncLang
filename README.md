@@ -12,6 +12,7 @@ using haskell like syntax for functions and pattern matching in javascript
 - dynamic typing (just javascript)
 - significant whitespace
 - left associative function application
+- curried functions
 
 
 ## fibonacci implementation
