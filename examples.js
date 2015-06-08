@@ -139,6 +139,7 @@ var filter = function() {
   }
   var p = arguments[0];
   return function() {
+    var l = arguments[0];
     var test = function() {
       var l = arguments[0];
       return p((head(l)))
@@ -154,6 +155,7 @@ var last = function() {
   if (arguments[0] == null) {
     return null
   }
+  var l = arguments[0];
   var test = function() {
     var l = arguments[0];
     return equal((tail(l)))(null)
@@ -297,6 +299,7 @@ null
 
 
 var ifThenElse = function() {
+  var test = arguments[0];
   var test = function() {
     var test = arguments[0];
     return test
@@ -348,6 +351,7 @@ var multi = function() {
   }
 }
 var complexMatch = function() {
+  var x = arguments[0];
   var test = function() {
     var x = arguments[0];
     return subtract(x)(2)
@@ -358,3 +362,4 @@ var complexMatch = function() {
   var x = arguments[0];
   return x
 }
+last((cons(1)(null)))
