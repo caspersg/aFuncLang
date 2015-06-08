@@ -1,3 +1,6 @@
+xor=
+  a: b: or (and a (not b)) (and (not a) b)
+
 #lisp list definition
 #(define (cons x y)
 #  (lambda (m) (m x y)))

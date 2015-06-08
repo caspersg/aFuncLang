@@ -1,34 +1,179 @@
 [
  {
-  "tag": "comment",
-  "value": "lisp list definition"
- },
- {
-  "tag": "comment",
-  "value": "(define (cons x y)"
- },
- {
-  "tag": "comment",
-  "value": "  (lambda (m) (m x y)))"
- },
- {
-  "tag": "comment",
-  "value": "(define (car z)"
- },
- {
-  "tag": "comment",
-  "value": "  (z (lambda (p q) p)))"
- },
- {
-  "tag": "comment",
-  "value": "(define (cdr z)"
- },
- {
-  "tag": "comment",
-  "value": "  (z (lambda (p q) q)))"
- },
- {
-  "tag": "emptyLine"
+  "tag": "assignment",
+  "name": "xor",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "a"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "or"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "and"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "a"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "scope",
+                 "value": {
+                  "tag": "application",
+                  "func": {
+                   "tag": "reference",
+                   "name": "not"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "reference",
+                     "name": "b"
+                    },
+                    "children": [
+                     null
+                    ]
+                   }
+                  ]
+                 }
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "and"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "scope",
+                 "value": {
+                  "tag": "application",
+                  "func": {
+                   "tag": "reference",
+                   "name": "not"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "reference",
+                     "name": "a"
+                    },
+                    "children": [
+                     null
+                    ]
+                   }
+                  ]
+                 }
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "reference",
+                   "name": "b"
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": "lisp list definition"
+   },
+   {
+    "tag": "comment",
+    "value": "(define (cons x y)"
+   },
+   {
+    "tag": "comment",
+    "value": "  (lambda (m) (m x y)))"
+   },
+   {
+    "tag": "comment",
+    "value": "(define (car z)"
+   },
+   {
+    "tag": "comment",
+    "value": "  (z (lambda (p q) p)))"
+   },
+   {
+    "tag": "comment",
+    "value": "(define (cdr z)"
+   },
+   {
+    "tag": "comment",
+    "value": "  (z (lambda (p q) q)))"
+   },
+   {
+    "tag": "emptyLine"
+   }
+  ]
  },
  {
   "tag": "assignment",

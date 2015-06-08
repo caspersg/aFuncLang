@@ -1,21 +1,53 @@
+// basic maths
 var add = function(x) {
   return function(y) {
     return x + y
   }
 }
 var subtract = function(x) {
-    return function(y) {
-      return x - y
-    }
+  return function(y) {
+    return x - y
   }
-  //lisp list definition
-  //(define (cons x y)
-  //  (lambda (m) (m x y)))
-  //(define (car z)
-  //  (z (lambda (p q) p)))
-  //(define (cdr z)
-  //  (z (lambda (p q) q)))
+}
 
+// boolean
+var and = function(x) {
+  return function(y) {
+    return x && y
+  }
+}
+var or = function(x) {
+  return function(y) {
+    return x || y
+  }
+}
+var not = function(x) {
+  return !x
+}
+
+// comparisons
+var lt = function(x) {
+  return function(y) {
+    return x < y
+  }
+}
+var lte = function(x) {
+  return function(y) {
+    return x <= y
+  }
+}
+var eq = function(x) {
+  return function(y) {
+    return x == y
+  }
+}
+var xor = function() {
+  var a = arguments[0];
+  return function() {
+    var b = arguments[0];
+    return or((and(a)((not(b)))))((and((not(a)))(b)))
+  }
+}
 var cons = function() {
   var x = arguments[0];
   return function() {
