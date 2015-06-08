@@ -102,7 +102,7 @@ string
     { return '"'+chars.join("")+'"' }
 
 characters
-  = [\x20-\x21\x23-\x5B\x5D-\u10FFFF]
+  = [\x20-\x21\x23-\x5B\x5D-\u10FFFF\\]
 
 integer
   = digits:[0-9]+
