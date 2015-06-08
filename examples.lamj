@@ -72,6 +72,10 @@ map addTwo (cons 1 (cons 2 _))
 # null/nothing
 _
 
+complexMatch=
+  { x: subtract x 2 }: 0
+  x: x
+
 # multiple argument with pattern matching
 multiExpr=
   x:

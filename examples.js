@@ -224,7 +224,17 @@ map(addTwo)((cons(1)((cons(2)(null)))))
 // null/nothing
 null
 
-// multiple argument with pattern matching
+var complexMatch = function() {
+  var test = function() {
+    var x = arguments[0];
+    return subtract(x)(2)
+  };
+  if (test(arguments[0])) {
+    return 0
+  }
+  var x = arguments[0];
+  return x
+}
 var multiExpr = function() {
   var x = arguments[0];
   var t = function() {

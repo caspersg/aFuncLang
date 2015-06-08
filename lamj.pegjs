@@ -74,6 +74,8 @@ lambda
 param
   = value:atom
     { return { tag:"match", value:value } }
+  / "{" _ value:lambda _ "}"
+    { return { tag:"lambdaMatch", value:value } }
   / value:symbol
     { return { tag:"symbol", value:value } }
 
@@ -82,7 +84,7 @@ symbol
     { return name.join("") }
 
 scope
-  = "(" value:expression ")"
+  = "(" _ value:expression _ ")"
     { return { tag:"scope", value:value } }
 
 atom

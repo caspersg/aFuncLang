@@ -1621,8 +1621,91 @@
   "tag": "emptyLine"
  },
  {
-  "tag": "comment",
-  "value": " multiple argument with pattern matching"
+  "tag": "assignment",
+  "name": "complexMatch",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "lambdaMatch",
+     "value": {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "x"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "subtract"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "integer",
+             "value": 2
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "integer",
+       "value": 0
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "x"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " multiple argument with pattern matching"
+   }
+  ]
  },
  {
   "tag": "assignment",
