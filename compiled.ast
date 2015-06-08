@@ -2097,5 +2097,251 @@
     ]
    }
   ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "any"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "ltt"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 2
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "cons"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "number",
+                 "value": 2
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "nothing",
+                   "value": "null"
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "all"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "ltt"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 1
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "cons"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "number",
+                 "value": 2
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "nothing",
+                   "value": "null"
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "all"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "ltt"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 1
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "cons"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "number",
+                 "value": 1
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "nothing",
+                   "value": "null"
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
  }
 ]

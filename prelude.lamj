@@ -71,8 +71,24 @@ last=
   {l: equal (tail l) _}: head l
   l: last (tail l)
 
+# any from filter
 any=
   p:
     _: false
     {l: p (head l)}: true
     l: filter p (tail l)
+# any from foldr
+any=
+  p:
+    test= 
+      {x: p x}: xs: or x xs
+      x: xs: false
+    foldr test true
+# all from foldr
+all=
+  p:
+    test= 
+      {x: p x}: xs: and x xs
+      x: xs: false
+    foldr test true
+

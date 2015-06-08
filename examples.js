@@ -206,6 +206,50 @@ var any = function() {
     return filter(p)((tail(l)))
   }
 }
+var any = function() {
+  var p = arguments[0];
+  var test = function() {
+    var x = arguments[0];
+    var test = function() {
+      var x = arguments[0];
+      return p(x)
+    };
+    if (test(x)) {
+      return function() {
+        var xs = arguments[0];
+        return or(x)(xs)
+      }
+    }
+    var x = arguments[0];
+    return function() {
+      var xs = arguments[0];
+      return false
+    }
+  }
+  return foldr(test)(true)
+}
+var all = function() {
+  var p = arguments[0];
+  var test = function() {
+    var x = arguments[0];
+    var test = function() {
+      var x = arguments[0];
+      return p(x)
+    };
+    if (test(x)) {
+      return function() {
+        var xs = arguments[0];
+        return and(x)(xs)
+      }
+    }
+    var x = arguments[0];
+    return function() {
+      var xs = arguments[0];
+      return false
+    }
+  }
+  return foldr(test)(true)
+}
 "string"
 123
 var x = function() {
@@ -411,3 +455,6 @@ filter(ltt)((cons(1)((cons(2)(null)))))
 last((cons(1)(null)))
 
 any(ltt)((cons(1)((cons(2)(null)))))
+any(ltt)((cons(2)((cons(2)(null)))))
+all(ltt)((cons(1)((cons(2)(null)))))
+all(ltt)((cons(1)((cons(1)(null)))))

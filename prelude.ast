@@ -1598,6 +1598,312 @@
         ]
        }
       ]
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "any",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "p"
+    },
+    "children": [
+     {
+      "tag": "assignment",
+      "name": "test",
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "lambdaMatch",
+         "value": {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "p"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "xs"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "or"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "xs"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "x"
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "xs"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "false"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "foldr"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "test"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "true"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "all",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "p"
+    },
+    "children": [
+     {
+      "tag": "assignment",
+      "name": "test",
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "lambdaMatch",
+         "value": {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "p"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "xs"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "and"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "xs"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "x"
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "xs"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "false"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "foldr"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "test"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "true"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
      }
     ]
    }
