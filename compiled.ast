@@ -1453,8 +1453,8 @@
          {
           "tag": "application",
           "next": {
-           "tag": "integer",
-           "value": 2
+           "tag": "nothing",
+           "value": "null"
           },
           "children": [
            null
@@ -1623,6 +1623,144 @@
  {
   "tag": "comment",
   "value": " multiple argument with pattern matching"
+ },
+ {
+  "tag": "assignment",
+  "name": "multiExpr",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "assignment",
+      "name": "t",
+      "children": [
+       {
+        "tag": "lambda",
+        "param": null,
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "add"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "t"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "integer",
+               "value": 1
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "assignment",
+      "name": "p",
+      "children": [
+       {
+        "tag": "lambda",
+        "param": null,
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "subtract"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "p"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "integer",
+               "value": 3
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "compose"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "t"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "p"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "x"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "emptyLine"
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
  },
  {
   "tag": "assignment",

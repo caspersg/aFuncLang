@@ -213,7 +213,7 @@ y
 // a comment
 cons(1)(null)
 cons(1)((cons(2)(null)))
-head((cons(1)(2)))
+head((cons(1)(null)))
 
 var addTwo = function() {
   var n = arguments[0];
@@ -225,6 +225,16 @@ map(addTwo)((cons(1)((cons(2)(null)))))
 null
 
 // multiple argument with pattern matching
+var multiExpr = function() {
+  var x = arguments[0];
+  var t = function() {
+    return add(t)(1)
+  }
+  var p = function() {
+    return subtract(p)(3)
+  }
+  return compose(t)(p)(x)
+}
 var multi = function() {
   if (arguments[0] == 0) {
     return function() {

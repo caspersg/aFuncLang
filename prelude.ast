@@ -247,6 +247,20 @@
    {
     "tag": "comment",
     "value": "map f = foldr ((:) . f) []"
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " haskell compose"
+   },
+   {
+    "tag": "comment",
+    "value": "f (g x) = (f . g) x"
+   },
+   {
+    "tag": "emptyLine"
    }
   ]
  },

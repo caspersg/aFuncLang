@@ -33,6 +33,10 @@ exports.parse = (grammerFile, inputFunc, output) ->
       catch e
         console.error e
 
+exports.filterNull = (list) ->
+  if list
+    x for x in list when !!x and x isnt ""
+
 exports.compileToJS = (ast) ->
   compileExpression = (expr) ->
     switch expr
@@ -56,8 +60,9 @@ exports.compileToJS = (ast) ->
         else "//ERROR tag=#{expr?.tag} expr=#{toString expr}"
 
   compileApplication = (app) ->
-    if app.children
-      rest = ("#{compileExpression e}" for e in app.children).join " "
+    children = exports.filterNull app.children
+    if children
+      rest = ("#{compileExpression e}" for e in children).join " "
     else
       rest = ""
     if app.func
@@ -66,23 +71,30 @@ exports.compileToJS = (ast) ->
       "(#{compileExpression app.next})#{rest}"
 
   compileAssignment = (assignment) ->
-    "var #{assignment.name} = #{compileLambdaGroup assignment.children}"
+    children = exports.filterNull assignment.children
+    "var #{assignment.name} = #{compileLambdaGroup children}"
 
   compileLambdaGroup = (lambdaList) ->
     values = (compileLambda lambda for lambda in lambdaList).join " "
     "function(){ #{values} }"
 
   compileLambda = (lambda) ->
-    if lambda.children && lambda.children[0].tag isnt "lambda"
-      children = (compileExpression child for child in lambda.children).join " "
-    else if lambda.children
-      children = compileLambdaGroup lambda.children
+    children = exports.filterNull lambda.children
+    if children && children[0].tag isnt "lambda"
+      kids = (compileExpression child for child in children)
+      filtered = exports.filterNull kids
+      # last statement gets the return
+      filtered[filtered.length-1] = "return #{filtered[filtered.length-1]}"
+      console.log "filtered=#{toString filtered}"
+      rest = filtered.join " "
+    else if children
+      rest = "return #{compileLambdaGroup children}"
     if lambda.param?.tag == 'match'
-      "if(arguments[0] == #{lambda.param.value.value}) { return #{children} }"
+      "if(arguments[0] == #{lambda.param.value.value}) { #{rest} }"
     else if lambda.param?.tag == 'symbol'
-      "var #{lambda.param.value} = arguments[0]; return #{children}"
-    else if lambda.children
-      "return #{children}"
+      "var #{lambda.param.value} = arguments[0]; #{rest}"
+    else if children
+      "#{rest}"
     else
       ""
 
