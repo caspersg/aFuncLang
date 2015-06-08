@@ -1126,6 +1126,163 @@
      },
      {
       "tag": "emptyLine"
+     },
+     {
+      "tag": "comment",
+      "value": " alternative filter' p xs = foldr (\\x xs -> if p x then x : xs else xs) [] xs"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "filter",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "p"
+    },
+    "children": [
+     {
+      "tag": "assignment",
+      "name": "test",
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "lambdaMatch",
+         "value": {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "p"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "xs"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "cons"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "xs"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "x"
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "xs"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "xs"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "foldr"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "test"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "nothing",
+           "value": "null"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "emptyLine"
      }
     ]
    }
@@ -1279,6 +1436,165 @@
         },
         "children": [
          null
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "any",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "p"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "match",
+       "value": {
+        "tag": "nothing",
+        "value": "null"
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "false"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "lambdaMatch",
+       "value": {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "l"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "p"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "head"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "l"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "true"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "l"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "filter"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "p"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "tail"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "l"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
         ]
        }
       ]

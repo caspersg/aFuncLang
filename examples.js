@@ -188,6 +188,24 @@ var last = function() {
   var l = arguments[0];
   return last((tail(l)))
 }
+var any = function() {
+  var p = arguments[0];
+  return function() {
+    if (arguments[0] == null) {
+      return false
+    }
+    var l = arguments[0];
+    var test = function() {
+      var l = arguments[0];
+      return p((head(l)))
+    };
+    if (test(l)) {
+      return true
+    }
+    var l = arguments[0];
+    return filter(p)((tail(l)))
+  }
+}
 "string"
 123
 var x = function() {
@@ -391,3 +409,5 @@ var ltt = function() {
 filter(ltt)((cons(1)((cons(2)(null)))))
 
 last((cons(1)(null)))
+
+any(ltt)((cons(1)((cons(2)(null)))))

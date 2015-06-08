@@ -70,3 +70,9 @@ last=
   _:_
   {l: equal (tail l) _}: head l
   l: last (tail l)
+
+any=
+  p:
+    _: false
+    {l: p (head l)}: true
+    l: filter p (tail l)

@@ -96,4 +96,6 @@ filter ltt (cons 1 (cons 2 _))
 
 last (cons 1 _)
 
+any ltt (cons 1 (cons 2 _))
+
 
