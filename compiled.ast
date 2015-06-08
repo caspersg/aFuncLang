@@ -2397,5 +2397,81 @@
     ]
    }
   ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assert"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "equal"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "add"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "string",
+             "value": "\"ab\""
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "string",
+               "value": "\"cd\""
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "string",
+           "value": "\"abcd\""
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
  }
 ]

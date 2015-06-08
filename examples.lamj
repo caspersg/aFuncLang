@@ -101,4 +101,5 @@ any ltt (cons 2 (cons 2 _))
 assert (not (all ltt (cons 1 (cons 2 _))))
 assert (all ltt (cons 1 (cons 1 _)))
 
+assert (equal (add "ab" "cd") "abcd")
 
