@@ -235,6 +235,29 @@ var complexMatch = function() {
   var x = arguments[0];
   return x
 }
+var ifThenElse = function() {
+  var test = function() {
+    var test = arguments[0];
+    return test
+  };
+  if (test(arguments[0])) {
+    return function() {
+      var then = arguments[0];
+      return function() {
+        var otherwise = arguments[0];
+        return then
+      }
+    }
+  }
+  var x = arguments[0];
+  return function() {
+    var then = arguments[0];
+    return function() {
+      var otherwise = arguments[0];
+      return otherwise
+    }
+  }
+}
 var multiExpr = function() {
   var x = arguments[0];
   var t = function() {

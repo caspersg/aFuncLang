@@ -76,6 +76,10 @@ complexMatch=
   { x: subtract x 2 }: 0
   x: x
 
+ifThenElse=
+  {test:test}: then: otherwise: then
+  x: then: otherwise: otherwise
+
 # multiple argument with pattern matching
 multiExpr=
   x:
