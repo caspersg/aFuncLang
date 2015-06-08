@@ -44,7 +44,7 @@ exports.compileToJS = (ast) ->
       else
         if expr?.tag
           switch expr.tag
-            when 'integer' then expr.value
+            when 'number' then expr.value
             when 'string' then expr.value
             when 'nothing' then "null"
             when 'match' then compileExpression expr.value

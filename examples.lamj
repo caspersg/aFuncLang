@@ -72,6 +72,8 @@ map addTwo (cons 1 (cons 2 _))
 # null/nothing
 _
 
+multiply 10.123 (add 2 3.3)
+
 complexMatch=
   { x: subtract x 2 }: 0
   x: x
@@ -86,7 +88,6 @@ multiExpr=
     t= :add t 1
     p= :subtract p 3
     compose t p x
-
 
 multi=
   0:

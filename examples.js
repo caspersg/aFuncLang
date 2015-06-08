@@ -9,6 +9,21 @@ var subtract = function(x) {
     return x - y
   }
 }
+var multiply = function(x) {
+  return function(y) {
+    return x *
+  }
+}
+var divide = function(x) {
+  return function(y) {
+    return x / y
+  }
+}
+var modulus = function(x) {
+  return function(y) {
+    return x % y
+  }
+}
 
 // boolean
 var and = function(x) {
@@ -26,17 +41,18 @@ var not = function(x) {
 }
 
 // comparisons
-var lt = function(x) {
+var lessThan
+function(x) {
   return function(y) {
     return x < y
   }
 }
-var lte = function(x) {
+var lessThanEqual = function(x) {
   return function(y) {
     return x <= y
   }
 }
-var eq = function(x) {
+var equal = function(x) {
   return function(y) {
     return x == y
   }
@@ -255,6 +271,8 @@ map(addTwo)((cons(1)((cons(2)(null)))))
 
 // null/nothing
 null
+
+multiply(10.123)((add(2)(3.3)))
 
 var complexMatch = function() {
   var test = function() {

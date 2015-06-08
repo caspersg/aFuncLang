@@ -1,6 +1,9 @@
 // basic maths
 var add = function(x) { return function(y) { return x + y } }
 var subtract = function(x) { return function(y) { return x - y } }
+var multiply = function(x) { return function(y) { return x * } }
+var divide = function(x) { return function(y) { return x / y } }
+var modulus = function(x) { return function(y) { return x % y } }
 
 // boolean
 var and = function(x) { return function(y) { return x && y } }

@@ -88,8 +88,10 @@ scope
     { return { tag:"scope", value:value } }
 
 atom
-  = value:integer
-    { return { tag:"integer", value: value } }
+  = value:aFloat
+    { return { tag:"number", value: value } }
+  / value:integer
+    { return { tag:"number", value: value } }
   / value:string
     { return { tag:"string", value: value } }
   / [_]
@@ -105,6 +107,10 @@ characters
 integer
   = digits:[0-9]+
     { return parseInt(digits.join(""), 10) }
+
+aFloat
+  = value:(integer "." integer)
+    { return parseFloat(value.join(""), 10) }
 
 comment
   = "#" comment:(characters)*
