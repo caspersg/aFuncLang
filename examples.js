@@ -272,19 +272,7 @@ map(addTwo)((cons(1)((cons(2)(null)))))
 // null/nothing
 null
 
-multiply(10.123)((add(2)(3.3)))
 
-var complexMatch = function() {
-  var test = function() {
-    var x = arguments[0];
-    return subtract(x)(2)
-  };
-  if (test(arguments[0])) {
-    return 0
-  }
-  var x = arguments[0];
-  return x
-}
 var ifThenElse = function() {
   var test = function() {
     var test = arguments[0];
@@ -318,6 +306,8 @@ var multiExpr = function() {
   }
   return compose(t)(p)(x)
 }
+multiply(10.123)((add(2)(3.3)))
+
 var multi = function() {
   if (arguments[0] == 0) {
     return function() {
@@ -333,4 +323,15 @@ var multi = function() {
     var y = arguments[0];
     return "c"
   }
+}
+var complexMatch = function() {
+  var test = function() {
+    var x = arguments[0];
+    return subtract(x)(2)
+  };
+  if (test(arguments[0])) {
+    return 0
+  }
+  var x = arguments[0];
+  return x
 }

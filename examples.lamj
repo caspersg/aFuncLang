@@ -72,11 +72,6 @@ map addTwo (cons 1 (cons 2 _))
 # null/nothing
 _
 
-multiply 10.123 (add 2 3.3)
-
-complexMatch=
-  { x: subtract x 2 }: 0
-  x: x
 
 ifThenElse=
   {test:test}: then: otherwise: then
@@ -89,9 +84,16 @@ multiExpr=
     p= :subtract p 3
     compose t p x
 
+multiply 10.123 (add 2 3.3)
+
 multi=
   0:
     1: "a"
     n: "b"
   x: 
     y: "c"
+
+
+complexMatch=
+  { x: subtract x 2 }: 0
+  x: x

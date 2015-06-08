@@ -1621,145 +1621,7 @@
   "tag": "emptyLine"
  },
  {
-  "tag": "application",
-  "func": {
-   "tag": "reference",
-   "name": "multiply"
-  },
-  "children": [
-   {
-    "tag": "application",
-    "next": {
-     "tag": "number",
-     "value": 10.123
-    },
-    "children": [
-     {
-      "tag": "application",
-      "next": {
-       "tag": "scope",
-       "value": {
-        "tag": "application",
-        "func": {
-         "tag": "reference",
-         "name": "add"
-        },
-        "children": [
-         {
-          "tag": "application",
-          "next": {
-           "tag": "number",
-           "value": 2
-          },
-          "children": [
-           {
-            "tag": "application",
-            "next": {
-             "tag": "number",
-             "value": 3.3
-            },
-            "children": [
-             null
-            ]
-           }
-          ]
-         }
-        ]
-       }
-      },
-      "children": [
-       null
-      ]
-     }
-    ]
-   }
-  ]
- },
- {
   "tag": "emptyLine"
- },
- {
-  "tag": "assignment",
-  "name": "complexMatch",
-  "children": [
-   {
-    "tag": "lambda",
-    "param": {
-     "tag": "lambdaMatch",
-     "value": {
-      "tag": "lambda",
-      "param": {
-       "tag": "symbol",
-       "value": "x"
-      },
-      "children": [
-       {
-        "tag": "application",
-        "func": {
-         "tag": "reference",
-         "name": "subtract"
-        },
-        "children": [
-         {
-          "tag": "application",
-          "next": {
-           "tag": "reference",
-           "name": "x"
-          },
-          "children": [
-           {
-            "tag": "application",
-            "next": {
-             "tag": "number",
-             "value": 2
-            },
-            "children": [
-             null
-            ]
-           }
-          ]
-         }
-        ]
-       }
-      ]
-     }
-    },
-    "children": [
-     {
-      "tag": "application",
-      "func": {
-       "tag": "number",
-       "value": 0
-      },
-      "children": [
-       null
-      ]
-     }
-    ]
-   },
-   {
-    "tag": "lambda",
-    "param": {
-     "tag": "symbol",
-     "value": "x"
-    },
-    "children": [
-     {
-      "tag": "application",
-      "func": {
-       "tag": "reference",
-       "name": "x"
-      },
-      "children": [
-       null
-      ]
-     }
-    ]
-   },
-   {
-    "tag": "emptyLine"
-   }
-  ]
  },
  {
   "tag": "assignment",
@@ -2002,6 +1864,64 @@
   ]
  },
  {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "multiply"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "number",
+     "value": 10.123
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "add"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 2
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "number",
+             "value": 3.3
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "assignment",
   "name": "multi",
   "children": [
@@ -2082,6 +2002,92 @@
          null
         ]
        }
+      ]
+     },
+     {
+      "tag": "emptyLine"
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "complexMatch",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "lambdaMatch",
+     "value": {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "x"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "subtract"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "number",
+             "value": 2
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "number",
+       "value": 0
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "x"
+      },
+      "children": [
+       null
       ]
      }
     ]
