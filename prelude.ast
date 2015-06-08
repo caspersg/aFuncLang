@@ -884,9 +884,6 @@
        {
         "tag": "comment",
         "value": "                 | otherwise = filter p xs"
-       },
-       {
-        "tag": "emptyLine"
        }
       ]
      }

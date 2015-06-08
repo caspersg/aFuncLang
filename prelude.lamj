@@ -52,12 +52,19 @@ foldr=
 # filter _ []                 = []
 # filter p (x:xs) | p x       = x : filter p xs
 #                 | otherwise = filter p xs
-
 filter=
   p:
     _:_
     {l: p (head l)}: cons (head l) (filter p (tail l))
     l: filter p (tail l)
+
+# alternative filter' p xs = foldr (\x xs -> if p x then x : xs else xs) [] xs
+filter=
+  p: 
+    test= 
+      {x: p x}: xs: cons x xs
+      x: xs: xs
+    foldr test _
 
 last=
   _:_

@@ -151,6 +151,28 @@ var filter = function() {
     return filter(p)((tail(l)))
   }
 }
+var filter = function() {
+  var p = arguments[0];
+  var test = function() {
+    var x = arguments[0];
+    var test = function() {
+      var x = arguments[0];
+      return p(x)
+    };
+    if (test(x)) {
+      return function() {
+        var xs = arguments[0];
+        return cons(x)(xs)
+      }
+    }
+    var x = arguments[0];
+    return function() {
+      var xs = arguments[0];
+      return xs
+    }
+  }
+  return foldr(test)(null)
+}
 var last = function() {
   if (arguments[0] == null) {
     return null
