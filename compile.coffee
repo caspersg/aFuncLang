@@ -92,8 +92,11 @@ exports.compileToJS = (ast) ->
     if lambda.param?.tag == 'match'
       "if(arguments[0] == #{lambda.param.value.value}) { #{rest} }"
     else if lambda.param?.tag == 'lambdaMatch'
+      # variable defined in lambdaMatch must be available to rest of lambda
+      lambdaVariableName = lambda.param.value.param.value
+      "var #{lambdaVariableName} = arguments[0]; #{rest}"
       # temp test function can get overwritten, only needed for if statement
-      "var test=#{compileExpression lambda.param.value}; if(test(arguments[0])) { #{rest} }"
+      "var test=#{compileExpression lambda.param.value}; if(test(#{lambdaVariableName})) { #{rest} }"
     else if lambda.param?.tag == 'symbol'
       "var #{lambda.param.value} = arguments[0]; #{rest}"
     else if children

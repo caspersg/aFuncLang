@@ -134,6 +134,23 @@ var foldr = function() {
     }
   }
 }
+var filter = function() {
+  if (arguments[0] == null) {
+    return null
+  }
+  var p = arguments[0];
+  return function() {
+    var test = function() {
+      var l = arguments[0];
+      return p((head(l)))
+    };
+    if (test(l)) {
+      return cons((head(l)))((filter(p)((tail(l)))))
+    }
+    var l = arguments[0];
+    return filter(p)((tail(l)))
+  }
+}
 "string"
 123
 var x = function() {
@@ -278,7 +295,7 @@ var ifThenElse = function() {
     var test = arguments[0];
     return test
   };
-  if (test(arguments[0])) {
+  if (test(test)) {
     return function() {
       var then = arguments[0];
       return function() {
@@ -329,9 +346,13 @@ var complexMatch = function() {
     var x = arguments[0];
     return subtract(x)(2)
   };
-  if (test(arguments[0])) {
+  if (test(x)) {
     return 0
   }
   var x = arguments[0];
   return x
 }
+filter((function() {
+  var x = arguments[0];
+  return lessThan(x)(2)
+}))((cons(1)((cons(2)(null)))))

@@ -861,6 +861,269 @@
           ]
          }
         ]
+       },
+       {
+        "tag": "emptyLine"
+       },
+       {
+        "tag": "comment",
+        "value": " haskell filter"
+       },
+       {
+        "tag": "comment",
+        "value": "filter :: (a -> Bool) -> [a] -> [a]"
+       },
+       {
+        "tag": "comment",
+        "value": " filter _ []                 = []"
+       },
+       {
+        "tag": "comment",
+        "value": " filter p (x:xs) | p x       = x : filter p xs"
+       },
+       {
+        "tag": "comment",
+        "value": "                 | otherwise = filter p xs"
+       },
+       {
+        "tag": "emptyLine"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "filter",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "nothing",
+      "value": "null"
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "nothing",
+       "value": "null"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "p"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "lambdaMatch",
+       "value": {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "l"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "p"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "head"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "l"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "head"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "l"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "filter"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "p"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "scope",
+                   "value": {
+                    "tag": "application",
+                    "func": {
+                     "tag": "reference",
+                     "name": "tail"
+                    },
+                    "children": [
+                     {
+                      "tag": "application",
+                      "next": {
+                       "tag": "reference",
+                       "name": "l"
+                      },
+                      "children": [
+                       null
+                      ]
+                     }
+                    ]
+                   }
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "l"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "filter"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "p"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "tail"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "l"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
        }
       ]
      }
