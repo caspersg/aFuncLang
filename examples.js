@@ -134,11 +134,11 @@ var foldr = function() {
   }
 }
 var filter = function() {
-  if (arguments[0] == null) {
-    return null
-  }
   var p = arguments[0];
   return function() {
+    if (arguments[0] == null) {
+      return null
+    }
     var l = arguments[0];
     var test = function() {
       var l = arguments[0];
@@ -362,4 +362,10 @@ var complexMatch = function() {
   var x = arguments[0];
   return x
 }
+var ltt = function() {
+  var x = arguments[0];
+  return lessThan(x)(2)
+}
+filter(ltt)((cons(1)((cons(2)(null)))))
+
 last((cons(1)(null)))

@@ -901,32 +901,32 @@
    {
     "tag": "lambda",
     "param": {
-     "tag": "match",
-     "value": {
-      "tag": "nothing",
-      "value": "null"
-     }
-    },
-    "children": [
-     {
-      "tag": "application",
-      "func": {
-       "tag": "nothing",
-       "value": "null"
-      },
-      "children": [
-       null
-      ]
-     }
-    ]
-   },
-   {
-    "tag": "lambda",
-    "param": {
      "tag": "symbol",
      "value": "p"
     },
     "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "match",
+       "value": {
+        "tag": "nothing",
+        "value": "null"
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "nothing",
+         "value": "null"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
      {
       "tag": "lambda",
       "param": {

@@ -1836,11 +1836,136 @@
    },
    {
     "tag": "emptyLine"
-   },
-   {
-    "tag": "emptyLine"
    }
   ]
+ },
+ {
+  "tag": "assignment",
+  "name": "ltt",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "lessThan"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "x"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 2
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "filter"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "ltt"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 1
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "cons"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "number",
+                 "value": 2
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "nothing",
+                   "value": "null"
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
  },
  {
   "tag": "application",

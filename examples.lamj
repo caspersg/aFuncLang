@@ -91,6 +91,8 @@ complexMatch=
   { x: subtract x 2 }: 0
   x: x
 
+ltt= x: lessThan x 2
+filter ltt (cons 1 (cons 2 _))
 
 last (cons 1 _)
 
