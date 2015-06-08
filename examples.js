@@ -46,6 +46,46 @@ var tail = function() {
     }
   }))
 }
+var compose = function() {
+  var fa = arguments[0];
+  return function() {
+    var fb = arguments[0];
+    return function() {
+      var x = arguments[0];
+      return fa((fb(x)))
+    }
+  }
+}
+var map = function() {
+  var f = arguments[0];
+  return foldr((compose(cons)(f)))(null)
+}
+var foldl = function() {
+  var f = arguments[0];
+  return function() {
+    var z = arguments[0];
+    return function() {
+      if (arguments[0] == null) {
+        return z
+      }
+      var l = arguments[0];
+      return foldl(f)((f(z)((head(l)))))((tail(l)))
+    }
+  }
+}
+var foldr = function() {
+  var f = arguments[0];
+  return function() {
+    var z = arguments[0];
+    return function() {
+      if (arguments[0] == null) {
+        return z
+      }
+      var l = arguments[0];
+      return f((head(l)))((foldr(f)(z)((tail(l)))))
+    }
+  }
+}
 "string"
 123
 var x = function() {
@@ -171,9 +211,15 @@ y
   ((y(z))(x))(w)
 
 // a comment
-cons(1)(2)
-cons(1)((cons(2)(3)))
+cons(1)(null)
+cons(1)((cons(2)(null)))
 head((cons(1)(2)))
+
+var addTwo = function() {
+  var n = arguments[0];
+  return add(n)(2)
+}
+map(addTwo)((cons(1)((cons(2)(null)))))
 
 // null/nothing
 null

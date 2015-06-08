@@ -60,9 +60,14 @@ y
 ((y z) x) w
 
 # a comment
-cons 1 2
-cons 1 (cons 2 3)
-head (cons 1 2)
+cons 1 _
+cons 1 (cons 2 _)
+head (cons 1 _)
+
+addTwo=
+  n: add n 2
+
+map addTwo (cons 1 (cons 2 _))
 
 # null/nothing
 _

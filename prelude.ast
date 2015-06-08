@@ -210,6 +210,502 @@
       ]
      }
     ]
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " haskell fold"
+   },
+   {
+    "tag": "comment",
+    "value": "foldl f z []     = z"
+   },
+   {
+    "tag": "comment",
+    "value": "foldl f z (x:xs) = foldl f (f z x) xs"
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": "foldr f z []     = z"
+   },
+   {
+    "tag": "comment",
+    "value": "foldr f z (x:xs) = f x (foldr f z xs)"
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " haskell map"
+   },
+   {
+    "tag": "comment",
+    "value": "map f = foldr ((:) . f) []"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "compose",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "fa"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "fb"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "x"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "fa"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "fb"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "x"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "map",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "f"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "foldr"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "compose"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "cons"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "f"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "nothing",
+           "value": "null"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "foldl",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "f"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "z"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "match",
+         "value": {
+          "tag": "nothing",
+          "value": "null"
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "z"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       },
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "l"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "foldl"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "f"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "scope",
+               "value": {
+                "tag": "application",
+                "func": {
+                 "tag": "reference",
+                 "name": "f"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "reference",
+                   "name": "z"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "scope",
+                     "value": {
+                      "tag": "application",
+                      "func": {
+                       "tag": "reference",
+                       "name": "head"
+                      },
+                      "children": [
+                       {
+                        "tag": "application",
+                        "next": {
+                         "tag": "reference",
+                         "name": "l"
+                        },
+                        "children": [
+                         null
+                        ]
+                       }
+                      ]
+                     }
+                    },
+                    "children": [
+                     null
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "scope",
+                 "value": {
+                  "tag": "application",
+                  "func": {
+                   "tag": "reference",
+                   "name": "tail"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "reference",
+                     "name": "l"
+                    },
+                    "children": [
+                     null
+                    ]
+                   }
+                  ]
+                 }
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "tag": "emptyLine"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "foldr",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "f"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "z"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "match",
+         "value": {
+          "tag": "nothing",
+          "value": "null"
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "z"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       },
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "l"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "f"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "head"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "l"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "scope",
+               "value": {
+                "tag": "application",
+                "func": {
+                 "tag": "reference",
+                 "name": "foldr"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "reference",
+                   "name": "f"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "reference",
+                     "name": "z"
+                    },
+                    "children": [
+                     {
+                      "tag": "application",
+                      "next": {
+                       "tag": "scope",
+                       "value": {
+                        "tag": "application",
+                        "func": {
+                         "tag": "reference",
+                         "name": "tail"
+                        },
+                        "children": [
+                         {
+                          "tag": "application",
+                          "next": {
+                           "tag": "reference",
+                           "name": "l"
+                          },
+                          "children": [
+                           null
+                          ]
+                         }
+                        ]
+                       }
+                      },
+                      "children": [
+                       null
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
    }
   ]
  }

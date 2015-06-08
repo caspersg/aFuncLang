@@ -12,3 +12,34 @@ head =
   z: z (p: q: p)
 tail =
   z: z (p: q: q)
+
+# haskell fold
+#foldl f z []     = z
+#foldl f z (x:xs) = foldl f (f z x) xs
+
+#foldr f z []     = z
+#foldr f z (x:xs) = f x (foldr f z xs)
+
+# haskell map
+#map f = foldr ((:) . f) []
+
+# haskell compose
+#f (g x) = (f . g) x
+
+compose=
+  fa: fb: x: fa (fb x)
+    
+map=
+  f: foldr (compose cons f) _
+
+foldl=
+  f:
+    z:
+      _: z
+      l: foldl f (f z (head l)) (tail l)
+
+foldr=
+  f:
+    z:
+      _: z
+      l: f (head l) (foldr f z (tail l))

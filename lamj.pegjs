@@ -91,7 +91,7 @@ atom
   / value:string
     { return { tag:"string", value: value } }
   / [_]
-    { return { tag:"nothing"}}
+    { return { tag:"nothing", value: 'null'}}
 
 string
   = quotation_mark chars:characters* quotation_mark

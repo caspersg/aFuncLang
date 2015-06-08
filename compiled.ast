@@ -1359,8 +1359,8 @@
      {
       "tag": "application",
       "next": {
-       "tag": "integer",
-       "value": 2
+       "tag": "nothing",
+       "value": "null"
       },
       "children": [
        null
@@ -1405,8 +1405,8 @@
            {
             "tag": "application",
             "next": {
-             "tag": "integer",
-             "value": 3
+             "tag": "nothing",
+             "value": "null"
             },
             "children": [
              null
@@ -1475,13 +1475,145 @@
   "tag": "emptyLine"
  },
  {
+  "tag": "assignment",
+  "name": "addTwo",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "n"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "add"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "n"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "integer",
+           "value": 2
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "map"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "addTwo"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "integer",
+           "value": 1
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "cons"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "integer",
+                 "value": 2
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "nothing",
+                   "value": "null"
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "comment",
   "value": " null/nothing"
  },
  {
   "tag": "application",
   "func": {
-   "tag": "nothing"
+   "tag": "nothing",
+   "value": "null"
   },
   "children": []
  },
