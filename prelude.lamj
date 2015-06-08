@@ -58,3 +58,8 @@ filter=
   p:
     {l: p (head l)}: cons (head l) (filter p (tail l))
     l: filter p (tail l)
+
+last=
+  _:_
+  {l: equal (tail l) _}: head l
+  l: last (tail l)

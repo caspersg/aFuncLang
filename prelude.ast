@@ -1126,6 +1126,165 @@
         ]
        }
       ]
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "last",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "nothing",
+      "value": "null"
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "nothing",
+       "value": "null"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "lambdaMatch",
+     "value": {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "l"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "equal"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "tail"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "l"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "nothing",
+             "value": "null"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "head"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "l"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "l"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "last"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "tail"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "l"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
      }
     ]
    }

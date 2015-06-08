@@ -80,12 +80,11 @@ exports.compileToJS = (ast) ->
 
   compileLambda = (lambda) ->
     children = exports.filterNull lambda.children
-    if children && children[0].tag isnt "lambda"
+    if children && children[0]?.tag isnt "lambda"
       kids = (compileExpression child for child in children)
       filtered = exports.filterNull kids
       # last statement gets the return
       filtered[filtered.length-1] = "return #{filtered[filtered.length-1]}"
-      console.log "filtered=#{toString filtered}"
       rest = filtered.join " "
     else if children
       rest = "return #{compileLambdaGroup children}"

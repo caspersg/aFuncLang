@@ -51,13 +51,6 @@ y= z: x: w: 1
 y "z" "x" "w"
 y z x w
 y
-(y)
-("x")
-(y "z")
-(y "z") "x"
-((y "z") "x")
-(((y "z") "x") "w")
-((y z) x) w
 
 # a comment
 cons 1 _
@@ -97,6 +90,4 @@ multi=
 complexMatch=
   { x: subtract x 2 }: 0
   x: x
-
-filter (x: lessThan x 2) (cons 1 (cons 2 _))
 

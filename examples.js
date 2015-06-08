@@ -11,7 +11,7 @@ var subtract = function(x) {
 }
 var multiply = function(x) {
   return function(y) {
-    return x *
+    return x * y
   }
 }
 var divide = function(x) {
@@ -41,8 +41,7 @@ var not = function(x) {
 }
 
 // comparisons
-var lessThan
-function(x) {
+var lessThan = function(x) {
   return function(y) {
     return x < y
   }
@@ -150,6 +149,20 @@ var filter = function() {
     var l = arguments[0];
     return filter(p)((tail(l)))
   }
+}
+var last = function() {
+  if (arguments[0] == null) {
+    return null
+  }
+  var test = function() {
+    var l = arguments[0];
+    return equal((tail(l)))(null)
+  };
+  if (test(l)) {
+    return head(l)
+  }
+  var l = arguments[0];
+  return last((tail(l)))
 }
 "string"
 123
@@ -267,13 +280,6 @@ var y = function() {
 y("z")("x")("w")
 y(z)(x)(w)
 y
-  (y)
-  ("x")
-  (y("z"))
-  (y("z"))("x")
-  ((y("z"))("x"))
-  (((y("z"))("x"))("w"))
-  ((y(z))(x))(w)
 
 // a comment
 cons(1)(null)
@@ -352,7 +358,3 @@ var complexMatch = function() {
   var x = arguments[0];
   return x
 }
-filter((function() {
-  var x = arguments[0];
-  return lessThan(x)(2)
-}))((cons(1)((cons(2)(null)))))
