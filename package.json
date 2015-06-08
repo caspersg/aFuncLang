@@ -4,6 +4,7 @@
   "description": "a functional language that compiles to javascript",
   "main": "index.js",
   "dependencies": {
+    "assert": "^1.3.0",
     "js-beautify": "^1.5.5",
     "pegjs": "^0.8.0"
   },

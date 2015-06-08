@@ -1,3 +1,5 @@
+var assert = require('assert')
+
 // basic maths
 var add = function(x) {
   return function(y) {
@@ -456,5 +458,5 @@ last((cons(1)(null)))
 
 any(ltt)((cons(1)((cons(2)(null)))))
 any(ltt)((cons(2)((cons(2)(null)))))
-all(ltt)((cons(1)((cons(2)(null)))))
-all(ltt)((cons(1)((cons(1)(null)))))
+assert((not((all(ltt)((cons(1)((cons(2)(null)))))))))
+assert((all(ltt)((cons(1)((cons(1)(null)))))))
