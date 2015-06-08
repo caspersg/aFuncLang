@@ -71,12 +71,14 @@ last=
   {l: equal (tail l) _}: head l
   l: last (tail l)
 
+# any in terms of filter
 any=
   p:
     _: false
     {l: p (head l)}: true
     l: filter p (tail l)
 
+# any in terms of foldr
 any=
   p:
     test= 

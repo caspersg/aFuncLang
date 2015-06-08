@@ -1444,6 +1444,10 @@
    },
    {
     "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " any in terms of filter"
    }
   ]
  },
@@ -1601,6 +1605,10 @@
      },
      {
       "tag": "emptyLine"
+     },
+     {
+      "tag": "comment",
+      "value": " any in terms of foldr"
      }
     ]
    }
