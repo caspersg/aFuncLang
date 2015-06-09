@@ -11,9 +11,11 @@ using haskell like syntax for functions and pattern matching in javascript
 - purely functional (unless using imported javascript)
 - dynamic typing (just javascript)
 - significant whitespace
-- left associative function application
+- left associative function application using whitespace
 - curried functions
 - limited pattern matching in function definitions
+- basic functional tools, map, foldr, cons etc
+- as much as possible of the language is written in itself
 
 
 ## fibonacci implementation
@@ -27,6 +29,7 @@ fib 10
 ```
 
 ## TODO
-- deal with js modules
 - destructuring in pattern matching
+- compile to actual map/hash if all patterns are values, so that maps can be iterated over
 - performance (lowest priority)
+- use actual javascript array/list. better performance and not restricted by max stack depth.
