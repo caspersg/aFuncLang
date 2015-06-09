@@ -59,8 +59,9 @@ head (cons 1 _)
 
 addTwo=
   n: add n 2
-
-map addTwo (cons 1 (cons 2 _))
+l= : cons 1 (cons 2 _)
+x= : map addTwo (l _)
+assertEqual (head (x _)) 3
 
 # null/nothing
 _

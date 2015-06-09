@@ -1,5 +1,7 @@
 var assert = require('assert')
 
+var assertEqual = function(actual) { return function(expected) { return assert.equal(actual, expected); } }
+
 // basic maths
 var add = function(x) { return function(y) { return x + y } }
 var subtract = function(x) { return function(y) { return x - y } }

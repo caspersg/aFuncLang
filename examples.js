@@ -1,5 +1,11 @@
 var assert = require('assert')
 
+var assertEqual = function(actual) {
+  return function(expected) {
+    return assert.equal(actual, expected);
+  }
+}
+
 // basic maths
 var add = function(x) {
   return function(y) {
@@ -378,7 +384,13 @@ var addTwo = function() {
   var n = arguments[0];
   return add(n)(2)
 }
-map(addTwo)((cons(1)((cons(2)(null)))))
+var l = function() {
+  return cons(1)((cons(2)(null)))
+}
+var x = function() {
+  return map(addTwo)((l(null)))
+}
+assertEqual((head((x(null)))))(3)
 
 // null/nothing
 null
