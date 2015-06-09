@@ -1,5 +1,4 @@
-# lamj
-lambdas for javascript.
+# lamj (LAMbdas for Javascript)
 
 an experimental, purely functional, language that transpiles to javascipt
 
