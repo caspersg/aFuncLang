@@ -1,5 +1,12 @@
 [
  {
+  "tag": "comment",
+  "value": " start examples"
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "application",
   "func": {
    "tag": "string",

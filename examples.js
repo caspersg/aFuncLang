@@ -42,8 +42,10 @@ var toFloat = function(s) {
   return parseFloat(s, 10)
 }
 var toBool = function(s) {
-  return s.toLowerCase() == "true"
-}
+    return s.toLowerCase() == "true"
+  }
+  // start prelude
+
 var xor = function() {
   var a = arguments[0];
   return function() {
@@ -377,6 +379,38 @@ var lessThanEqual = curry(jsLessThanEqual)
 var equal = curry(jsEqual)
 var greaterThan = not(lessThanEqual)
 var greaterThanEqual = not(lessThan)
+
+// some combinators
+var identity = function() {
+  var x = arguments[0];
+  return x
+}
+var kestrel = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return x
+  }
+}
+var thrush = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return y(x)
+  }
+}
+var cardinal = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return x(z)(y)
+    }
+  }
+}
+var thrush = cardinal(identity) // start examples
+
 "string"
 123
 var x = function() {

@@ -1,3 +1,5 @@
+# start prelude
+
 xor=
   a: b: or (and a (not b)) (and (not a) b)
 
@@ -181,4 +183,13 @@ lessThanEqual = curry jsLessThanEqual
 equal = curry jsEqual
 greaterThan = not lessThanEqual
 greaterThanEqual = not lessThan
+
+# some combinators
+identity= x: x
+kestrel= x: y: x
+thrush= x: y: y x
+cardinal= x: y: z: x z y
+thrush= cardinal identity
+quirky= x: y: z: z (x y)
+bluebird= x: y: z: x (y z)
 
