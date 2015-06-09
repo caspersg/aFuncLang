@@ -62,8 +62,23 @@ filter=
 # (define append
 #   (lambda (a b)
 #      (fold-right cons b a)))
+# haskell append
+#append :: [a] -> [a] -> [a]
+#append xs ys = foldr (:) ys xs
 append=
-  a: b: foldr cons b a
+  xs: ys: foldr cons ys xs
+
+# haskell concat
+#concat :: [[a]] -> [a]
+#concat xs = build (\c n -> foldr (\x y -> foldr c y x) n xs)
+# scala flatmap (same as haskell concatMap)
+#def flatMap[A, B](list: List[A])(f: A => List[B]): List[B] = list match {
+#  case (x::xs) => f(x) ++ flatMap(xs)(f)
+#  case _ => Nil
+#}
+concat=
+  _: _
+  l: append (head l) (concat (tail l))
 
 # alternative filter' p xs = foldr (\x xs -> if p x then x : xs else xs) [] xs
 filter=
@@ -111,4 +126,4 @@ listM_unit= x: cons x _
 
 # // bind :: (a -> [a]) -> ([a] -> [a])
 listM_bind=
-  f: foldr (compose append map f) _
+  f: l: concat (map f l)

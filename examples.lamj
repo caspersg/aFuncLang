@@ -121,9 +121,13 @@ assertEqual (head (listM_unit 1)) (head (cons 1 _))
 compose append map listAddOne
 append (map listAddOne)
 
-adder = : compose (listM_bind listAddOne) (listM_bind listAddOne)
+adder = l: compose (listM_bind listAddOne) (listM_bind listAddOne) l
 adder (listM_unit 1)
 
-#assertEqual (head (adder (listM_unit 1))) 2
+assertEqual (head (listM_bind listAddOne (listM_unit 1))) 2
+assertEqual (head (listM_bind listAddOne (listM_bind listAddOne (listM_unit 1)))) 3
+assertEqual (head (compose (listM_bind listAddOne) (listM_bind listAddOne) (listM_unit 1))) 3
+
+assertEqual (head (adder (listM_unit 1))) 3
 
 end= :1

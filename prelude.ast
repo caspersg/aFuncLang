@@ -1142,6 +1142,18 @@
      {
       "tag": "comment",
       "value": "      (fold-right cons b a)))"
+     },
+     {
+      "tag": "comment",
+      "value": " haskell append"
+     },
+     {
+      "tag": "comment",
+      "value": "append :: [a] -> [a] -> [a]"
+     },
+     {
+      "tag": "comment",
+      "value": "append xs ys = foldr (:) ys xs"
      }
     ]
    }
@@ -1155,14 +1167,14 @@
     "tag": "lambda",
     "param": {
      "tag": "symbol",
-     "value": "a"
+     "value": "xs"
     },
     "children": [
      {
       "tag": "lambda",
       "param": {
        "tag": "symbol",
-       "value": "b"
+       "value": "ys"
       },
       "children": [
        {
@@ -1183,14 +1195,14 @@
             "tag": "application",
             "next": {
              "tag": "reference",
-             "name": "b"
+             "name": "ys"
             },
             "children": [
              {
               "tag": "application",
               "next": {
                "tag": "reference",
-               "name": "a"
+               "name": "xs"
               },
               "children": [
                null
@@ -1198,6 +1210,160 @@
              }
             ]
            }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " haskell concat"
+   },
+   {
+    "tag": "comment",
+    "value": "concat :: [[a]] -> [a]"
+   },
+   {
+    "tag": "comment",
+    "value": "concat xs = build (\\c n -> foldr (\\x y -> foldr c y x) n xs)"
+   },
+   {
+    "tag": "comment",
+    "value": " scala flatmap (same as haskell concatMap)"
+   },
+   {
+    "tag": "comment",
+    "value": "def flatMap[A, B](list: List[A])(f: A => List[B]): List[B] = list match {"
+   },
+   {
+    "tag": "comment",
+    "value": "  case (x::xs) => f(x) ++ flatMap(xs)(f)"
+   },
+   {
+    "tag": "comment",
+    "value": "  case _ => Nil"
+   },
+   {
+    "tag": "comment",
+    "value": "}"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "concat",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "nothing",
+      "value": "null"
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "nothing",
+       "value": "null"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "l"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "append"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "head"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "l"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "concat"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "scope",
+               "value": {
+                "tag": "application",
+                "func": {
+                 "tag": "reference",
+                 "name": "tail"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "reference",
+                   "name": "l"
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           null
           ]
          }
         ]
@@ -2105,42 +2271,42 @@
     },
     "children": [
      {
-      "tag": "application",
-      "func": {
-       "tag": "reference",
-       "name": "foldr"
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "l"
       },
       "children": [
        {
         "tag": "application",
-        "next": {
-         "tag": "scope",
-         "value": {
+        "func": {
+         "tag": "reference",
+         "name": "concat"
+        },
+        "children": [
+         {
           "tag": "application",
-          "func": {
-           "tag": "reference",
-           "name": "compose"
-          },
-          "children": [
-           {
+          "next": {
+           "tag": "scope",
+           "value": {
             "tag": "application",
-            "next": {
+            "func": {
              "tag": "reference",
-             "name": "append"
+             "name": "map"
             },
             "children": [
              {
               "tag": "application",
               "next": {
                "tag": "reference",
-               "name": "map"
+               "name": "f"
               },
               "children": [
                {
                 "tag": "application",
                 "next": {
                  "tag": "reference",
-                 "name": "f"
+                 "name": "l"
                 },
                 "children": [
                  null
@@ -2150,15 +2316,6 @@
              }
             ]
            }
-          ]
-         }
-        },
-        "children": [
-         {
-          "tag": "application",
-          "next": {
-           "tag": "nothing",
-           "value": "null"
           },
           "children": [
            null

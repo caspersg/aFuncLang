@@ -160,11 +160,18 @@ var filter = function() {
   }
 }
 var append = function() {
-  var a = arguments[0];
+  var xs = arguments[0];
   return function() {
-    var b = arguments[0];
-    return foldr(cons)(b)(a)
+    var ys = arguments[0];
+    return foldr(cons)(ys)(xs)
   }
+}
+var concat = function() {
+  if (arguments[0] == null) {
+    return null
+  }
+  var l = arguments[0];
+  return append((head(l)))((concat((tail(l)))))
 }
 var filter = function() {
   var p = arguments[0];
@@ -281,7 +288,10 @@ var listM_unit = function() {
 // // bind :: (a -> [a]) -> ([a] -> [a])
 var listM_bind = function() {
   var f = arguments[0];
-  return foldr((compose(append)(map)(f)))(null)
+  return function() {
+    var l = arguments[0];
+    return concat((map(f)(l)))
+  }
 }
 "string"
 123
@@ -523,11 +533,16 @@ compose(append)(map)(listAddOne)
 append((map(listAddOne)))
 
 var adder = function() {
-  return compose((listM_bind(listAddOne)))((listM_bind(listAddOne)))
+  var l = arguments[0];
+  return compose((listM_bind(listAddOne)))((listM_bind(listAddOne)))(l)
 }
 adder((listM_unit(1)))
 
-//assertEqual (head (adder (listM_unit 1))) 2
+assertEqual((head((listM_bind(listAddOne)((listM_unit(1)))))))(2)
+assertEqual((head((listM_bind(listAddOne)((listM_bind(listAddOne)((listM_unit(1)))))))))(3)
+assertEqual((head((compose((listM_bind(listAddOne)))((listM_bind(listAddOne)))((listM_unit(1)))))))(3)
+
+assertEqual((head((adder((listM_unit(1)))))))(3)
 
 var end = function() {
   return 1
