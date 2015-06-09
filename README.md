@@ -30,5 +30,6 @@ fib 10
 ## TODO
 - destructuring in pattern matching
 - compile to actual map/hash if all patterns are values, so that maps can be iterated over
-- performance (lowest priority)
+- compile to other languages: groovy, ruby, python, perl?
 - use actual javascript array/list. better performance and not restricted by max stack depth.
+- performance (lowest priority)
