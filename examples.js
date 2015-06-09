@@ -133,16 +133,122 @@ var tail = function() {
     }
   }))
 }
-var compose = function() {
-  var fa = arguments[0];
+var I = function() {
+  var x = arguments[0];
+  return x
+}
+var K = function() {
+  var x = arguments[0];
   return function() {
-    var fb = arguments[0];
+    var y = arguments[0];
+    return x
+  }
+}
+var C = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
     return function() {
-      var x = arguments[0];
-      return fa((fb(x)))
+      var z = arguments[0];
+      return x(z)(y)
     }
   }
 }
+var T = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return y(x)
+  }
+}
+var T = C(I)
+var Q3 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return z((x(y)))
+    }
+  }
+}
+var B = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return x((y(z)))
+    }
+  }
+}
+var Q = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return y((x(z)))
+    }
+  }
+}
+var M = function() {
+  var x = arguments[0];
+  return x(x)
+}
+var S = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return x(z)((y(z)))
+    }
+  }
+}
+var U = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return y((x(x)(y)))
+  }
+}
+var E = function() {
+  return E
+}
+var WTR = function() {
+    var x = arguments[0];
+    return function() {
+      var y = arguments[0];
+      return function() {
+        var z = arguments[0];
+        return function() {
+          var w = arguments[0];
+          return x(y)(z)(w)(w)
+        }
+      }
+    }
+  }
+  //W**
+  // longer descriptive names
+var identity = I
+var kestrel = K
+var cardinal = C
+var thrush = T
+var quirkyBird = Q3
+var bluebird = B
+var compose = B
+var queerBird = Q
+var mockingBird = M
+var starling = S
+var turingBird = U
+var hopelesslyEgocentric = E
+var warblerTwiceRemoved = WTR
+
+
+// haskell map
+//map f = foldr ((:) . f) []
+
 var map = function() {
   var f = arguments[0];
   return foldr((compose(cons)(f)))(null)
@@ -378,38 +484,7 @@ var lessThan = curry(jsLessThan)
 var lessThanEqual = curry(jsLessThanEqual)
 var equal = curry(jsEqual)
 var greaterThan = not(lessThanEqual)
-var greaterThanEqual = not(lessThan)
-
-// some combinators
-var identity = function() {
-  var x = arguments[0];
-  return x
-}
-var kestrel = function() {
-  var x = arguments[0];
-  return function() {
-    var y = arguments[0];
-    return x
-  }
-}
-var thrush = function() {
-  var x = arguments[0];
-  return function() {
-    var y = arguments[0];
-    return y(x)
-  }
-}
-var cardinal = function() {
-  var x = arguments[0];
-  return function() {
-    var y = arguments[0];
-    return function() {
-      var z = arguments[0];
-      return x(z)(y)
-    }
-  }
-}
-var thrush = cardinal(identity) // start examples
+var greaterThanEqual = not(lessThan) // start examples
 
 "string"
 123
@@ -759,8 +834,16 @@ assertEqual((pow(2)(4)))(8)
 var s = "string"
 var l = s.length
 
+// try out the combinators
 
-
-var end = function() {
-  return 1
+// just like B, but always returns _
+var nil = function() {
+  if (arguments[0] == "toString") {
+    return "nil"
+  }
+  return nil
 }
+nil(nil)(nil)("something")
+
+// last line can't be a comment, bug in the parser
+null

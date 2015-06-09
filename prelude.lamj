@@ -39,24 +39,48 @@ head =
 tail =
   z: z (p: q: q)
 
-# haskell fold
-#foldl f z []     = z
-#foldl f z (x:xs) = foldl f (f z x) xs
 
-#foldr f z []     = z
-#foldr f z (x:xs) = f x (foldr f z xs)
+# some combinators
+I = x: x
+K = x: y: x
+C = x: y: z: x z y
+T = x: y: y x
+T = C I
+Q3 = x: y: z: z (x y)
+B = x: y: z: x (y z)
+Q = x: y: z: y (x z)
+M = x: x x
+S = x: y: z: x z (y z)
+U = x: y: y (x x y)
+E = : E
+WTR = x: y: z: w: x y z w w
+#W**
+# longer descriptive names
+identity = I
+kestrel = K
+cardinal = C
+thrush = T
+quirkyBird = Q3
+bluebird = B
+compose = B
+queerBird = Q
+mockingBird = M
+starling = S
+turingBird = U
+hopelesslyEgocentric = E
+warblerTwiceRemoved = WTR
 
-# haskell compose
-#f (g x) = (f . g) x
 
-compose=
-  fa: fb: x: fa (fb x)
-    
 # haskell map
 #map f = foldr ((:) . f) []
 
 map=
   f: foldr (compose cons f) _
+
+
+# haskell fold
+#foldl f z []     = z
+#foldl f z (x:xs) = foldl f (f z x) xs
 
 foldl=
   f:
@@ -64,6 +88,8 @@ foldl=
       _: z
       l: foldl f (f z (head l)) (tail l)
 
+#foldr f z []     = z
+#foldr f z (x:xs) = f x (foldr f z xs)
 foldr=
   f:
     z:
@@ -183,13 +209,4 @@ lessThanEqual = curry jsLessThanEqual
 equal = curry jsEqual
 greaterThan = not lessThanEqual
 greaterThanEqual = not lessThan
-
-# some combinators
-identity= x: x
-kestrel= x: y: x
-thrush= x: y: y x
-cardinal= x: y: z: x z y
-thrush= cardinal identity
-quirky= x: y: z: z (x y)
-bluebird= x: y: z: x (y z)
 

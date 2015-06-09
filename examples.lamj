@@ -210,6 +210,14 @@ assertEqual (pow 2 4) 8
 s = "string"
 l = s.length
 
+# try out the combinators
 
+# just like B, but always returns _
+nil=
+  "toString":"nil"
+  :nil
 
-end= :1
+nil nil nil "something"
+
+# last line can't be a comment, bug in the parser
+_

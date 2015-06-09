@@ -6749,15 +6749,42 @@
   "tag": "emptyLine"
  },
  {
-  "tag": "emptyLine"
+  "tag": "comment",
+  "value": " try out the combinators"
  },
  {
   "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " just like B, but always returns _"
  },
  {
   "tag": "assignment",
-  "name": "end",
+  "name": "nil",
   "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"toString\""
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "string",
+       "value": "\"nil\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
    {
     "tag": "lambda",
     "param": null,
@@ -6765,15 +6792,70 @@
      {
       "tag": "application",
       "func": {
-       "tag": "number",
-       "value": 1
+       "tag": "reference",
+       "name": "nil"
       },
       "children": [
        null
       ]
      }
     ]
+   },
+   {
+    "tag": "emptyLine"
    }
   ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "nil"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "nil"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "nil"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"something\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " last line can't be a comment, bug in the parser"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "nothing",
+   "value": "null"
+  },
+  "children": []
  }
 ]
