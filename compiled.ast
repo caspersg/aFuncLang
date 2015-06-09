@@ -5565,6 +5565,267 @@
   "tag": "emptyLine"
  },
  {
+  "tag": "comment",
+  "value": " assignment with a lambda, always wraps in a function, so _ to unwrap (ie apply that func)"
+ },
+ {
+  "tag": "assignment",
+  "name": "curried",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "compose"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "add"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "number",
+             "value": 1
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "add"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "number",
+               "value": 1
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "curried"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "nothing",
+         "value": "null"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 2
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 4
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " assignment without a lambda"
+ },
+ {
+  "tag": "assignment",
+  "name": "curried",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "compose"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "add"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 1
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "add"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "number",
+             "value": 1
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "curried"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 2
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 4
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "assignment",
   "name": "end",
   "children": [

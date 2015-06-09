@@ -74,7 +74,11 @@ exports.compileToJS = (ast) ->
 
   compileAssignment = (assignment) ->
     children = exports.filterNull assignment.children
-    "var #{assignment.name} = #{compileLambdaGroup children}"
+    if children && children[0]?.tag isnt "lambda"
+      rest = compileExpression children[0]
+    else
+      rest = compileLambdaGroup children
+    "var #{assignment.name} = #{rest}"
 
   compileExports = (assignment) ->
     children = exports.filterNull assignment.children

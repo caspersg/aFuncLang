@@ -653,6 +653,16 @@ assertEqual((toBool("True")))(true)
 assertEqual((toBool("false")))(false)
 assertEqual((toBool("other stuff")))(false)
 
+// assignment with a lambda, always wraps in a function, so _ to unwrap (ie apply that func)
+var curried = function() {
+  return compose((add(1)))((add(1)))
+}
+assertEqual((curried(null)(2)))(4)
+
+// assignment without a lambda
+var curried = compose((add(1)))((add(1)))
+assertEqual((curried(2)))(4)
+
 var end = function() {
   return 1
 }
