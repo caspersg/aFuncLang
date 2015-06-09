@@ -27,7 +27,7 @@ exports.parse = (grammerFile, inputFunc, output) ->
   exports.getFile grammerFile, (grammer) ->
     parser = PEG.buildParser(grammer)
     inputFunc (source) ->
-      console.log "soure='#{source}'"
+      #console.log "soure='#{source}'"
       try
         output parser.parse source.trim()
       catch e
@@ -114,20 +114,20 @@ exports.compileToJS = (ast) ->
   expressions
 
 grammerFile = process.argv[2]
-console.log "grammerFile=#{grammerFile}"
+#console.log "grammerFile=#{grammerFile}"
 
 compiledJsFile = process.argv[3]
 
 exports.parse grammerFile, exports.getPrelude, (preludeAst) ->
-  console.log "preludeAst=#{toString preludeAst}"
+  #console.log "preludeAst=#{toString preludeAst}"
   fs.writeFileSync "prelude.ast", toString(preludeAst)
   exports.parse grammerFile, exports.readStdIn, (ast) ->
-    console.log "ast=#{toString ast}"
+    #console.log "ast=#{toString ast}"
     fs.writeFileSync "compiled.ast", toString(ast)
     if compiledJsFile
       exports.getFile 'predefined.js', (predefined) ->
         compiled = predefined + exports.compileToJS(preludeAst) + exports.compileToJS(ast)
         jscode = beautify(compiled, { indent_size: 2 })
-        console.log "javascript=#{jscode}"
+        #console.log "javascript=#{jscode}"
         fs.writeFileSync compiledJsFile, jscode
 
