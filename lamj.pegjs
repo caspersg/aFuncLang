@@ -64,7 +64,9 @@ tail
     { return {tag:"application", next:next, children:[tail] } }
 
 assignment
-  = name:symbol _ "=" _ expression:expression?
+  = "exports" _ name:symbol _ "=" _ expression:expression?
+    { return { tag:"exports", name:name, children:[expression]} }
+  / name:symbol _ "=" _ expression:expression?
     { return { tag:"assignment", name:name, children:[expression]} }
 
 lambda
@@ -80,8 +82,8 @@ param
     { return { tag:"symbol", value:value } }
 
 symbol
-  = name:[a-zA-Z]+
-    { return name.join("") }
+  = first:[a-zA-Z] name:[a-zA-Z0-9._]*
+    { return first+name.join("") }
 
 scope
   = "(" _ value:expression _ ")"

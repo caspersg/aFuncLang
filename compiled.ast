@@ -2473,5 +2473,56 @@
     ]
    }
   ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " javascript modules"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "require"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "string",
+     "value": "\"./predefined\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "exports",
+  "name": "myFunc",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "string",
+       "value": "\"nothing\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
  }
 ]

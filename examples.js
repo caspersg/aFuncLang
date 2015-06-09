@@ -462,3 +462,10 @@ assert((not((all(ltt)((cons(1)((cons(2)(null)))))))))
 assert((all(ltt)((cons(1)((cons(1)(null)))))))
 
 assert((equal((add("ab")("cd")))("abcd")))
+
+// javascript modules
+require("./predefined")
+
+exports.myFunc = function() {
+  return "nothing"
+}

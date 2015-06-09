@@ -53,6 +53,7 @@ exports.compileToJS = (ast) ->
             when 'reference' then "#{expr.name}"
             when 'scope' then "(#{compileExpression expr.value})"
             when 'assignment' then compileAssignment expr
+            when 'exports' then compileExports expr
             when 'lambda' then compileLambdaGroup [expr]
             when 'comment' then "//#{expr.value}"
             when 'emptyLine' then ""
@@ -73,6 +74,10 @@ exports.compileToJS = (ast) ->
   compileAssignment = (assignment) ->
     children = exports.filterNull assignment.children
     "var #{assignment.name} = #{compileLambdaGroup children}"
+
+  compileExports = (assignment) ->
+    children = exports.filterNull assignment.children
+    "exports.#{assignment.name} = #{compileLambdaGroup children}"
 
   compileLambdaGroup = (lambdaList) ->
     values = (compileLambda lambda for lambda in lambdaList).join " "

@@ -103,3 +103,7 @@ assert (all ltt (cons 1 (cons 1 _)))
 
 assert (equal (add "ab" "cd") "abcd")
 
+# javascript modules
+require "./predefined"
+
+exports myFunc= :"nothing"
