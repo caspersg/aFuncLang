@@ -4612,8 +4612,8 @@
      {
       "tag": "application",
       "func": {
-       "tag": "reference",
-       "name": "false"
+       "tag": "string",
+       "value": "\"other\""
       },
       "children": [
        null
@@ -4740,7 +4740,7 @@
         "tag": "application",
         "next": {
          "tag": "string",
-         "value": "\"\""
+         "value": "\"true\""
         },
         "children": [
          null
@@ -4753,8 +4753,100 @@
      {
       "tag": "application",
       "next": {
+       "tag": "string",
+       "value": "\"other\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
        "tag": "reference",
-       "name": "false"
+       "name": "isTrue"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"false\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"other\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "isTrue"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "nothing",
+         "value": "null"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"other\""
       },
       "children": [
        null
@@ -5194,7 +5286,280 @@
   "tag": "emptyLine"
  },
  {
-  "tag": "emptyLine"
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "toInt"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"1\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "toFloat"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"1.1\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 1.1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "toBool"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"true\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "true"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "toBool"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"True\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "true"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "toBool"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"false\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "false"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "toBool"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"other stuff\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "false"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
  },
  {
   "tag": "emptyLine"

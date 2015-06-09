@@ -18,3 +18,8 @@ var not = function(x) { return ! x }
 var lessThan = function(x) { return function(y) { return x < y } }
 var lessThanEqual = function(x) { return function(y) { return x <= y } }
 var equal = function(x) { return function(y) { return x == y } }
+
+// string parsers
+var toInt = function(s) { return parseInt(s, 10)}
+var toFloat = function(s) { return parseFloat(s, 10)}
+var toBool = function(s) { return s.toLowerCase() == "true" }

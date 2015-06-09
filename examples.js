@@ -64,6 +64,17 @@ var equal = function(x) {
     return x == y
   }
 }
+
+// string parsers
+var toInt = function(s) {
+  return parseInt(s, 10)
+}
+var toFloat = function(s) {
+  return parseFloat(s, 10)
+}
+var toBool = function(s) {
+  return s.toLowerCase() == "true"
+}
 var xor = function() {
   var a = arguments[0];
   return function() {
@@ -604,11 +615,13 @@ var isTrue = function() {
     return false
   }
   var x = arguments[0];
-  return false
+  return "other"
 }
 assertEqual((isTrue(true)))(true)
 assertEqual((isTrue(false)))(false)
-assertEqual((isTrue("")))(false)
+assertEqual((isTrue("true")))("other")
+assertEqual((isTrue("false")))("other")
+assertEqual((isTrue(null)))("other")
 
 var truthy = function() {
   if (!arguments[0]) {
@@ -633,7 +646,12 @@ assertEqual((truthy(null)))(false)
 assertEqual((truthy("")))(false)
 
 
-
+assertEqual((toInt("1")))(1)
+assertEqual((toFloat("1.1")))(1.1)
+assertEqual((toBool("true")))(true)
+assertEqual((toBool("True")))(true)
+assertEqual((toBool("false")))(false)
+assertEqual((toBool("other stuff")))(false)
 
 var end = function() {
   return 1

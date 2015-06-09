@@ -144,11 +144,13 @@ assertEqual (compose (maybeM_bind addOne) (maybeM_bind addOne) (nothing) "isJust
 isTrue=
   true: true
   false: false
-  x: false
+  x: "other"
 
 assertEqual (isTrue true) true
 assertEqual (isTrue false) false
-assertEqual (isTrue "") false
+assertEqual (isTrue "true") "other"
+assertEqual (isTrue "false") "other"
+assertEqual (isTrue _) "other"
 
 truthy=
   _: false
@@ -164,6 +166,11 @@ assertEqual (truthy _) false
 assertEqual (truthy "") false
 
 
-
+assertEqual (toInt "1") 1
+assertEqual (toFloat "1.1") 1.1
+assertEqual (toBool "true") true
+assertEqual (toBool "True") true
+assertEqual (toBool "false") false
+assertEqual (toBool "other stuff") false
 
 end= :1
