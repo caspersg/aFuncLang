@@ -123,7 +123,23 @@ listM= :_
 #  // unit :: a -> [a]
 listM_unit= x: cons x _
 
-
 # // bind :: (a -> [a]) -> ([a] -> [a])
 listM_bind=
   f: l: concat (map f l)
+
+#maybe
+nothing=
+  "isJust": false
+  "fromJust": _
+just=
+  a: 
+    "isJust": true
+    "fromJust": a
+
+maybeM_unit= x: just x
+
+maybeM_bind=
+  f:
+    {x: x "isJust"}: just (f (x "fromJust"))
+    n: nothing
+

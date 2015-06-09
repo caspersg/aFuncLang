@@ -3859,6 +3859,341 @@
   "tag": "emptyLine"
  },
  {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "nothing"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"isJust\""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "false"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "just"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 1
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "string",
+           "value": "\"isJust\""
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "true"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "maybeM_unit"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 1
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "string",
+           "value": "\"isJust\""
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "true"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "maybeM_unit"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 1
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "string",
+           "value": "\"fromJust\""
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "maybeM_bind"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "add"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "number",
+                 "value": 1
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "maybeM_unit"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "number",
+               "value": 1
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "string",
+             "value": "\"isJust\""
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "true"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "assignment",
   "name": "end",
   "children": [

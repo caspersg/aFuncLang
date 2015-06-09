@@ -284,13 +284,51 @@ var listM_unit = function() {
   return cons(x)(null)
 }
 
-
 // // bind :: (a -> [a]) -> ([a] -> [a])
 var listM_bind = function() {
   var f = arguments[0];
   return function() {
     var l = arguments[0];
     return concat((map(f)(l)))
+  }
+}
+var nothing = function() {
+  if (arguments[0] == "isJust") {
+    return false
+  }
+  if (arguments[0] == "fromJust") {
+    return null
+  }
+}
+var just = function() {
+  var a = arguments[0];
+  return function() {
+    if (arguments[0] == "isJust") {
+      return true
+    }
+    if (arguments[0] == "fromJust") {
+      return a
+    }
+  }
+}
+var maybeM_unit = function() {
+  var x = arguments[0];
+  return just(x)
+}
+
+var maybeM_bind = function() {
+  var f = arguments[0];
+  return function() {
+    var x = arguments[0];
+    var test = function() {
+      var x = arguments[0];
+      return x("isJust")
+    };
+    if (test(x)) {
+      return just((f((x("fromJust")))))
+    }
+    var n = arguments[0];
+    return nothing
   }
 }
 "string"
@@ -543,6 +581,16 @@ assertEqual((head((listM_bind(listAddOne)((listM_bind(listAddOne)((listM_unit(1)
 assertEqual((head((compose((listM_bind(listAddOne)))((listM_bind(listAddOne)))((listM_unit(1)))))))(3)
 
 assertEqual((head((adder((listM_unit(1)))))))(3)
+
+assertEqual((nothing("isJust")))(false)
+assertEqual((just(1)("isJust")))(true)
+
+assertEqual((maybeM_unit(1)("isJust")))(true)
+assertEqual((maybeM_unit(1)("fromJust")))(1)
+assertEqual((maybeM_bind((function() {
+  var x = arguments[0];
+  return add(x)(1)
+}))((maybeM_unit(1)))("isJust")))(true)
 
 var end = function() {
   return 1

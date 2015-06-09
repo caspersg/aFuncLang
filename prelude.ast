@@ -2253,9 +2253,6 @@
   "tag": "emptyLine"
  },
  {
-  "tag": "emptyLine"
- },
- {
   "tag": "comment",
   "value": " // bind :: (a -> [a]) -> ([a] -> [a])"
  },
@@ -2321,6 +2318,287 @@
            null
           ]
          }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": "maybe"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "nothing",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"isJust\""
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "false"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "match",
+     "value": {
+      "tag": "string",
+      "value": "\"fromJust\""
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "nothing",
+       "value": "null"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "just",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "a"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "match",
+       "value": {
+        "tag": "string",
+        "value": "\"isJust\""
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "true"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "match",
+       "value": {
+        "tag": "string",
+        "value": "\"fromJust\""
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "a"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "maybeM_unit",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "just"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "x"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "assignment",
+  "name": "maybeM_bind",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "f"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "lambdaMatch",
+       "value": {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "x"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "string",
+             "value": "\"isJust\""
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "just"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "f"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "scope",
+               "value": {
+                "tag": "application",
+                "func": {
+                 "tag": "reference",
+                 "name": "x"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "string",
+                   "value": "\"fromJust\""
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "n"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "nothing"
+        },
+        "children": [
+         null
         ]
        }
       ]
