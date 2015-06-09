@@ -719,6 +719,14 @@ assertEqual((min(1)(2)))(1)
 assertEqual((max(1)(2)))(2)
 assertEqual((pow(2)(4)))(8)
 
+// try method calls on js object
+// use . to trick lamj into thinking s.length is a variable
+// only works on variable names
+var s = "string"
+var l = s.length
+
+
+
 var end = function() {
   return 1
 }

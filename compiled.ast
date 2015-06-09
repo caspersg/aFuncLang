@@ -6695,6 +6695,59 @@
   "tag": "emptyLine"
  },
  {
+  "tag": "comment",
+  "value": " try method calls on js object"
+ },
+ {
+  "tag": "comment",
+  "value": " use . to trick lamj into thinking s.length is a variable"
+ },
+ {
+  "tag": "comment",
+  "value": " only works on variable names"
+ },
+ {
+  "tag": "assignment",
+  "name": "s",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "string",
+     "value": "\"string\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "l",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "s.length"
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "assignment",
   "name": "end",
   "children": [
