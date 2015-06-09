@@ -84,8 +84,7 @@ exports.compileToJS = (ast) ->
     values = (compileLambda lambda for lambda in lambdaList).join " "
     "function(){ #{values} }"
 
-  compileLambda = (lambda) ->
-    children = exports.filterNull lambda.children
+  compileLambdaBody = (children) ->
     if children && children[0]?.tag isnt "lambda"
       kids = (compileExpression child for child in children)
       filtered = exports.filterNull kids
@@ -94,8 +93,14 @@ exports.compileToJS = (ast) ->
       rest = filtered.join " "
     else if children
       rest = "return #{compileLambdaGroup children}"
+
+  compileLambda = (lambda) ->
+    children = exports.filterNull lambda.children
+    rest = compileLambdaBody children
     if lambda.param?.tag == 'match'
       "if(arguments[0] == #{lambda.param.value.value}) { #{rest} }"
+    else if lambda.param?.tag == 'nothingMatch'
+      "if(!arguments[0]) { #{rest} }"
     else if lambda.param?.tag == 'lambdaMatch'
       # variable defined in lambdaMatch must be available to rest of lambda
       lambdaVariableName = lambda.param.value.param.value

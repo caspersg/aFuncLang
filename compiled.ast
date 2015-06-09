@@ -4774,32 +4774,10 @@
    {
     "tag": "lambda",
     "param": {
-     "tag": "match",
+     "tag": "nothingMatch",
      "value": {
       "tag": "nothing",
       "value": "null"
-     }
-    },
-    "children": [
-     {
-      "tag": "application",
-      "func": {
-       "tag": "reference",
-       "name": "false"
-      },
-      "children": [
-       null
-      ]
-     }
-    ]
-   },
-   {
-    "tag": "lambda",
-    "param": {
-     "tag": "match",
-     "value": {
-      "tag": "bool",
-      "value": false
      }
     },
     "children": [
@@ -5023,6 +5001,52 @@
   ]
  },
  {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "truthy"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\" \""
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "true"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
   "tag": "emptyLine"
  },
  {
@@ -5140,52 +5164,6 @@
         "next": {
          "tag": "string",
          "value": "\"\""
-        },
-        "children": [
-         null
-        ]
-       }
-      ]
-     }
-    },
-    "children": [
-     {
-      "tag": "application",
-      "next": {
-       "tag": "reference",
-       "name": "false"
-      },
-      "children": [
-       null
-      ]
-     }
-    ]
-   }
-  ]
- },
- {
-  "tag": "application",
-  "func": {
-   "tag": "reference",
-   "name": "assertEqual"
-  },
-  "children": [
-   {
-    "tag": "application",
-    "next": {
-     "tag": "scope",
-     "value": {
-      "tag": "application",
-      "func": {
-       "tag": "reference",
-       "name": "truthy"
-      },
-      "children": [
-       {
-        "tag": "application",
-        "next": {
-         "tag": "string",
-         "value": "\" \""
         },
         "children": [
          null

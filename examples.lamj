@@ -152,17 +152,16 @@ assertEqual (isTrue "") false
 
 truthy=
   _: false
-  false: false
   {x: x}: true
 
 assertEqual (truthy true) true
 assertEqual (truthy "a") true
 assertEqual (truthy (cons 1 _)) true
+assertEqual (truthy " ") true
 
 assertEqual (truthy false) false
 assertEqual (truthy _) false
 assertEqual (truthy "") false
-assertEqual (truthy " ") false
 
 
 

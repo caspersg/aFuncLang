@@ -74,12 +74,14 @@ lambda
     { return { tag:"lambda", param:param, children:[expression]} }
 
 param
-  = value:atom
+  = value:valueAtom
     { return { tag:"match", value:value } }
   / "{" _ value:lambda _ "}"
     { return { tag:"lambdaMatch", value:value } }
   / value:symbol
     { return { tag:"symbol", value:value } }
+  / value:nothing
+    { return { tag:"nothingMatch", value:value } }
 
 symbol
   = first:[a-zA-Z] name:[a-zA-Z0-9._]*
@@ -90,16 +92,24 @@ scope
     { return { tag:"scope", value:value } }
 
 atom
+  = value:valueAtom
+    { return value }
+  / value:nothing
+    { return value }
+
+valueAtom
   = value:aFloat
     { return { tag:"number", value: value } }
   / value:integer
     { return { tag:"number", value: value } }
   / value:string
     { return { tag:"string", value: value } }
-  / [_]
-    { return { tag:"nothing", value: 'null' } }
   / value:bool
     { return { tag:"bool", value: value } }
+
+nothing
+  = [_]
+    { return { tag:"nothing", value: 'null' } }
 
 string
   = quotation_mark chars:characters* quotation_mark

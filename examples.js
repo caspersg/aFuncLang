@@ -120,7 +120,7 @@ var foldl = function() {
   return function() {
     var z = arguments[0];
     return function() {
-      if (arguments[0] == null) {
+      if (!arguments[0]) {
         return z
       }
       var l = arguments[0];
@@ -133,7 +133,7 @@ var foldr = function() {
   return function() {
     var z = arguments[0];
     return function() {
-      if (arguments[0] == null) {
+      if (!arguments[0]) {
         return z
       }
       var l = arguments[0];
@@ -144,7 +144,7 @@ var foldr = function() {
 var filter = function() {
   var p = arguments[0];
   return function() {
-    if (arguments[0] == null) {
+    if (!arguments[0]) {
       return null
     }
     var l = arguments[0];
@@ -167,7 +167,7 @@ var append = function() {
   }
 }
 var concat = function() {
-  if (arguments[0] == null) {
+  if (!arguments[0]) {
     return null
   }
   var l = arguments[0];
@@ -196,7 +196,7 @@ var filter = function() {
   return foldr(test)(null)
 }
 var last = function() {
-  if (arguments[0] == null) {
+  if (!arguments[0]) {
     return null
   }
   var l = arguments[0];
@@ -213,7 +213,7 @@ var last = function() {
 var any = function() {
   var p = arguments[0];
   return function() {
-    if (arguments[0] == null) {
+    if (!arguments[0]) {
       return false
     }
     var l = arguments[0];
@@ -611,10 +611,7 @@ assertEqual((isTrue(false)))(false)
 assertEqual((isTrue("")))(false)
 
 var truthy = function() {
-  if (arguments[0] == null) {
-    return false
-  }
-  if (arguments[0] == false) {
+  if (!arguments[0]) {
     return false
   }
   var x = arguments[0];
@@ -629,11 +626,11 @@ var truthy = function() {
 assertEqual((truthy(true)))(true)
 assertEqual((truthy("a")))(true)
 assertEqual((truthy((cons(1)(null)))))(true)
+assertEqual((truthy(" ")))(true)
 
 assertEqual((truthy(false)))(false)
 assertEqual((truthy(null)))(false)
 assertEqual((truthy("")))(false)
-assertEqual((truthy(" ")))(false)
 
 
 
