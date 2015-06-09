@@ -159,6 +159,13 @@ var filter = function() {
     return filter(p)((tail(l)))
   }
 }
+var append = function() {
+  var a = arguments[0];
+  return function() {
+    var b = arguments[0];
+    return foldr((cons(a)(b)))(null)
+  }
+}
 var filter = function() {
   var p = arguments[0];
   var test = function() {
@@ -390,7 +397,7 @@ var l = function() {
 var x = function() {
   return map(addTwo)((l(null)))
 }
-assertEqual((head((x(null)))))(3)
+assertEqual((head((x(null)))))(4)
 
 // null/nothing
 null
