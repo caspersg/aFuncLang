@@ -2,62 +2,36 @@ var assert = require('assert')
 var curry = require('lodash.curry')
 
 // basic maths
-var add = function(x) {
-  return function(y) {
-    return x + y
-  }
+var jsPlus = function(x, y) {
+  return x + y
 }
-var subtract = function(x) {
-  return function(y) {
-    return x - y
-  }
+var jsMinus = function(x, y) {
+  return x - y
 }
-var multiply = function(x) {
-  return function(y) {
-    return x * y
-  }
+var jsMultiply = function(x, y) {
+  return x * y
 }
-var divide = function(x) {
-  return function(y) {
-    return x / y
-  }
+var jsDivide = function(x, y) {
+  return x / y
 }
-var modulus = function(x) {
-  return function(y) {
-    return x % y
-  }
+var jsModulus = function(x, y) {
+  return x % y
 }
 
 // boolean
-var and = function(x) {
-  return function(y) {
-    return x && y
-  }
-}
-var or = function(x) {
-  return function(y) {
-    return x || y
-  }
-}
-var not = function(x) {
-  return !x
-}
+//var and = function(x) { return function(y) { return x && y } }
+//var or = function(x) { return function(y) { return x || y } }
+//var not = function(x) { return ! x }
 
 // comparisons
-var lessThan = function(x) {
-  return function(y) {
-    return x < y
-  }
+var jsLessThan = function(x, y) {
+  return x < y
 }
-var lessThanEqual = function(x) {
-  return function(y) {
-    return x <= y
-  }
+var jsLessThanEqual = function(x, y) {
+  return x <= y
 }
-var equal = function(x) {
-  return function(y) {
-    return x == y
-  }
+var jsEqual = function(x, y) {
+  return x == y
 }
 
 // string parsers
@@ -91,7 +65,7 @@ var equivilant = function() {
     return not((xor(a)(b)))
   }
 }
-var either = function() {
+var or = function() {
   if (!arguments[0]) {
     return function() {
       var b = arguments[0];
@@ -111,7 +85,7 @@ var not = function() {
   var x = arguments[0];
   return false
 }
-var both = function() {
+var and = function() {
   if (!arguments[0]) {
     return function() {
       var b = arguments[0];
@@ -388,6 +362,18 @@ var maybeM_bind = function() {
   }
 }
 var assertEqual = curry(assert.equal)
+  // maths
+var add = curry(jsPlus)
+var subtract = curry(jsMinus)
+var multiply = curry(jsMultiply)
+var divide = curry(jsDivide)
+var modulus = curry(jsModulus)
+  // comparison
+var lessThan = curry(jsLessThan)
+var lessThanEqual = curry(jsLessThanEqual)
+var equal = curry(jsEqual)
+var greaterThan = not(lessThanEqual)
+var greaterThanEqual = not(lessThan)
 "string"
 123
 var x = function() {
@@ -603,6 +589,9 @@ any(ltt)((cons(2)((cons(2)(null)))))
 assert((not((all(ltt)((cons(1)((cons(2)(null)))))))))
 assert((all(ltt)((cons(1)((cons(1)(null)))))))
 
+assert((equal(1)(1)))
+assertEqual((add(1)(1)))(2)
+assertEqual((add("ab")("cd")))("abcd")
 assert((equal((add("ab")("cd")))("abcd")))
 
 // javascript modules
@@ -709,20 +698,18 @@ assertEqual((curried(null)(2)))(4)
 var curried = compose((add(1)))((add(1)))
 assertEqual((curried(2)))(4)
 
-assertEqual((either(1)(2)))(1)
-assertEqual((either(null)(2)))(2)
-assertEqual((either(null)(null)))(null)
+assertEqual((or(1)(2)))(1)
+assertEqual((or(1)(null)))(1)
+assertEqual((or(null)(2)))(2)
+assertEqual((or(null)(null)))(null)
 
-assertEqual((both(1)(2)))(true)
-assertEqual((both(null)(2)))(false)
-assertEqual((both(null)(null)))(false)
+assertEqual((and(1)(2)))(true)
+assertEqual((and(null)(2)))(false)
+assertEqual((and(1)(null)))(false)
+assertEqual((and(null)(null)))(false)
 
 assertEqual((not(1)))(false)
 assertEqual((not(null)))(true)
-
-assertEqual((or(1)(2)))(1)
-assertEqual((or(null)(2)))(2)
-assertEqual((or(null)(null)))(null)
 
 var end = function() {
   return 1

@@ -296,7 +296,7 @@
  },
  {
   "tag": "assignment",
-  "name": "either",
+  "name": "or",
   "children": [
    {
     "tag": "lambda",
@@ -414,7 +414,7 @@
  },
  {
   "tag": "assignment",
-  "name": "both",
+  "name": "and",
   "children": [
    {
     "tag": "lambda",
@@ -2988,6 +2988,264 @@
       "next": {
        "tag": "reference",
        "name": "assert.equal"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "comment",
+  "value": " maths"
+ },
+ {
+  "tag": "assignment",
+  "name": "add",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsPlus"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "subtract",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsMinus"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "multiply",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsMultiply"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "divide",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsDivide"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "modulus",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsModulus"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "comment",
+  "value": " comparison"
+ },
+ {
+  "tag": "assignment",
+  "name": "lessThan",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsLessThan"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "lessThanEqual",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsLessThanEqual"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "equal",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "jsEqual"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "greaterThan",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "not"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "lessThanEqual"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "greaterThanEqual",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "not"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "lessThan"
       },
       "children": [
        null

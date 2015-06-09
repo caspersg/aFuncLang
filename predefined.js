@@ -2,21 +2,21 @@ var assert = require('assert')
 var curry = require('lodash.curry')
 
 // basic maths
-var add = function(x) { return function(y) { return x + y } }
-var subtract = function(x) { return function(y) { return x - y } }
-var multiply = function(x) { return function(y) { return x * y } }
-var divide = function(x) { return function(y) { return x / y } }
-var modulus = function(x) { return function(y) { return x % y } }
+var jsPlus = function(x,y) { return x + y }
+var jsMinus = function(x,y) { return x - y }
+var jsMultiply = function(x,y) { return x * y }
+var jsDivide = function(x,y) { return x / y }
+var jsModulus = function(x,y) { return x % y }
 
 // boolean
-var and = function(x) { return function(y) { return x && y } }
-var or = function(x) { return function(y) { return x || y } }
-var not = function(x) { return ! x }
+//var and = function(x) { return function(y) { return x && y } }
+//var or = function(x) { return function(y) { return x || y } }
+//var not = function(x) { return ! x }
 
 // comparisons
-var lessThan = function(x) { return function(y) { return x < y } }
-var lessThanEqual = function(x) { return function(y) { return x <= y } }
-var equal = function(x) { return function(y) { return x == y } }
+var jsLessThan = function(x,y) { return x < y }
+var jsLessThanEqual = function(x,y) { return x <= y }
+var jsEqual = function(x,y) { return x == y }
 
 // string parsers
 var toInt = function(s) { return parseInt(s, 10)}

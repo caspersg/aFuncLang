@@ -8,7 +8,7 @@ equivilant=
   a: b: not (xor a b)
 
 # an alternative implementation for basic algebra
-either=
+or=
   _: b: b
   a: b: a
 
@@ -16,7 +16,7 @@ not=
   _: true
   x: false
 
-both=
+and=
   _: b: false
   a:
     _: false
@@ -166,3 +166,16 @@ maybeM_bind=
 
 # curry some useful javascript functions
 assertEqual = curry assert.equal
+# maths
+add = curry jsPlus
+subtract = curry jsMinus
+multiply = curry jsMultiply
+divide = curry jsDivide
+modulus = curry jsModulus
+# comparison
+lessThan = curry jsLessThan
+lessThanEqual = curry jsLessThanEqual
+equal = curry jsEqual
+greaterThan = not lessThanEqual
+greaterThanEqual = not lessThan
+
