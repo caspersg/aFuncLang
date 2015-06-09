@@ -133,8 +133,11 @@ assertEqual (head (adder (listM_unit 1))) 3
 assertEqual (nothing "isJust") false
 assertEqual (just 1 "isJust") true
 
+addOne = x: add x 1
 assertEqual (maybeM_unit 1 "isJust") true
 assertEqual (maybeM_unit 1 "fromJust") 1
-assertEqual (maybeM_bind (x: add x 1) (maybeM_unit 1) "isJust") true
+assertEqual (maybeM_bind addOne (maybeM_unit 1) "fromJust") 2
+assertEqual (maybeM_bind addOne (maybeM_bind addOne (maybeM_unit 1)) "fromJust") 3
+assertEqual (compose (maybeM_bind addOne) (maybeM_bind addOne) (maybeM_unit 1) "fromJust") 3
 
 end= :1

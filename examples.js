@@ -585,12 +585,15 @@ assertEqual((head((adder((listM_unit(1)))))))(3)
 assertEqual((nothing("isJust")))(false)
 assertEqual((just(1)("isJust")))(true)
 
-assertEqual((maybeM_unit(1)("isJust")))(true)
-assertEqual((maybeM_unit(1)("fromJust")))(1)
-assertEqual((maybeM_bind((function() {
+var addOne = function() {
   var x = arguments[0];
   return add(x)(1)
-}))((maybeM_unit(1)))("isJust")))(true)
+}
+assertEqual((maybeM_unit(1)("isJust")))(true)
+assertEqual((maybeM_unit(1)("fromJust")))(1)
+assertEqual((maybeM_bind(addOne)((maybeM_unit(1)))("fromJust")))(2)
+assertEqual((maybeM_bind(addOne)((maybeM_bind(addOne)((maybeM_unit(1)))))("fromJust")))(3)
+assertEqual((compose((maybeM_bind(addOne)))((maybeM_bind(addOne)))((maybeM_unit(1)))("fromJust")))(3)
 
 var end = function() {
   return 1
