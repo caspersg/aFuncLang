@@ -1256,9 +1256,131 @@
       ]
      }
     ]
-   },
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "l",
+  "children": [
    {
-    "tag": "emptyLine"
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "cons"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 1
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "cons"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "number",
+               "value": 2
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "nothing",
+                 "value": "null"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "x",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "map"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "addTwo"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "l"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "nothing",
+               "value": "null"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
    }
   ]
  },
@@ -1266,66 +1388,36 @@
   "tag": "application",
   "func": {
    "tag": "reference",
-   "name": "map"
+   "name": "assertEqual"
   },
   "children": [
    {
     "tag": "application",
     "next": {
-     "tag": "reference",
-     "name": "addTwo"
-    },
-    "children": [
-     {
+     "tag": "scope",
+     "value": {
       "tag": "application",
-      "next": {
-       "tag": "scope",
-       "value": {
+      "func": {
+       "tag": "reference",
+       "name": "head"
+      },
+      "children": [
+       {
         "tag": "application",
-        "func": {
-         "tag": "reference",
-         "name": "cons"
-        },
-        "children": [
-         {
+        "next": {
+         "tag": "scope",
+         "value": {
           "tag": "application",
-          "next": {
-           "tag": "number",
-           "value": 1
+          "func": {
+           "tag": "reference",
+           "name": "x"
           },
           "children": [
            {
             "tag": "application",
             "next": {
-             "tag": "scope",
-             "value": {
-              "tag": "application",
-              "func": {
-               "tag": "reference",
-               "name": "cons"
-              },
-              "children": [
-               {
-                "tag": "application",
-                "next": {
-                 "tag": "number",
-                 "value": 2
-                },
-                "children": [
-                 {
-                  "tag": "application",
-                  "next": {
-                   "tag": "nothing",
-                   "value": "null"
-                  },
-                  "children": [
-                   null
-                  ]
-                 }
-                ]
-               }
-              ]
-             }
+             "tag": "nothing",
+             "value": "null"
             },
             "children": [
              null
@@ -1333,8 +1425,20 @@
            }
           ]
          }
+        },
+        "children": [
+         null
         ]
        }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 4
       },
       "children": [
        null

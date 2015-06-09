@@ -265,6 +265,24 @@ var all = function() {
   }
   return foldr(test)(true)
 }
+var listM = function() {
+  return null
+}
+
+// monads
+// List monad
+//  // unit :: a -> [a]
+var listM_unit = function() {
+  var x = arguments[0];
+  return cons(x)(null)
+}
+
+
+// // bind :: (a -> [a]) -> ([a] -> [a])
+var listM_bind = function() {
+  var f = arguments[0];
+  return foldr((compose(append)(f)))(null)
+}
 "string"
 123
 var x = function() {

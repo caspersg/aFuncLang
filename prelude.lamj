@@ -100,3 +100,15 @@ all=
       x: xs: false
     foldr test true
 
+
+listM= :_
+
+# monads
+# List monad
+#  // unit :: a -> [a]
+listM_unit= x: cons x _
+
+
+# // bind :: (a -> [a]) -> ([a] -> [a])
+listM_bind=
+  f: foldr (compose append f) _

@@ -1129,9 +1129,107 @@
      },
      {
       "tag": "comment",
-      "value": " alternative filter' p xs = foldr (\\x xs -> if p x then x : xs else xs) [] xs"
+      "value": " lisp append"
+     },
+     {
+      "tag": "comment",
+      "value": " (define append"
+     },
+     {
+      "tag": "comment",
+      "value": "   (lambda (a b)"
+     },
+     {
+      "tag": "comment",
+      "value": "      (fold-right cons b a)))"
      }
     ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "append",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "a"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "foldr"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "cons"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "a"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "b"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "nothing",
+             "value": "null"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " alternative filter' p xs = foldr (\\x xs -> if p x then x : xs else xs) [] xs"
    }
   ]
  },
@@ -1904,6 +2002,172 @@
           "next": {
            "tag": "reference",
            "name": "true"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "emptyLine"
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "listM",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": null,
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "nothing",
+       "value": "null"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " monads"
+ },
+ {
+  "tag": "comment",
+  "value": " List monad"
+ },
+ {
+  "tag": "comment",
+  "value": "  // unit :: a -> [a]"
+ },
+ {
+  "tag": "assignment",
+  "name": "listM_unit",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "cons"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "x"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "nothing",
+           "value": "null"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " // bind :: (a -> [a]) -> ([a] -> [a])"
+ },
+ {
+  "tag": "assignment",
+  "name": "listM_bind",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "f"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "foldr"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "compose"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "append"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "f"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "nothing",
+           "value": "null"
           },
           "children": [
            null
