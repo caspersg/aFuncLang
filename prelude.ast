@@ -387,17 +387,6 @@
    },
    {
     "tag": "comment",
-    "value": " haskell map"
-   },
-   {
-    "tag": "comment",
-    "value": "map f = foldr ((:) . f) []"
-   },
-   {
-    "tag": "emptyLine"
-   },
-   {
-    "tag": "comment",
     "value": " haskell compose"
    },
    {
@@ -474,6 +463,17 @@
         ]
        }
       ]
+     },
+     {
+      "tag": "emptyLine"
+     },
+     {
+      "tag": "comment",
+      "value": " haskell map"
+     },
+     {
+      "tag": "comment",
+      "value": "map f = foldr ((:) . f) []"
      },
      {
       "tag": "emptyLine"
@@ -1175,12 +1175,15 @@
          {
           "tag": "application",
           "next": {
-           "tag": "scope",
-           "value": {
+           "tag": "reference",
+           "name": "cons"
+          },
+          "children": [
+           {
             "tag": "application",
-            "func": {
+            "next": {
              "tag": "reference",
-             "name": "cons"
+             "name": "b"
             },
             "children": [
              {
@@ -1190,30 +1193,9 @@
                "name": "a"
               },
               "children": [
-               {
-                "tag": "application",
-                "next": {
-                 "tag": "reference",
-                 "name": "b"
-                },
-                "children": [
-                 null
-                ]
-               }
+               null
               ]
              }
-            ]
-           }
-          },
-          "children": [
-           {
-            "tag": "application",
-            "next": {
-             "tag": "nothing",
-             "value": "null"
-            },
-            "children": [
-             null
             ]
            }
           ]
@@ -2151,10 +2133,19 @@
               "tag": "application",
               "next": {
                "tag": "reference",
-               "name": "f"
+               "name": "map"
               },
               "children": [
-               null
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "f"
+                },
+                "children": [
+                 null
+                ]
+               }
               ]
              }
             ]

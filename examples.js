@@ -163,7 +163,7 @@ var append = function() {
   var a = arguments[0];
   return function() {
     var b = arguments[0];
-    return foldr((cons(a)(b)))(null)
+    return foldr(cons)(b)(a)
   }
 }
 var filter = function() {
@@ -281,7 +281,7 @@ var listM_unit = function() {
 // // bind :: (a -> [a]) -> ([a] -> [a])
 var listM_bind = function() {
   var f = arguments[0];
-  return foldr((compose(append)(f)))(null)
+  return foldr((compose(append)(map)(f)))(null)
 }
 "string"
 123
@@ -415,7 +415,7 @@ var l = function() {
 var x = function() {
   return map(addTwo)((l(null)))
 }
-assertEqual((head((x(null)))))(4)
+assertEqual((head((x(null)))))(3)
 
 // null/nothing
 null
@@ -505,4 +505,30 @@ require("./predefined")
 
 exports.myFunc = function() {
   return "nothing"
+}
+
+assertEqual((head((append((cons(1)(null)))((cons(2)(null)))))))(1)
+assertEqual((head((tail((append((cons(1)(null)))((cons(2)(null)))))))))(2)
+
+var listAddOne = function() {
+  var x = arguments[0];
+  return cons((add(x)(1)))(null)
+}
+assertEqual((head((listAddOne(1)))))(2)
+
+assertEqual((head((listM_unit(1)))))(1)
+assertEqual((head((listM_unit(1)))))((head((cons(1)(null)))))
+
+compose(append)(map)(listAddOne)
+append((map(listAddOne)))
+
+var adder = function() {
+  return compose((listM_bind(listAddOne)))((listM_bind(listAddOne)))
+}
+adder((listM_unit(1)))
+
+//assertEqual (head (adder (listM_unit 1))) 2
+
+var end = function() {
+  return 1
 }

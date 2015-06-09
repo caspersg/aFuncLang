@@ -23,15 +23,15 @@ tail =
 #foldr f z []     = z
 #foldr f z (x:xs) = f x (foldr f z xs)
 
-# haskell map
-#map f = foldr ((:) . f) []
-
 # haskell compose
 #f (g x) = (f . g) x
 
 compose=
   fa: fb: x: fa (fb x)
     
+# haskell map
+#map f = foldr ((:) . f) []
+
 map=
   f: foldr (compose cons f) _
 
@@ -63,7 +63,7 @@ filter=
 #   (lambda (a b)
 #      (fold-right cons b a)))
 append=
-  a: b: foldr (cons a b) _
+  a: b: foldr cons b a
 
 # alternative filter' p xs = foldr (\x xs -> if p x then x : xs else xs) [] xs
 filter=
@@ -111,4 +111,4 @@ listM_unit= x: cons x _
 
 # // bind :: (a -> [a]) -> ([a] -> [a])
 listM_bind=
-  f: foldr (compose append f) _
+  f: foldr (compose append map f) _

@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "coffee compile.coffee lamj.pegjs",
-    "test": "cat examples.lamj | coffee compile.coffee lamj.pegjs examples.js && node examples.js && echo success"
+    "test": "cat examples.lamj | coffee compile.coffee lamj.pegjs examples.js && node --stack-size=6500 examples.js && echo success"
   },
   "author": "casper.szy",
   "license": "ISC"

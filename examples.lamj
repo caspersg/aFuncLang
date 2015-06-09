@@ -108,3 +108,22 @@ assert (equal (add "ab" "cd") "abcd")
 require "./predefined"
 
 exports myFunc= :"nothing"
+
+assertEqual (head (append (cons 1 _) (cons 2 _))) 1
+assertEqual (head (tail (append (cons 1 _) (cons 2 _)))) 2
+
+listAddOne= x: cons (add x 1) _
+assertEqual (head (listAddOne 1)) 2
+
+assertEqual (head (listM_unit 1)) 1
+assertEqual (head (listM_unit 1)) (head (cons 1 _))
+
+compose append map listAddOne
+append (map listAddOne)
+
+adder = : compose (listM_bind listAddOne) (listM_bind listAddOne)
+adder (listM_unit 1)
+
+#assertEqual (head (adder (listM_unit 1))) 2
+
+end= :1
