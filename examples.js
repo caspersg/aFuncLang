@@ -594,6 +594,49 @@ assertEqual((maybeM_unit(1)("fromJust")))(1)
 assertEqual((maybeM_bind(addOne)((maybeM_unit(1)))("fromJust")))(2)
 assertEqual((maybeM_bind(addOne)((maybeM_bind(addOne)((maybeM_unit(1)))))("fromJust")))(3)
 assertEqual((compose((maybeM_bind(addOne)))((maybeM_bind(addOne)))((maybeM_unit(1)))("fromJust")))(3)
+assertEqual((compose((maybeM_bind(addOne)))((maybeM_bind(addOne)))((nothing))("isJust")))(false)
+
+var isTrue = function() {
+  if (arguments[0] == true) {
+    return true
+  }
+  if (arguments[0] == false) {
+    return false
+  }
+  var x = arguments[0];
+  return false
+}
+assertEqual((isTrue(true)))(true)
+assertEqual((isTrue(false)))(false)
+assertEqual((isTrue("")))(false)
+
+var truthy = function() {
+  if (arguments[0] == null) {
+    return false
+  }
+  if (arguments[0] == false) {
+    return false
+  }
+  var x = arguments[0];
+  var test = function() {
+    var x = arguments[0];
+    return x
+  };
+  if (test(x)) {
+    return true
+  }
+}
+assertEqual((truthy(true)))(true)
+assertEqual((truthy("a")))(true)
+assertEqual((truthy((cons(1)(null)))))(true)
+
+assertEqual((truthy(false)))(false)
+assertEqual((truthy(null)))(false)
+assertEqual((truthy("")))(false)
+assertEqual((truthy(" ")))(false)
+
+
+
 
 var end = function() {
   return 1

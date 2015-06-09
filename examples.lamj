@@ -139,5 +139,32 @@ assertEqual (maybeM_unit 1 "fromJust") 1
 assertEqual (maybeM_bind addOne (maybeM_unit 1) "fromJust") 2
 assertEqual (maybeM_bind addOne (maybeM_bind addOne (maybeM_unit 1)) "fromJust") 3
 assertEqual (compose (maybeM_bind addOne) (maybeM_bind addOne) (maybeM_unit 1) "fromJust") 3
+assertEqual (compose (maybeM_bind addOne) (maybeM_bind addOne) (nothing) "isJust") false
+
+isTrue=
+  true: true
+  false: false
+  x: false
+
+assertEqual (isTrue true) true
+assertEqual (isTrue false) false
+assertEqual (isTrue "") false
+
+truthy=
+  _: false
+  false: false
+  {x: x}: true
+
+assertEqual (truthy true) true
+assertEqual (truthy "a") true
+assertEqual (truthy (cons 1 _)) true
+
+assertEqual (truthy false) false
+assertEqual (truthy _) false
+assertEqual (truthy "") false
+assertEqual (truthy " ") false
+
+
+
 
 end= :1

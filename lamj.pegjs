@@ -97,7 +97,9 @@ atom
   / value:string
     { return { tag:"string", value: value } }
   / [_]
-    { return { tag:"nothing", value: 'null'}}
+    { return { tag:"nothing", value: 'null' } }
+  / value:bool
+    { return { tag:"bool", value: value } }
 
 string
   = quotation_mark chars:characters* quotation_mark
@@ -113,6 +115,12 @@ integer
 aFloat
   = value:(integer "." integer)
     { return parseFloat(value.join(""), 10) }
+
+bool
+  = "true"
+    { return true }
+  / "false"
+    { return false }
 
 comment
   = "#" comment:(characters)*
