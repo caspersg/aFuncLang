@@ -82,6 +82,56 @@ var xor = function() {
     return or((and(a)((not(b)))))((and((not(a)))(b)))
   }
 }
+var implies = function() {
+  var a = arguments[0];
+  return function() {
+    var b = arguments[0];
+    return or((not(a)))(b)
+  }
+}
+var equivilant = function() {
+  var a = arguments[0];
+  return function() {
+    var b = arguments[0];
+    return not((xor(a)(b)))
+  }
+}
+var either = function() {
+  if (!arguments[0]) {
+    return function() {
+      var b = arguments[0];
+      return b
+    }
+  }
+  var a = arguments[0];
+  return function() {
+    var b = arguments[0];
+    return a
+  }
+}
+var not = function() {
+  if (!arguments[0]) {
+    return true
+  }
+  var x = arguments[0];
+  return false
+}
+var both = function() {
+  if (!arguments[0]) {
+    return function() {
+      var b = arguments[0];
+      return false
+    }
+  }
+  var a = arguments[0];
+  return function() {
+    if (!arguments[0]) {
+      return false
+    }
+    var b = arguments[0];
+    return true
+  }
+}
 var cons = function() {
   var x = arguments[0];
   return function() {
@@ -662,6 +712,21 @@ assertEqual((curried(null)(2)))(4)
 // assignment without a lambda
 var curried = compose((add(1)))((add(1)))
 assertEqual((curried(2)))(4)
+
+assertEqual((either(1)(2)))(1)
+assertEqual((either(null)(2)))(2)
+assertEqual((either(null)(null)))(null)
+
+assertEqual((both(1)(2)))(true)
+assertEqual((both(null)(2)))(false)
+assertEqual((both(null)(null)))(false)
+
+assertEqual((not(1)))(false)
+assertEqual((not(null)))(true)
+
+assertEqual((or(1)(2)))(1)
+assertEqual((or(null)(2)))(2)
+assertEqual((or(null)(null)))(null)
 
 var end = function() {
   return 1

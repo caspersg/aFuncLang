@@ -141,37 +141,395 @@
    },
    {
     "tag": "emptyLine"
-   },
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "implies",
+  "children": [
    {
-    "tag": "comment",
-    "value": "lisp list definition"
-   },
-   {
-    "tag": "comment",
-    "value": "(define (cons x y)"
-   },
-   {
-    "tag": "comment",
-    "value": "  (lambda (m) (m x y)))"
-   },
-   {
-    "tag": "comment",
-    "value": "(define (car z)"
-   },
-   {
-    "tag": "comment",
-    "value": "  (z (lambda (p q) p)))"
-   },
-   {
-    "tag": "comment",
-    "value": "(define (cdr z)"
-   },
-   {
-    "tag": "comment",
-    "value": "  (z (lambda (p q) q)))"
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "a"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "or"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "not"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "a"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "b"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
    },
    {
     "tag": "emptyLine"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "equivilant",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "a"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "not"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "scope",
+           "value": {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "xor"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "a"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "b"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   },
+   {
+    "tag": "comment",
+    "value": " an alternative implementation for basic algebra"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "either",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "nothingMatch",
+     "value": {
+      "tag": "nothing",
+      "value": "null"
+     }
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "b"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "a"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "a"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "not",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "nothingMatch",
+     "value": {
+      "tag": "nothing",
+      "value": "null"
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "true"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "false"
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "emptyLine"
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "both",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "nothingMatch",
+     "value": {
+      "tag": "nothing",
+      "value": "null"
+     }
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "false"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "a"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "nothingMatch",
+       "value": {
+        "tag": "nothing",
+        "value": "null"
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "false"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "b"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "true"
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "emptyLine"
+     },
+     {
+      "tag": "comment",
+      "value": "lisp list definition"
+     },
+     {
+      "tag": "comment",
+      "value": "(define (cons x y)"
+     },
+     {
+      "tag": "comment",
+      "value": "  (lambda (m) (m x y)))"
+     },
+     {
+      "tag": "comment",
+      "value": "(define (car z)"
+     },
+     {
+      "tag": "comment",
+      "value": "  (z (lambda (p q) p)))"
+     },
+     {
+      "tag": "comment",
+      "value": "(define (cdr z)"
+     },
+     {
+      "tag": "comment",
+      "value": "  (z (lambda (p q) q)))"
+     },
+     {
+      "tag": "emptyLine"
+     }
+    ]
    }
   ]
  },

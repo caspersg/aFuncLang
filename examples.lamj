@@ -181,4 +181,19 @@ assertEqual (curried _ 2) 4
 curried= compose (add 1) (add 1)
 assertEqual (curried 2) 4
 
+assertEqual (either 1 2) 1
+assertEqual (either _ 2) 2
+assertEqual (either _ _) _
+
+assertEqual (both 1 2) true
+assertEqual (both _ 2) false
+assertEqual (both _ _) false
+
+assertEqual (not 1) false
+assertEqual (not _) true
+
+assertEqual (or 1 2) 1
+assertEqual (or _ 2) 2
+assertEqual (or _ _) _
+
 end= :1

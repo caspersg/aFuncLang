@@ -1,6 +1,27 @@
 xor=
   a: b: or (and a (not b)) (and (not a) b)
 
+implies=
+  a: b: or (not a) b
+
+equivilant=
+  a: b: not (xor a b)
+
+# an alternative implementation for basic algebra
+either=
+  _: b: b
+  a: b: a
+
+not=
+  _: true
+  x: false
+
+both=
+  _: b: false
+  a:
+    _: false
+    b: true
+
 #lisp list definition
 #(define (cons x y)
 #  (lambda (m) (m x y)))
