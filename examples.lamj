@@ -197,4 +197,9 @@ assertEqual (and _ _) false
 assertEqual (not 1) false
 assertEqual (not _) true
 
+# some Math
+assertEqual (min 1 2) 1
+assertEqual (max 1 2) 2
+assertEqual (pow 2 4) 8
+
 end= :1

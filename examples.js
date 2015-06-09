@@ -368,6 +368,9 @@ var subtract = curry(jsMinus)
 var multiply = curry(jsMultiply)
 var divide = curry(jsDivide)
 var modulus = curry(jsModulus)
+var min = curry(Math.min)
+var max = curry(Math.max)
+var pow = curry(Math.pow)
   // comparison
 var lessThan = curry(jsLessThan)
 var lessThanEqual = curry(jsLessThanEqual)
@@ -710,6 +713,11 @@ assertEqual((and(null)(null)))(false)
 
 assertEqual((not(1)))(false)
 assertEqual((not(null)))(true)
+
+// some Math
+assertEqual((min(1)(2)))(1)
+assertEqual((max(1)(2)))(2)
+assertEqual((pow(2)(4)))(8)
 
 var end = function() {
   return 1

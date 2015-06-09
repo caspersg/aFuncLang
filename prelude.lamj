@@ -172,6 +172,9 @@ subtract = curry jsMinus
 multiply = curry jsMultiply
 divide = curry jsDivide
 modulus = curry jsModulus
+min = curry Math.min
+max = curry Math.max
+pow = curry Math.pow
 # comparison
 lessThan = curry jsLessThan
 lessThanEqual = curry jsLessThanEqual
