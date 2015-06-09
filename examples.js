@@ -133,15 +133,14 @@ var tail = function() {
     }
   }))
 }
-var I = function() {
-  var x = arguments[0];
-  return x
-}
-var K = function() {
+var B = function() {
   var x = arguments[0];
   return function() {
     var y = arguments[0];
-    return x
+    return function() {
+      var z = arguments[0];
+      return x((y(z)))
+    }
   }
 }
 var C = function() {
@@ -154,32 +153,112 @@ var C = function() {
     }
   }
 }
-var T = function() {
-  var x = arguments[0];
-  return function() {
-    var y = arguments[0];
-    return y(x)
-  }
-}
-var T = C(I)
-var Q3 = function() {
+var D = function() {
   var x = arguments[0];
   return function() {
     var y = arguments[0];
     return function() {
       var z = arguments[0];
-      return z((x(y)))
+      return function() {
+        var w = arguments[0];
+        return x(y)((z(w)))
+      }
     }
   }
 }
-var B = function() {
+var E = function() {
   var x = arguments[0];
   return function() {
     var y = arguments[0];
     return function() {
       var z = arguments[0];
-      return x((y(z)))
+      return function() {
+        var w = arguments[0];
+        return function() {
+          var v = arguments[0];
+          return x(y)((z(w)(v)))
+        }
+      }
     }
+  }
+}
+var F = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return z(y)(x)
+    }
+  }
+}
+var G = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return x(w)((y(z)))
+      }
+    }
+  }
+}
+var H = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return x(y)(z)(y)
+    }
+  }
+}
+var HE = function() {
+  var x = arguments[0];
+  return E
+}
+var I = function() {
+  var x = arguments[0];
+  return x
+}
+var J = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return x(y)((x(w)(z)))
+      }
+    }
+  }
+}
+var K = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return x
+  }
+}
+var L = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return x((y(y)))
+  }
+}
+var M = function() {
+  var x = arguments[0];
+  return x(x)
+}
+var O = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return y((x(y)))
   }
 }
 var Q = function() {
@@ -192,9 +271,39 @@ var Q = function() {
     }
   }
 }
-var M = function() {
+var Q1 = function() {
   var x = arguments[0];
-  return x(x)
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return x((z(y)))
+    }
+  }
+}
+var Q3 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return z((x(y)))
+    }
+  }
+}
+var R = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return y(z)(x)
+    }
+  }
+}
+var S1 = function() {
+  var x = arguments[0];
+  return x((S1(x)))
 }
 var S = function() {
   var x = arguments[0];
@@ -206,6 +315,13 @@ var S = function() {
     }
   }
 }
+var T = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return y(x)
+  }
+}
 var U = function() {
   var x = arguments[0];
   return function() {
@@ -213,10 +329,32 @@ var U = function() {
     return y((x(x)(y)))
   }
 }
-var E = function() {
-  return E
+var V = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return z(x)(y)
+    }
+  }
 }
-var WTR = function() {
+var W = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return x(y)(y)
+  }
+}
+var W1 = function() {
+    var x = arguments[0];
+    return function() {
+      var y = arguments[0];
+      return y(x)(x)
+    }
+  }
+  // C*
+var C1R = function() {
     var x = arguments[0];
     return function() {
       var y = arguments[0];
@@ -224,27 +362,117 @@ var WTR = function() {
         var z = arguments[0];
         return function() {
           var w = arguments[0];
-          return x(y)(z)(w)(w)
+          return x(y)(w)(z)
         }
       }
     }
   }
-  //W**
-  // longer descriptive names
-var identity = I
-var kestrel = K
-var cardinal = C
-var thrush = T
-var quirkyBird = Q3
-var bluebird = B
-var compose = B
-var queerBird = Q
-var mockingBird = M
-var starling = S
-var turingBird = U
-var hopelesslyEgocentric = E
-var warblerTwiceRemoved = WTR
+  // C**
+var C2R = function() {
+    var x = arguments[0];
+    return function() {
+      var y = arguments[0];
+      return function() {
+        var z = arguments[0];
+        return function() {
+          var w = arguments[0];
+          return function() {
+            var v = arguments[0];
+            return x(y)(z)(v)(w)
+          }
+        }
+      }
+    }
+  }
+  // W*
+var W1R = function() {
+    var x = arguments[0];
+    return function() {
+      var y = arguments[0];
+      return function() {
+        var z = arguments[0];
+        return x(y)(z)(z)
+      }
+    }
+  }
+  // W**
+var W2R = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return x(y)(z)(w)(w)
+      }
+    }
+  }
+}
 
+
+// derived from B
+var D = B(B)
+var E = B((B(B)(B)))
+  // derived from B and T
+var R = B(B)(T)
+var C = R(R)(R)
+var F = E(T)(T)(E)(T)
+var V = B(C)(T)
+var Q = C(B)
+var Q1 = B(C)(B)
+var Q3 = B(T)
+var G = B(B)(C)
+  // derived from B T M
+var DM = B(M)
+var L = Q(M)
+var W = C((B(M)(R)))
+var W1 = C(W)
+var H = B(W)((B(C)))
+var S = B(W1R)(G)
+var O = Q(Q)(W)
+var U = L(O)
+  // derived starred birds
+var C1R = B(C)
+var C2R = B(C1R)
+var W1R = B(W)
+var W2R = B(W1R)
+
+
+// longer descriptive names
+var Bluebird = B
+var Cardinal = C
+var Dove = D
+var Eagle = E
+var Finch = F
+var Goldfinch = G
+var Hummingbird = H
+var Identity = I
+var Jay = J
+var Kestrel = K
+var Lark = L
+var Mockingbird = M
+var Owl = O
+var QueerBird = Q
+var QuixoticBird = Q1
+var QuirkyBird = Q3
+var Robin = R
+var SageBird = S1
+var Starling = S
+var Thrush = T
+var TuringBird = U
+var Vireo = V
+var Warbler = W
+var ConverseWarbler = W1
+var HopelesslyEgocentric = HE
+var CardinalOnceRemoved = C1R
+var CardinalTwiceRemoved = C2R
+var WarblerOnceRemoved = C1R
+var WarblerTwiceRemoved = W1R
+
+// traditional names
+var compose = B
+var identity = I
 
 // haskell map
 //map f = foldr ((:) . f) []
