@@ -164,3 +164,5 @@ maybeM_bind=
     {x: x "isJust"}: just (f (x "fromJust"))
     n: nothing
 
+# curry some useful javascript functions
+assertEqual = curry assert.equal

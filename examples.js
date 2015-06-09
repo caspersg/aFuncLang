@@ -1,10 +1,5 @@
 var assert = require('assert')
-
-var assertEqual = function(actual) {
-  return function(expected) {
-    return assert.equal(actual, expected);
-  }
-}
+var curry = require('lodash.curry')
 
 // basic maths
 var add = function(x) {
@@ -392,6 +387,7 @@ var maybeM_bind = function() {
     return nothing
   }
 }
+var assertEqual = curry(assert.equal)
 "string"
 123
 var x = function() {

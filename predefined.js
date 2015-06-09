@@ -1,6 +1,5 @@
 var assert = require('assert')
-
-var assertEqual = function(actual) { return function(expected) { return assert.equal(actual, expected); } }
+var curry = require('lodash.curry')
 
 // basic maths
 var add = function(x) { return function(y) { return x + y } }

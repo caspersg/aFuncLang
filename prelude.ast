@@ -2960,6 +2960,38 @@
         ]
        }
       ]
+     },
+     {
+      "tag": "emptyLine"
+     },
+     {
+      "tag": "comment",
+      "value": " curry some useful javascript functions"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "assertEqual",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "curry"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "assert.equal"
+      },
+      "children": [
+       null
+      ]
      }
     ]
    }
