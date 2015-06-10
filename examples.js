@@ -46,9 +46,15 @@ var toBool = function(s) {
 }
 
 // uncurry, to use with javascript libraries
-var uncurry2 = function(curriedFunc) {
-    return function(a, b) {
-      return curriedFunc(a)(b);
+var uncurry = function(curriedFunc) {
+    // returns a function which will, for each argument, call the curried function on each.
+    // basically popping each curried argument, depending on the arguments called
+    return function() {
+      var func = curriedFunc;
+      for (var i = 0, j = arguments.length; i < j; i++) {
+        func = func(arguments[i]);
+      }
+      return func;
     }
   }
   // start prelude
@@ -1081,7 +1087,7 @@ var nil = function() {
 }
 nil(nil)(nil)("something")
 
-var uncurry = uncurry2(function() {
+var uncurriedAdd = uncurry(function() {
   var x = arguments[0];
   return function() {
     var y = arguments[0];

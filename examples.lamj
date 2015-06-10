@@ -219,7 +219,7 @@ nil=
 
 nil nil nil "something"
 
-uncurry = uncurry2 x: y: add x y
+uncurriedAdd = uncurry x: y: add x y
 
 # last line can't be a comment, bug in the parser
 _

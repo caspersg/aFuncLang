@@ -6848,13 +6848,13 @@
  },
  {
   "tag": "assignment",
-  "name": "uncurry",
+  "name": "uncurriedAdd",
   "children": [
    {
     "tag": "application",
     "func": {
      "tag": "reference",
-     "name": "uncurry2"
+     "name": "uncurry"
     },
     "children": [
      {

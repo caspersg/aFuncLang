@@ -24,8 +24,15 @@ var toFloat = function(s) { return parseFloat(s, 10)}
 var toBool = function(s) { return s.toLowerCase() == "true" }
 
 // uncurry, to use with javascript libraries
-var uncurry2 = function(curriedFunc) {
-  return function(a,b) {
-    return curriedFunc(a)(b);
+// only curried functions can actually be called in lamj though
+var uncurry = function(curriedFunc) {
+  // returns a function which will, for each argument, call the curried function on each.
+  // basically popping each curried argument, depending on the arguments called
+  return function() {
+    var func = curriedFunc;
+    for(var i = 0, j = arguments.length; i < j; i++) {
+        func = func(arguments[i]);
+    }
+    return func;
   }
 }
