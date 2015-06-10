@@ -22,3 +22,10 @@ var jsEqual = function(x,y) { return x == y }
 var toInt = function(s) { return parseInt(s, 10)}
 var toFloat = function(s) { return parseFloat(s, 10)}
 var toBool = function(s) { return s.toLowerCase() == "true" }
+
+// uncurry, to use with javascript libraries
+var uncurry2 = function(curriedFunc) {
+  return function(a,b) {
+    return curriedFunc(a)(b);
+  }
+}

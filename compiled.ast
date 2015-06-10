@@ -6847,6 +6847,76 @@
   "tag": "emptyLine"
  },
  {
+  "tag": "assignment",
+  "name": "uncurry",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "uncurry2"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "lambda",
+       "param": {
+        "tag": "symbol",
+        "value": "x"
+       },
+       "children": [
+        {
+         "tag": "lambda",
+         "param": {
+          "tag": "symbol",
+          "value": "y"
+         },
+         "children": [
+          {
+           "tag": "application",
+           "func": {
+            "tag": "reference",
+            "name": "add"
+           },
+           "children": [
+            {
+             "tag": "application",
+             "next": {
+              "tag": "reference",
+              "name": "x"
+             },
+             "children": [
+              {
+               "tag": "application",
+               "next": {
+                "tag": "reference",
+                "name": "y"
+               },
+               "children": [
+                null
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "comment",
   "value": " last line can't be a comment, bug in the parser"
  },

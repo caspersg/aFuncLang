@@ -42,7 +42,14 @@ var toFloat = function(s) {
   return parseFloat(s, 10)
 }
 var toBool = function(s) {
-    return s.toLowerCase() == "true"
+  return s.toLowerCase() == "true"
+}
+
+// uncurry, to use with javascript libraries
+var uncurry2 = function(curriedFunc) {
+    return function(a, b) {
+      return curriedFunc(a)(b);
+    }
   }
   // start prelude
 
@@ -424,6 +431,7 @@ var Q1 = B(C)(B)
 var Q3 = B(T)
 var G = B(B)(C)
   // derived from B T M
+  // double mockingbird
 var DM = B(M)
 var L = Q(M)
 var W = C((B(M)(R)))
@@ -1072,6 +1080,14 @@ var nil = function() {
   return nil
 }
 nil(nil)(nil)("something")
+
+var uncurry = uncurry2(function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return add(x)(y)
+  }
+})
 
 // last line can't be a comment, bug in the parser
 null
