@@ -46,6 +46,7 @@ var toBool = function(s) {
 }
 
 // uncurry, to use with javascript libraries
+// only curried functions can actually be called in lamj though
 var uncurry = function(curriedFunc) {
     // returns a function which will, for each argument, call the curried function on each.
     // basically popping each curried argument, depending on the arguments called
@@ -156,6 +157,35 @@ var B = function() {
     }
   }
 }
+var B1 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return x((y(z)(w)))
+      }
+    }
+  }
+}
+var B2 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return function() {
+          var v = arguments[0];
+          return x((y(z)(w)(v)))
+        }
+      }
+    }
+  }
+}
 var C = function() {
   var x = arguments[0];
   return function() {
@@ -175,6 +205,22 @@ var D = function() {
       return function() {
         var w = arguments[0];
         return x(y)((z(w)))
+      }
+    }
+  }
+}
+var D1 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return function() {
+          var v = arguments[0];
+          return x(y)(z)((w(v)))
+        }
       }
     }
   }
@@ -230,7 +276,7 @@ var H = function() {
 }
 var HE = function() {
   var x = arguments[0];
-  return E
+  return HE
 }
 var I = function() {
   var x = arguments[0];
@@ -455,8 +501,11 @@ var W2R = B(W1R)
 
 // longer descriptive names
 var Bluebird = B
+var Blackbird = B1
+var Buntings = B2
 var Cardinal = C
 var Dove = D
+var Dickcissel = D1
 var Eagle = E
 var Finch = F
 var Goldfinch = G

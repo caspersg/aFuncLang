@@ -41,39 +41,42 @@ tail =
 
 
 # some combinators
-B = x: y: z: x (y z)
-C = x: y: z: x z y
-D = x: y: z: w: x y (z w)
-E = x: y: z: w: v: x y (z w v)
-F = x: y: z: z y x
-G = x: y: z: w: x w (y z)
-H = x: y: z: x y z y
-HE = x: E
+B = x:y:z: x (y z)
+B1 = x:y:z:w: x (y z w)
+B2 = x:y:z:w:v: x (y z w v)
+C = x:y:z: x z y
+D = x:y:z:w: x y (z w)
+D1 = x:y:z:w:v: x y z (w v)
+E = x:y:z:w:v: x y (z w v)
+F = x:y:z: z y x
+G = x:y:z:w: x w (y z)
+H = x:y:z: x y z y
+HE = x: HE
 I = x: x
-J = x: y: z: w: x y (x w z)
-K = x: y: x
-L = x: y: x (y y)
+J = x:y:z:w: x y (x w z)
+K = x:y: x
+L = x:y: x (y y)
 M = x: x x
-O = x: y: y (x y)
-Q = x: y: z: y (x z)
-Q1 = x: y: z: x (z y)
-Q3 = x: y: z: z (x y)
-R = x: y: z: y z x
+O = x:y: y (x y)
+Q = x:y:z: y (x z)
+Q1 = x:y:z: x (z y)
+Q3 = x:y:z: z (x y)
+R = x:y:z: y z x
 S1 = x: x (S1 x)
-S = x: y: z: x z (y z)
-T = x: y: y x
-U = x: y: y (x x y)
-V = x: y: z: z x y
-W = x: y: x y y
-W1 = x: y: y x x
+S = x:y:z: x z (y z)
+T = x:y: y x
+U = x:y: y (x x y)
+V = x:y:z: z x y
+W = x:y: x y y
+W1 = x:y: y x x
 # C*
-C1R = x: y: z: w: x y w z
+C1R = x:y:z:w: x y w z
 # C**
-C2R = x: y: z: w: v: x y z v w
+C2R = x:y:z:w:v: x y z v w
 # W*
-W1R = x: y: z: x y z z
+W1R = x:y:z: x y z z
 # W**
-W2R = x: y: z: w: x y z w w
+W2R = x:y:z:w: x y z w w
 
 
 # derived from B
@@ -107,8 +110,11 @@ W2R = B W1R
 
 # longer descriptive names
 Bluebird = B
+Blackbird = B1
+Buntings = B2
 Cardinal = C
 Dove = D
+Dickcissel = D1
 Eagle = E
 Finch = F
 Goldfinch = G
