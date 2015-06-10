@@ -5498,6 +5498,52 @@
   "tag": "application",
   "func": {
    "tag": "reference",
+   "name": "B"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "assertEqual"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "toInt"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "string",
+         "value": "\"1\""
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 1
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
    "name": "assertEqual"
   },
   "children": [
@@ -5729,7 +5775,19 @@
  },
  {
   "tag": "comment",
-  "value": " assignment with a lambda, always wraps in a function, so _ to unwrap (ie apply that func)"
+  "value": " assignment with a lambda, always wraps in a function,"
+ },
+ {
+  "tag": "comment",
+  "value": " so _ to unwrap"
+ },
+ {
+  "tag": "comment",
+  "value": " (ie apply that func with nothing)"
+ },
+ {
+  "tag": "comment",
+  "value": " ie call with no arguments"
  },
  {
   "tag": "assignment",
@@ -5986,6 +6044,126 @@
   ]
  },
  {
+  "tag": "comment",
+  "value": " using combinator"
+ },
+ {
+  "tag": "assignment",
+  "name": "curried",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "B"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "scope",
+       "value": {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "add"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 1
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "add"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "number",
+             "value": 1
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "B"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "assertEqual"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "curried"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 2
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 4
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
   "tag": "emptyLine"
  },
  {
@@ -6037,6 +6215,61 @@
       },
       "children": [
        null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "B1"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "reference",
+     "name": "assertEqual"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "reference",
+       "name": "or"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 1
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 2
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "number",
+             "value": 1
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
       ]
      }
     ]

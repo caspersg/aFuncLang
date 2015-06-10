@@ -999,6 +999,103 @@
  },
  {
   "tag": "assignment",
+  "name": "B3",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "z"
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "w"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "x"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "scope",
+               "value": {
+                "tag": "application",
+                "func": {
+                 "tag": "reference",
+                 "name": "y"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "scope",
+                   "value": {
+                    "tag": "application",
+                    "func": {
+                     "tag": "reference",
+                     "name": "z"
+                    },
+                    "children": [
+                     {
+                      "tag": "application",
+                      "next": {
+                       "tag": "reference",
+                       "name": "w"
+                      },
+                      "children": [
+                       null
+                      ]
+                     }
+                    ]
+                   }
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
   "name": "C",
   "children": [
    {
@@ -1254,6 +1351,121 @@
  },
  {
   "tag": "assignment",
+  "name": "D2",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "z"
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "w"
+          },
+          "children": [
+           {
+            "tag": "lambda",
+            "param": {
+             "tag": "symbol",
+             "value": "v"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "scope",
+                 "value": {
+                  "tag": "application",
+                  "func": {
+                   "tag": "reference",
+                   "name": "y"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "reference",
+                     "name": "z"
+                    },
+                    "children": [
+                     null
+                    ]
+                   }
+                  ]
+                 }
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "scope",
+                   "value": {
+                    "tag": "application",
+                    "func": {
+                     "tag": "reference",
+                     "name": "w"
+                    },
+                    "children": [
+                     {
+                      "tag": "application",
+                      "next": {
+                       "tag": "reference",
+                       "name": "v"
+                      },
+                      "children": [
+                       null
+                      ]
+                     }
+                    ]
+                   }
+                  },
+                  "children": [
+                   null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
   "name": "E",
   "children": [
    {
@@ -1340,6 +1552,157 @@
                   },
                   "children": [
                    null
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "E1",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y1"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "y2"
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "y3"
+          },
+          "children": [
+           {
+            "tag": "lambda",
+            "param": {
+             "tag": "symbol",
+             "value": "z1"
+            },
+            "children": [
+             {
+              "tag": "lambda",
+              "param": {
+               "tag": "symbol",
+               "value": "z2"
+              },
+              "children": [
+               {
+                "tag": "lambda",
+                "param": {
+                 "tag": "symbol",
+                 "value": "z3"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "func": {
+                   "tag": "reference",
+                   "name": "x"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "scope",
+                     "value": {
+                      "tag": "application",
+                      "func": {
+                       "tag": "reference",
+                       "name": "y1"
+                      },
+                      "children": [
+                       {
+                        "tag": "application",
+                        "next": {
+                         "tag": "reference",
+                         "name": "y2"
+                        },
+                        "children": [
+                         {
+                          "tag": "application",
+                          "next": {
+                           "tag": "reference",
+                           "name": "y3"
+                          },
+                          "children": [
+                           null
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    },
+                    "children": [
+                     {
+                      "tag": "application",
+                      "next": {
+                       "tag": "scope",
+                       "value": {
+                        "tag": "application",
+                        "func": {
+                         "tag": "reference",
+                         "name": "z1"
+                        },
+                        "children": [
+                         {
+                          "tag": "application",
+                          "next": {
+                           "tag": "reference",
+                           "name": "z2"
+                          },
+                          "children": [
+                           {
+                            "tag": "application",
+                            "next": {
+                             "tag": "reference",
+                             "name": "z3"
+                            },
+                            "children": [
+                             null
+                            ]
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      },
+                      "children": [
+                       null
+                      ]
+                     }
+                    ]
+                   }
                   ]
                  }
                 ]
@@ -3751,6 +4114,22 @@
  },
  {
   "tag": "assignment",
+  "name": "Becard",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "B3"
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
   "name": "Cardinal",
   "children": [
    {
@@ -3799,6 +4178,22 @@
  },
  {
   "tag": "assignment",
+  "name": "Dovekies",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "D2"
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
   "name": "Eagle",
   "children": [
    {
@@ -3806,6 +4201,22 @@
     "func": {
      "tag": "reference",
      "name": "E"
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "BaldEagle",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "E1"
     },
     "children": [
      null

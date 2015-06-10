@@ -172,21 +172,29 @@ assertEqual (truthy "") false
 
 
 assertEqual (toInt "1") 1
+B assertEqual toInt "1" 1
 assertEqual (toFloat "1.1") 1.1
 assertEqual (toBool "true") true
 assertEqual (toBool "True") true
 assertEqual (toBool "false") false
 assertEqual (toBool "other stuff") false
 
-# assignment with a lambda, always wraps in a function, so _ to unwrap (ie apply that func)
+# assignment with a lambda, always wraps in a function,
+# so _ to unwrap
+# (ie apply that func with nothing)
+# ie call with no arguments
 curried= : compose (add 1) (add 1)
 assertEqual (curried _ 2) 4
 
 # assignment without a lambda
 curried= compose (add 1) (add 1)
 assertEqual (curried 2) 4
+# using combinator
+curried= B (add 1) (add 1)
+B assertEqual curried 2 4
 
 assertEqual (or 1 2) 1
+B1 assertEqual or 1 2 1
 assertEqual (or 1 _) 1
 assertEqual (or _ 2) 2
 assertEqual (or _ _) _

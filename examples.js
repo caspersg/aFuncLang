@@ -186,6 +186,19 @@ var B2 = function() {
     }
   }
 }
+var B3 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return x((y((z(w)))))
+      }
+    }
+  }
+}
 var C = function() {
   var x = arguments[0];
   return function() {
@@ -225,6 +238,22 @@ var D1 = function() {
     }
   }
 }
+var D2 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return function() {
+        var w = arguments[0];
+        return function() {
+          var v = arguments[0];
+          return x((y(z)))((w(v)))
+        }
+      }
+    }
+  }
+}
 var E = function() {
   var x = arguments[0];
   return function() {
@@ -236,6 +265,28 @@ var E = function() {
         return function() {
           var v = arguments[0];
           return x(y)((z(w)(v)))
+        }
+      }
+    }
+  }
+}
+var E1 = function() {
+  var x = arguments[0];
+  return function() {
+    var y1 = arguments[0];
+    return function() {
+      var y2 = arguments[0];
+      return function() {
+        var y3 = arguments[0];
+        return function() {
+          var z1 = arguments[0];
+          return function() {
+            var z2 = arguments[0];
+            return function() {
+              var z3 = arguments[0];
+              return x((y1(y2)(y3)))((z1(z2)(z3)))
+            }
+          }
         }
       }
     }
@@ -503,10 +554,13 @@ var W2R = B(W1R)
 var Bluebird = B
 var Blackbird = B1
 var Buntings = B2
+var Becard = B3
 var Cardinal = C
 var Dove = D
 var Dickcissel = D1
+var Dovekies = D2
 var Eagle = E
+var BaldEagle = E1
 var Finch = F
 var Goldfinch = G
 var Hummingbird = H
@@ -1085,13 +1139,17 @@ assertEqual((truthy("")))(false)
 
 
 assertEqual((toInt("1")))(1)
+B(assertEqual)(toInt)("1")(1)
 assertEqual((toFloat("1.1")))(1.1)
 assertEqual((toBool("true")))(true)
 assertEqual((toBool("True")))(true)
 assertEqual((toBool("false")))(false)
 assertEqual((toBool("other stuff")))(false)
 
-// assignment with a lambda, always wraps in a function, so _ to unwrap (ie apply that func)
+// assignment with a lambda, always wraps in a function,
+// so _ to unwrap
+// (ie apply that func with nothing)
+// ie call with no arguments
 var curried = function() {
   return compose((add(1)))((add(1)))
 }
@@ -1100,8 +1158,12 @@ assertEqual((curried(null)(2)))(4)
 // assignment without a lambda
 var curried = compose((add(1)))((add(1)))
 assertEqual((curried(2)))(4)
+  // using combinator
+var curried = B((add(1)))((add(1)))
+B(assertEqual)(curried)(2)(4)
 
 assertEqual((or(1)(2)))(1)
+B1(assertEqual)(or)(1)(2)(1)
 assertEqual((or(1)(null)))(1)
 assertEqual((or(null)(2)))(2)
 assertEqual((or(null)(null)))(null)
