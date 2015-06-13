@@ -7954,6 +7954,155 @@
   "tag": "emptyLine"
  },
  {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "head"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "one"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "string",
+             "value": "\"keys\""
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"a\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "head"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "tail"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "one"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "string",
+                 "value": "\"keys\""
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"b\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
   "tag": "comment",
   "value": " last line can now be a comment"
  }

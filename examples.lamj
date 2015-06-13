@@ -264,4 +264,7 @@ B assertEqual two "c" 3
 three = removeKey two "b"
 B assertEqual three "b" _
 
+assertEqual (head (one "keys")) "a"
+assertEqual (head (tail (one "keys"))) "b"
+
 # last line can now be a comment

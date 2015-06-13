@@ -90,10 +90,18 @@ exports.compileToJS = (ast) ->
     "function(){ #{keys} #{values} }"
 
   compileKeysFunction = (lambdaList) ->
-    keys = (for lambda in lambdaList when lambda.param?.tag == 'match'
-      lambda.param.value.value
-    ).join ","
-    "if(arguments[0] == \"keys\") { return [#{keys}]; }"
+    keys = (lambda.param.value.value for lambda in lambdaList when lambda.param?.tag == 'match')
+    "if(arguments[0] == \"keys\") { return #{compileCons keys} }"
+
+  compileCons = (list) ->
+    head = list?.shift()
+    if list.length >= 1
+      right = compileCons list
+      "cons(#{head})(#{right})"
+    else if head
+      "cons(#{head})(null)"
+    else
+      "null"
 
   compileLambdaBody = (children) ->
     if children && children[0]?.tag isnt "lambda"

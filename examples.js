@@ -62,12 +62,12 @@ var uncurry = function(curriedFunc) {
 
 var xor = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var a = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var b = arguments[0];
     return or((and(a)((not(b)))))((and((not(a)))(b)))
@@ -75,12 +75,12 @@ var xor = function() {
 }
 var implies = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var a = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var b = arguments[0];
     return or((not(a)))(b)
@@ -88,12 +88,12 @@ var implies = function() {
 }
 var equivilant = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var a = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var b = arguments[0];
     return not((xor(a)(b)))
@@ -101,12 +101,12 @@ var equivilant = function() {
 }
 var or = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   if (!arguments[0]) {
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var b = arguments[0];
       return b
@@ -115,7 +115,7 @@ var or = function() {
   var a = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var b = arguments[0];
     return a
@@ -123,7 +123,7 @@ var or = function() {
 }
 var not = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   if (!arguments[0]) {
     return true
@@ -133,12 +133,12 @@ var not = function() {
 }
 var and = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   if (!arguments[0]) {
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var b = arguments[0];
       return false
@@ -147,7 +147,7 @@ var and = function() {
   var a = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     if (!arguments[0]) {
       return false
@@ -158,17 +158,17 @@ var and = function() {
 }
 var cons = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var m = arguments[0];
       return m(x)(y)
@@ -177,17 +177,17 @@ var cons = function() {
 }
 var head = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var z = arguments[0];
   return z((function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var p = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var q = arguments[0];
       return p
@@ -196,17 +196,17 @@ var head = function() {
 }
 var tail = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var z = arguments[0];
   return z((function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var p = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var q = arguments[0];
       return q
@@ -215,17 +215,17 @@ var tail = function() {
 }
 var B = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return x((y(z)))
@@ -234,22 +234,22 @@ var B = function() {
 }
 var B1 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return x((y(z)(w)))
@@ -259,27 +259,27 @@ var B1 = function() {
 }
 var B2 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var v = arguments[0];
           return x((y(z)(w)(v)))
@@ -290,22 +290,22 @@ var B2 = function() {
 }
 var B3 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return x((y((z(w)))))
@@ -315,17 +315,17 @@ var B3 = function() {
 }
 var C = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return x(z)(y)
@@ -334,22 +334,22 @@ var C = function() {
 }
 var D = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return x(y)((z(w)))
@@ -359,27 +359,27 @@ var D = function() {
 }
 var D1 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var v = arguments[0];
           return x(y)(z)((w(v)))
@@ -390,27 +390,27 @@ var D1 = function() {
 }
 var D2 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var v = arguments[0];
           return x((y(z)))((w(v)))
@@ -421,27 +421,27 @@ var D2 = function() {
 }
 var E = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var v = arguments[0];
           return x(y)((z(w)(v)))
@@ -452,37 +452,37 @@ var E = function() {
 }
 var E1 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y1 = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var y2 = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var y3 = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var z1 = arguments[0];
           return function() {
             if (arguments[0] == "keys") {
-              return [];
+              return null
             }
             var z2 = arguments[0];
             return function() {
               if (arguments[0] == "keys") {
-                return [];
+                return null
               }
               var z3 = arguments[0];
               return x((y1(y2)(y3)))((z1(z2)(z3)))
@@ -495,17 +495,17 @@ var E1 = function() {
 }
 var F = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return z(y)(x)
@@ -514,22 +514,22 @@ var F = function() {
 }
 var G = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return x(w)((y(z)))
@@ -539,17 +539,17 @@ var G = function() {
 }
 var H = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return x(y)(z)(y)
@@ -558,36 +558,36 @@ var H = function() {
 }
 var HE = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return HE
 }
 var I = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return x
 }
 var J = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return x(y)((x(w)(z)))
@@ -597,12 +597,12 @@ var J = function() {
 }
 var K = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return x
@@ -610,12 +610,12 @@ var K = function() {
 }
 var L = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return x((y(y)))
@@ -623,19 +623,19 @@ var L = function() {
 }
 var M = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return x(x)
 }
 var O = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return y((x(y)))
@@ -643,17 +643,17 @@ var O = function() {
 }
 var Q = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return y((x(z)))
@@ -662,17 +662,17 @@ var Q = function() {
 }
 var Q1 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return x((z(y)))
@@ -681,17 +681,17 @@ var Q1 = function() {
 }
 var Q2 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return y((z(x)))
@@ -700,17 +700,17 @@ var Q2 = function() {
 }
 var Q3 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return z((x(y)))
@@ -719,17 +719,17 @@ var Q3 = function() {
 }
 var Q4 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return z((y(x)))
@@ -738,17 +738,17 @@ var Q4 = function() {
 }
 var R = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return y(z)(x)
@@ -757,24 +757,24 @@ var R = function() {
 }
 var S1 = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return x((S1(x)))
 }
 var S = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return x(z)((y(z)))
@@ -783,12 +783,12 @@ var S = function() {
 }
 var T = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return y(x)
@@ -796,12 +796,12 @@ var T = function() {
 }
 var U = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return y((x(x)(y)))
@@ -809,17 +809,17 @@ var U = function() {
 }
 var V = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return z(x)(y)
@@ -828,12 +828,12 @@ var V = function() {
 }
 var W = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return x(y)(y)
@@ -841,12 +841,12 @@ var W = function() {
 }
 var W1 = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var y = arguments[0];
       return y(x)(x)
@@ -855,22 +855,22 @@ var W1 = function() {
   // C*
 var C1R = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var y = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var z = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var w = arguments[0];
           return x(y)(w)(z)
@@ -881,27 +881,27 @@ var C1R = function() {
   // C**
 var C2R = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var y = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var z = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var w = arguments[0];
           return function() {
             if (arguments[0] == "keys") {
-              return [];
+              return null
             }
             var v = arguments[0];
             return x(y)(z)(v)(w)
@@ -913,17 +913,17 @@ var C2R = function() {
   // W*
 var W1R = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var y = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var z = arguments[0];
         return x(y)(z)(z)
@@ -933,22 +933,22 @@ var W1R = function() {
   // W**
 var W2R = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var w = arguments[0];
         return x(y)(z)(w)(w)
@@ -1035,24 +1035,24 @@ var identity = I
 
 var map = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var f = arguments[0];
   return foldr((compose(cons)(f)))(null)
 }
 var foldl = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var f = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var z = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       if (!arguments[0]) {
         return z
@@ -1064,17 +1064,17 @@ var foldl = function() {
 }
 var foldr = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var f = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var z = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       if (!arguments[0]) {
         return z
@@ -1086,12 +1086,12 @@ var foldr = function() {
 }
 var filter = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var p = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     if (!arguments[0]) {
       return null
@@ -1099,7 +1099,7 @@ var filter = function() {
     var l = arguments[0];
     var test = function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var l = arguments[0];
       return p((head(l)))
@@ -1113,12 +1113,12 @@ var filter = function() {
 }
 var append = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var xs = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var ys = arguments[0];
     return foldr(cons)(ys)(xs)
@@ -1126,7 +1126,7 @@ var append = function() {
 }
 var concat = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   if (!arguments[0]) {
     return null
@@ -1136,17 +1136,17 @@ var concat = function() {
 }
 var filter = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var p = arguments[0];
   var test = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     var test = function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var x = arguments[0];
       return p(x)
@@ -1154,7 +1154,7 @@ var filter = function() {
     if (test(x)) {
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var xs = arguments[0];
         return cons(x)(xs)
@@ -1163,7 +1163,7 @@ var filter = function() {
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var xs = arguments[0];
       return xs
@@ -1173,7 +1173,7 @@ var filter = function() {
 }
 var last = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   if (!arguments[0]) {
     return null
@@ -1181,7 +1181,7 @@ var last = function() {
   var l = arguments[0];
   var test = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var l = arguments[0];
     return equal((tail(l)))(null)
@@ -1194,12 +1194,12 @@ var last = function() {
 }
 var any = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var p = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     if (!arguments[0]) {
       return false
@@ -1207,7 +1207,7 @@ var any = function() {
     var l = arguments[0];
     var test = function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var l = arguments[0];
       return p((head(l)))
@@ -1221,17 +1221,17 @@ var any = function() {
 }
 var any = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var p = arguments[0];
   var test = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     var test = function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var x = arguments[0];
       return p(x)
@@ -1239,7 +1239,7 @@ var any = function() {
     if (test(x)) {
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var xs = arguments[0];
         return or(x)(xs)
@@ -1248,7 +1248,7 @@ var any = function() {
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var xs = arguments[0];
       return false
@@ -1258,17 +1258,17 @@ var any = function() {
 }
 var all = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var p = arguments[0];
   var test = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     var test = function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var x = arguments[0];
       return p(x)
@@ -1276,7 +1276,7 @@ var all = function() {
     if (test(x)) {
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var xs = arguments[0];
         return and(x)(xs)
@@ -1285,7 +1285,7 @@ var all = function() {
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var xs = arguments[0];
       return false
@@ -1295,7 +1295,7 @@ var all = function() {
 }
 var listM = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return null
 }
@@ -1305,7 +1305,7 @@ var listM = function() {
 //  // unit :: a -> [a]
 var listM_unit = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return cons(x)(null)
@@ -1314,12 +1314,12 @@ var listM_unit = function() {
 // // bind :: (a -> [a]) -> ([a] -> [a])
 var listM_bind = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var f = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var l = arguments[0];
     return concat((map(f)(l)))
@@ -1327,7 +1327,7 @@ var listM_bind = function() {
 }
 var nothing = function() {
   if (arguments[0] == "keys") {
-    return ["isJust", "fromJust"];
+    return cons("isJust")(cons("fromJust")(null))
   }
   if (arguments[0] == "isJust") {
     return false
@@ -1338,12 +1338,12 @@ var nothing = function() {
 }
 var just = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var a = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return ["isJust", "fromJust"];
+      return cons("isJust")(cons("fromJust")(null))
     }
     if (arguments[0] == "isJust") {
       return true
@@ -1355,7 +1355,7 @@ var just = function() {
 }
 var maybeM_unit = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return just(x)
@@ -1363,17 +1363,17 @@ var maybeM_unit = function() {
 
 var maybeM_bind = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var f = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     var test = function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var x = arguments[0];
       return x("isJust")
@@ -1407,20 +1407,20 @@ var greaterThanEqual = not(lessThan)
 123
 var x = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return 1
 }
 x
 var xyz = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return 2
 }
 var id = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var param = arguments[0];
   return param
@@ -1428,7 +1428,7 @@ var id = function() {
 id("value")
 var one = function() {
   if (arguments[0] == "keys") {
-    return ["too"];
+    return cons("too")(null)
   }
   if (arguments[0] == "too") {
     return 33
@@ -1436,14 +1436,14 @@ var one = function() {
 }
 var too = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return "too"
 }
 one((too(null)))
 var intMap = function() {
   if (arguments[0] == "keys") {
-    return [1, 3];
+    return cons(1)(cons(3)(null))
   }
   if (arguments[0] == 1) {
     return 2
@@ -1457,13 +1457,13 @@ var intMap = function() {
 intMap(123)
 var string = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return "this is a string!"
 }
 var stringMap = function() {
   if (arguments[0] == "keys") {
-    return ["key"];
+    return cons("key")(null)
   }
   if (arguments[0] == "key") {
     return 4
@@ -1472,7 +1472,7 @@ var stringMap = function() {
 stringMap("key")
 var y = function() {
   if (arguments[0] == "keys") {
-    return ["z", "v", "w"];
+    return cons("z")(cons("v")(cons("w")(null)))
   }
   if (arguments[0] == "z") {
     return 6
@@ -1480,7 +1480,7 @@ var y = function() {
   if (arguments[0] == "v") {
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var x = arguments[0];
       return x
@@ -1489,7 +1489,7 @@ var y = function() {
   if (arguments[0] == "w") {
     return function() {
       if (arguments[0] == "keys") {
-        return ["arg"];
+        return cons("arg")(null)
       }
       if (arguments[0] == "arg") {
         return 8
@@ -1501,7 +1501,7 @@ y("z")
 y("w")
 var p = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return 9
 }
@@ -1512,7 +1512,7 @@ subtract(2)(1)
 
 var rec = function() {
   if (arguments[0] == "keys") {
-    return [1];
+    return cons(1)(null)
   }
   if (arguments[0] == 1) {
     return 1
@@ -1522,7 +1522,7 @@ var rec = function() {
 }
 var fib = function() {
   if (arguments[0] == "keys") {
-    return [0, 1];
+    return cons(0)(cons(1)(null))
   }
   if (arguments[0] == 0) {
     return 0
@@ -1536,25 +1536,25 @@ var fib = function() {
 subtract(2)(1)
 var w = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return 4
 }
 var x = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var w = arguments[0];
   return 3
 }
 var z = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var w = arguments[0];
     return 2
@@ -1562,17 +1562,17 @@ var z = function() {
 }
 var y = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var z = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var w = arguments[0];
       return 1
@@ -1590,20 +1590,20 @@ head((cons(1)(null)))
 
 var addTwo = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var n = arguments[0];
   return add(n)(2)
 }
 var l = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return cons(1)((cons(2)(null)))
 }
 var x = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return map(addTwo)((l(null)))
 }
@@ -1615,12 +1615,12 @@ null
 
 var ifThenElse = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var test = arguments[0];
   var test = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var test = arguments[0];
     return test
@@ -1628,12 +1628,12 @@ var ifThenElse = function() {
   if (test(test)) {
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var then = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var otherwise = arguments[0];
         return then
@@ -1643,12 +1643,12 @@ var ifThenElse = function() {
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var then = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var otherwise = arguments[0];
       return otherwise
@@ -1657,18 +1657,18 @@ var ifThenElse = function() {
 }
 var multiExpr = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   var t = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     return add(t)(1)
   }
   var p = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     return subtract(p)(3)
   }
@@ -1678,12 +1678,12 @@ multiply(10.123)((add(2)(3.3)))
 
 var multi = function() {
   if (arguments[0] == "keys") {
-    return [0];
+    return null
   }
   if (arguments[0] == 0) {
     return function() {
       if (arguments[0] == "keys") {
-        return [1];
+        return cons(1)(null)
       }
       if (arguments[0] == 1) {
         return "a"
@@ -1695,7 +1695,7 @@ var multi = function() {
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return "c"
@@ -1703,12 +1703,12 @@ var multi = function() {
 }
 var complexMatch = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   var test = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     return subtract(x)(2)
@@ -1721,7 +1721,7 @@ var complexMatch = function() {
 }
 var ltt = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return lessThan(x)(2)
@@ -1745,7 +1745,7 @@ require("./predefined")
 
 exports.myFunc = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return "nothing"
 }
@@ -1755,7 +1755,7 @@ assertEqual((head((tail((append((cons(1)(null)))((cons(2)(null)))))))))(2)
 
 var listAddOne = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return cons((add(x)(1)))(null)
@@ -1770,7 +1770,7 @@ append((map(listAddOne)))
 
 var adder = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var l = arguments[0];
   return compose((listM_bind(listAddOne)))((listM_bind(listAddOne)))(l)
@@ -1788,7 +1788,7 @@ assertEqual((just(1)("isJust")))(true)
 
 var addOne = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return add(x)(1)
@@ -1802,7 +1802,7 @@ assertEqual((compose((maybeM_bind(addOne)))((maybeM_bind(addOne)))((nothing))("i
 
 var isTrue = function() {
   if (arguments[0] == "keys") {
-    return [true, false];
+    return cons(true)(null)
   }
   if (arguments[0] == true) {
     return true
@@ -1821,7 +1821,7 @@ assertEqual((isTrue(null)))("other")
 
 var truthy = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   if (!arguments[0]) {
     return false
@@ -1829,7 +1829,7 @@ var truthy = function() {
   var x = arguments[0];
   var test = function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var x = arguments[0];
     return x
@@ -1862,7 +1862,7 @@ assertEqual((toBool("other stuff")))(false)
 // ie call with no arguments
 var curried = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   return compose((add(1)))((add(1)))
 }
@@ -1905,7 +1905,7 @@ var l = s.length
 // just like B, but always returns _
 var nil = function() {
   if (arguments[0] == "keys") {
-    return ["toString"];
+    return cons("toString")(null)
   }
   if (arguments[0] == "toString") {
     return "nil"
@@ -1916,12 +1916,12 @@ nil(nil)(nil)("something")
 
 var uncurriedAdd = uncurry(function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var x = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var y = arguments[0];
     return add(x)(y)
@@ -1931,7 +1931,7 @@ var uncurriedAdd = uncurry(function() {
 // add key to 'map'
 var one = function() {
   if (arguments[0] == "keys") {
-    return ["a", "b"];
+    return cons("a")(cons("b")(null))
   }
   if (arguments[0] == "a") {
     return 1
@@ -1943,7 +1943,7 @@ var one = function() {
 B(assertEqual)(one)("a")(1)
 var two = function() {
   if (arguments[0] == "keys") {
-    return ["c"];
+    return cons("c")(null)
   }
   if (arguments[0] == "c") {
     return 3
@@ -1956,7 +1956,7 @@ B(assertEqual)(two)("c")(3)
   // remove key from 'map'
 var three = function() {
   if (arguments[0] == "keys") {
-    return ["b"];
+    return cons("b")(null)
   }
   if (arguments[0] == "b") {
     return null
@@ -1968,27 +1968,27 @@ B(assertEqual)(three)("b")(null)
 
 var addKey = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var map = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var key = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var value = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var x = arguments[0];
         var test = function() {
           if (arguments[0] == "keys") {
-            return [];
+            return null
           }
           var x = arguments[0];
           return equal(x)(key)
@@ -2004,22 +2004,22 @@ var addKey = function() {
 }
 var removeKey = function() {
   if (arguments[0] == "keys") {
-    return [];
+    return null
   }
   var map = arguments[0];
   return function() {
     if (arguments[0] == "keys") {
-      return [];
+      return null
     }
     var key = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
-        return [];
+        return null
       }
       var x = arguments[0];
       var test = function() {
         if (arguments[0] == "keys") {
-          return [];
+          return null
         }
         var x = arguments[0];
         return equal(x)(key)
@@ -2038,5 +2038,8 @@ B(assertEqual)(two)("c")(3)
 
 var three = removeKey(two)("b")
 B(assertEqual)(three)("b")(null)
+
+assertEqual((head((one("keys")))))("a")
+assertEqual((head((tail((one("keys")))))))("b")
 
 // last line can now be a comment
