@@ -85,8 +85,15 @@ exports.compileToJS = (ast) ->
     "exports.#{assignment.name} = #{compileLambdaGroup children}"
 
   compileLambdaGroup = (lambdaList) ->
+    keys = compileKeysFunction(lambdaList)
     values = (compileLambda lambda for lambda in lambdaList).join " "
-    "function(){ #{values} }"
+    "function(){ #{keys} #{values} }"
+
+  compileKeysFunction = (lambdaList) ->
+    keys = (for lambda in lambdaList when lambda.param?.tag == 'match'
+      lambda.param.value.value
+    ).join ","
+    "if(arguments[0] == \"keys\") { return [#{keys}]; }"
 
   compileLambdaBody = (children) ->
     if children && children[0]?.tag isnt "lambda"
