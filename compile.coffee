@@ -51,6 +51,7 @@ exports.compileToJS = (ast) ->
             when 'match' then compileExpression expr.value
             when 'symbol' then expr.value
             when 'application' then compileApplication expr
+            when 'eval' then "this[#{expr.name}]"
             when 'reference' then "#{expr.name}"
             when 'scope' then "(#{compileExpression expr.value})"
             when 'assignment' then compileAssignment expr

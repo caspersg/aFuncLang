@@ -50,10 +50,15 @@ part
   / value:reference { return value }
   / value:atom { return value }
   / value:scope { return value }
+  / value:eval { return value }
 
 reference
   = name:symbol
     { return { tag:"reference", name:name} }
+
+eval
+  = "`" name:symbol
+    { return { tag:"eval", name:name} }
 
 application
   = head:part tail:tail?

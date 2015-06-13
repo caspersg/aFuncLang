@@ -2079,4 +2079,8 @@ assertEqual((toString(1)))("1")
 assertEqual((head((values(one)))))(1)
 assertEqual((head((tail((values(one)))))))(2)
 
+// simple eval of string to function
+var x = "toString"
+assertEqual((this[x](1)))("1")
+
 // last line can now be a comment

@@ -8366,6 +8366,75 @@
  },
  {
   "tag": "comment",
+  "value": " simple eval of string to function"
+ },
+ {
+  "tag": "assignment",
+  "name": "x",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "string",
+     "value": "\"toString\""
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "eval",
+       "name": "x"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 1
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"1\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
   "value": " last line can now be a comment"
  }
 ]
