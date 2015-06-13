@@ -7151,14 +7151,6 @@
  },
  {
   "tag": "comment",
-  "value": " last line can't be a comment, bug in the parser"
- },
- {
-  "tag": "application",
-  "func": {
-   "tag": "nothing",
-   "value": "null"
-  },
-  "children": []
+  "value": " last line can now be a comment"
  }
 ]

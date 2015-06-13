@@ -229,5 +229,4 @@ nil nil nil "something"
 
 uncurriedAdd = uncurry x: y: add x y
 
-# last line can't be a comment, bug in the parser
-_
+# last line can now be a comment

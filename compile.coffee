@@ -29,7 +29,7 @@ exports.parse = (grammerFile, inputFunc, output) ->
     inputFunc (source) ->
       #console.log "soure='#{source}'"
       try
-        output parser.parse source.trim()
+        output parser.parse source
       catch e
         console.error e
 

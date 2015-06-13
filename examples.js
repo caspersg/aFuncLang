@@ -851,7 +851,8 @@ var lessThan = curry(jsLessThan)
 var lessThanEqual = curry(jsLessThanEqual)
 var equal = curry(jsEqual)
 var greaterThan = not(lessThanEqual)
-var greaterThanEqual = not(lessThan) // start examples
+var greaterThanEqual = not(lessThan)
+  // start examples
 
 "string"
 123
@@ -1228,5 +1229,4 @@ var uncurriedAdd = uncurry(function() {
   }
 })
 
-// last line can't be a comment, bug in the parser
-null
+// last line can now be a comment
