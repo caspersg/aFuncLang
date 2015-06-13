@@ -277,4 +277,18 @@ assertEqual (head (tail (values one))) 2
 x = "toString"
 assertEqual (`x 1) "1"
 
+# build a list without nested cons
+list1 = x: cons x _
+list2 = x: y: cons x (list1 y)
+list3 = x: y: z: cons x (list2 y z)
+list4 = x: y: z: w: cons x (list3 y z w)
+
+list4 1 2 3 4
+
+# recursive building of a list using cons
+#list =
+#  _:_
+#  x: y: z: cons x (list y) z
+#list 1 2 _
+
 # last line can now be a comment

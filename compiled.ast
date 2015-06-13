@@ -8435,6 +8435,392 @@
  },
  {
   "tag": "comment",
+  "value": " build a list without nested cons"
+ },
+ {
+  "tag": "assignment",
+  "name": "list1",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "cons"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "reference",
+         "name": "x"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "nothing",
+           "value": "null"
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "list2",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "func": {
+         "tag": "reference",
+         "name": "cons"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "x"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "list1"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "y"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "list3",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "z"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "cons"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "x"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "scope",
+               "value": {
+                "tag": "application",
+                "func": {
+                 "tag": "reference",
+                 "name": "list2"
+                },
+                "children": [
+                 {
+                  "tag": "application",
+                  "next": {
+                   "tag": "reference",
+                   "name": "y"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "reference",
+                     "name": "z"
+                    },
+                    "children": [
+                     null
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "list4",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "z"
+        },
+        "children": [
+         {
+          "tag": "lambda",
+          "param": {
+           "tag": "symbol",
+           "value": "w"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "func": {
+             "tag": "reference",
+             "name": "cons"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "reference",
+               "name": "x"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "scope",
+                 "value": {
+                  "tag": "application",
+                  "func": {
+                   "tag": "reference",
+                   "name": "list3"
+                  },
+                  "children": [
+                   {
+                    "tag": "application",
+                    "next": {
+                     "tag": "reference",
+                     "name": "y"
+                    },
+                    "children": [
+                     {
+                      "tag": "application",
+                      "next": {
+                       "tag": "reference",
+                       "name": "z"
+                      },
+                      "children": [
+                       {
+                        "tag": "application",
+                        "next": {
+                         "tag": "reference",
+                         "name": "w"
+                        },
+                        "children": [
+                         null
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "list4"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "number",
+     "value": 1
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 2
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "number",
+         "value": 3
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "number",
+           "value": 4
+          },
+          "children": [
+           null
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
+  "value": " recursive building of a list using cons"
+ },
+ {
+  "tag": "comment",
+  "value": "list ="
+ },
+ {
+  "tag": "comment",
+  "value": "  _:_"
+ },
+ {
+  "tag": "comment",
+  "value": "  x: y: z: cons x (list y) z"
+ },
+ {
+  "tag": "comment",
+  "value": "list 1 2 _"
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "comment",
   "value": " last line can now be a comment"
  }
 ]

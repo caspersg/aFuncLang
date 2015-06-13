@@ -2083,4 +2083,78 @@ assertEqual((head((tail((values(one)))))))(2)
 var x = "toString"
 assertEqual((this[x](1)))("1")
 
+// build a list without nested cons
+var list1 = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return cons(x)(null)
+}
+var list2 = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var y = arguments[0];
+    return cons(x)((list1(y)))
+  }
+}
+var list3 = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var y = arguments[0];
+    return function() {
+      if (arguments[0] == "keys") {
+        return null
+      }
+      var z = arguments[0];
+      return cons(x)((list2(y)(z)))
+    }
+  }
+}
+var list4 = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var y = arguments[0];
+    return function() {
+      if (arguments[0] == "keys") {
+        return null
+      }
+      var z = arguments[0];
+      return function() {
+        if (arguments[0] == "keys") {
+          return null
+        }
+        var w = arguments[0];
+        return cons(x)((list3(y)(z)(w)))
+      }
+    }
+  }
+}
+
+list4(1)(2)(3)(4)
+
+// recursive building of a list using cons
+//list =
+//  _:_
+//  x: y: z: cons x (list y) z
+//list 1 2 _
+
 // last line can now be a comment
