@@ -2419,6 +2419,76 @@
  },
  {
   "tag": "assignment",
+  "name": "Q2",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "z"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "y"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "z"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "x"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
   "name": "Q3",
   "children": [
    {
@@ -2465,6 +2535,76 @@
                 "next": {
                  "tag": "reference",
                  "name": "y"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "Q4",
+  "children": [
+   {
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "x"
+    },
+    "children": [
+     {
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "y"
+      },
+      "children": [
+       {
+        "tag": "lambda",
+        "param": {
+         "tag": "symbol",
+         "value": "z"
+        },
+        "children": [
+         {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "z"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "y"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "x"
                 },
                 "children": [
                  null
@@ -4402,6 +4542,22 @@
  },
  {
   "tag": "assignment",
+  "name": "QuizzicalBird",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "Q2"
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
   "name": "QuirkyBird",
   "children": [
    {
@@ -4409,6 +4565,22 @@
     "func": {
      "tag": "reference",
      "name": "Q3"
+    },
+    "children": [
+     null
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "assignment",
+  "name": "QuakyBird",
+  "children": [
+   {
+    "tag": "application",
+    "func": {
+     "tag": "reference",
+     "name": "Q4"
     },
     "children": [
      null

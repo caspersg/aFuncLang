@@ -391,6 +391,16 @@ var Q1 = function() {
     }
   }
 }
+var Q2 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return y((z(x)))
+    }
+  }
+}
 var Q3 = function() {
   var x = arguments[0];
   return function() {
@@ -398,6 +408,16 @@ var Q3 = function() {
     return function() {
       var z = arguments[0];
       return z((x(y)))
+    }
+  }
+}
+var Q4 = function() {
+  var x = arguments[0];
+  return function() {
+    var y = arguments[0];
+    return function() {
+      var z = arguments[0];
+      return z((y(x)))
     }
   }
 }
@@ -572,7 +592,9 @@ var Mockingbird = M
 var Owl = O
 var QueerBird = Q
 var QuixoticBird = Q1
+var QuizzicalBird = Q2
 var QuirkyBird = Q3
+var QuakyBird = Q4
 var Robin = R
 var SageBird = S1
 var Starling = S
