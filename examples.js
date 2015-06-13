@@ -1229,4 +1229,79 @@ var uncurriedAdd = uncurry(function() {
   }
 })
 
+// add key to 'map'
+var one = function() {
+  if (arguments[0] == "a") {
+    return 1
+  }
+  if (arguments[0] == "b") {
+    return 2
+  }
+}
+B(assertEqual)(one)("a")(1)
+var two = function() {
+  if (arguments[0] == "c") {
+    return 3
+  }
+  var x = arguments[0];
+  return one(x)
+}
+B(assertEqual)(two)("a")(1)
+B(assertEqual)(two)("c")(3)
+  // remove key from 'map'
+var three = function() {
+  if (arguments[0] == "b") {
+    return null
+  }
+  var x = arguments[0];
+  return two(x)
+}
+B(assertEqual)(three)("b")(null)
+
+var addKey = function() {
+  var map = arguments[0];
+  return function() {
+    var key = arguments[0];
+    return function() {
+      var value = arguments[0];
+      return function() {
+        var x = arguments[0];
+        var test = function() {
+          var x = arguments[0];
+          return equal(x)(key)
+        };
+        if (test(x)) {
+          return value
+        }
+        var x = arguments[0];
+        return map(x)
+      }
+    }
+  }
+}
+var removeKey = function() {
+  var map = arguments[0];
+  return function() {
+    var key = arguments[0];
+    return function() {
+      var x = arguments[0];
+      var test = function() {
+        var x = arguments[0];
+        return equal(x)(key)
+      };
+      if (test(x)) {
+        return null
+      }
+      var x = arguments[0];
+      return map(x)
+    }
+  }
+}
+var two = addKey(one)("c")(3)
+B(assertEqual)(two)("a")(1)
+B(assertEqual)(two)("c")(3)
+
+var three = removeKey(two)("b")
+B(assertEqual)(three)("b")(null)
+
 // last line can now be a comment

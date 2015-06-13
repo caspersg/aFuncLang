@@ -229,4 +229,39 @@ nil nil nil "something"
 
 uncurriedAdd = uncurry x: y: add x y
 
+# add key to 'map'
+one =
+  "a": 1
+  "b": 2
+B assertEqual one "a" 1
+two =
+  "c": 3
+  x: one x
+B assertEqual two "a" 1
+B assertEqual two "c" 3
+# remove key from 'map'
+three =
+  "b": _
+  x: two x
+B assertEqual three "b" _
+
+addKey =
+  map:
+    key:
+      value:
+        {x: equal x key}: value
+        x: map x
+removeKey =
+  map:
+    key:
+      {x: equal x key}: _
+      x: map x
+
+two = addKey one "c" 3
+B assertEqual two "a" 1
+B assertEqual two "c" 3
+
+three = removeKey two "b"
+B assertEqual three "b" _
+
 # last line can now be a comment
