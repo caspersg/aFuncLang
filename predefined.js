@@ -23,6 +23,9 @@ var toInt = function(s) { return parseInt(s, 10)}
 var toFloat = function(s) { return parseFloat(s, 10)}
 var toBool = function(s) { return s.toLowerCase() == "true" }
 
+// toString
+var toString = function(o) { return o.toString() }
+
 // uncurry, to use with javascript libraries
 // only curried functions can actually be called in lamj though
 var uncurry = function(curriedFunc) {

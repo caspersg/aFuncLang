@@ -45,6 +45,11 @@ var toBool = function(s) {
   return s.toLowerCase() == "true"
 }
 
+// toString
+var toString = function(o) {
+  return o.toString()
+}
+
 // uncurry, to use with javascript libraries
 // only curried functions can actually be called in lamj though
 var uncurry = function(curriedFunc) {
@@ -2041,5 +2046,7 @@ B(assertEqual)(three)("b")(null)
 
 assertEqual((head((one("keys")))))("a")
 assertEqual((head((tail((one("keys")))))))("b")
+
+assertEqual((toString(1)))("1")
 
 // last line can now be a comment
