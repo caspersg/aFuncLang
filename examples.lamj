@@ -266,7 +266,11 @@ B assertEqual three "b" _
 
 assertEqual (head (one "keys")) "a"
 assertEqual (head (tail (one "keys"))) "b"
+assertEqual (head (keys one)) "a"
 
 assertEqual (toString 1) "1"
+
+assertEqual (head (values one)) 1
+assertEqual (head (tail (values one))) 2
 
 # last line can now be a comment

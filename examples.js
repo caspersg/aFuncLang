@@ -1406,7 +1406,33 @@ var lessThanEqual = curry(jsLessThanEqual)
 var equal = curry(jsEqual)
 var greaterThan = not(lessThanEqual)
 var greaterThanEqual = not(lessThan)
-  // start examples
+
+var keys = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var o = arguments[0];
+  return map((function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var x = arguments[0];
+    return x
+  }))((o("keys")))
+}
+var values = function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var o = arguments[0];
+    return map((function() {
+      if (arguments[0] == "keys") {
+        return null
+      }
+      var x = arguments[0];
+      return o(x)
+    }))((keys(o)))
+  } // start examples
 
 "string"
 123
@@ -2046,7 +2072,11 @@ B(assertEqual)(three)("b")(null)
 
 assertEqual((head((one("keys")))))("a")
 assertEqual((head((tail((one("keys")))))))("b")
+assertEqual((head((keys(one)))))("a")
 
 assertEqual((toString(1)))("1")
+
+assertEqual((head((values(one)))))(1)
+assertEqual((head((tail((values(one)))))))(2)
 
 // last line can now be a comment

@@ -8100,6 +8100,70 @@
   ]
  },
  {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "head"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "keys"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "one"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "string",
+       "value": "\"a\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
   "tag": "emptyLine"
  },
  {
@@ -8139,6 +8203,155 @@
       "next": {
        "tag": "string",
        "value": "\"1\""
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "emptyLine"
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "head"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "values"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "one"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 1
+      },
+      "children": [
+       null
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "tag": "application",
+  "func": {
+   "tag": "reference",
+   "name": "assertEqual"
+  },
+  "children": [
+   {
+    "tag": "application",
+    "next": {
+     "tag": "scope",
+     "value": {
+      "tag": "application",
+      "func": {
+       "tag": "reference",
+       "name": "head"
+      },
+      "children": [
+       {
+        "tag": "application",
+        "next": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "tail"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "scope",
+             "value": {
+              "tag": "application",
+              "func": {
+               "tag": "reference",
+               "name": "values"
+              },
+              "children": [
+               {
+                "tag": "application",
+                "next": {
+                 "tag": "reference",
+                 "name": "one"
+                },
+                "children": [
+                 null
+                ]
+               }
+              ]
+             }
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         null
+        ]
+       }
+      ]
+     }
+    },
+    "children": [
+     {
+      "tag": "application",
+      "next": {
+       "tag": "number",
+       "value": 2
       },
       "children": [
        null

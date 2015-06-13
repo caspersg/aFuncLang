@@ -295,3 +295,8 @@ equal = curry jsEqual
 greaterThan = not lessThanEqual
 greaterThanEqual = not lessThan
 
+keys =
+  o: map (x: x) (o "keys")
+
+values =
+  o: map (x: o x) (keys o)
