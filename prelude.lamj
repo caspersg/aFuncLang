@@ -278,7 +278,7 @@ maybeM_bind=
     n: nothing
 
 # curry some useful javascript functions
-assertEqual = curry assert.equal
+assertEqual = actual: expected: (curry assert.equal) actual expected _
 # maths
 add = curry jsPlus
 subtract = curry jsMinus

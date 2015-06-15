@@ -7012,20 +7012,74 @@
   "name": "assertEqual",
   "children": [
    {
-    "tag": "application",
-    "func": {
-     "tag": "reference",
-     "name": "curry"
+    "tag": "lambda",
+    "param": {
+     "tag": "symbol",
+     "value": "actual"
     },
     "children": [
      {
-      "tag": "application",
-      "next": {
-       "tag": "reference",
-       "name": "assert.equal"
+      "tag": "lambda",
+      "param": {
+       "tag": "symbol",
+       "value": "expected"
       },
       "children": [
-       null
+       {
+        "tag": "application",
+        "func": {
+         "tag": "scope",
+         "value": {
+          "tag": "application",
+          "func": {
+           "tag": "reference",
+           "name": "curry"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "assert.equal"
+            },
+            "children": [
+             null
+            ]
+           }
+          ]
+         }
+        },
+        "children": [
+         {
+          "tag": "application",
+          "next": {
+           "tag": "reference",
+           "name": "actual"
+          },
+          "children": [
+           {
+            "tag": "application",
+            "next": {
+             "tag": "reference",
+             "name": "expected"
+            },
+            "children": [
+             {
+              "tag": "application",
+              "next": {
+               "tag": "nothing",
+               "value": "null"
+              },
+              "children": [
+               null
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
       ]
      }
     ]

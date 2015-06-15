@@ -1390,7 +1390,19 @@ var maybeM_bind = function() {
     return nothing
   }
 }
-var assertEqual = curry(assert.equal)
+var assertEqual = function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var actual = arguments[0];
+    return function() {
+      if (arguments[0] == "keys") {
+        return null
+      }
+      var expected = arguments[0];
+      return (curry(assert.equal))(actual)(expected)(null)
+    }
+  }
   // maths
 var add = curry(jsPlus)
 var subtract = curry(jsMinus)
@@ -1555,6 +1567,17 @@ var fib = function() {
   if (arguments[0] == "keys") {
     return cons(0)(cons(1)(null))
   }
+  var x = arguments[0];
+  var test = function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var x = arguments[0];
+    return lessThan(x)(0)
+  };
+  if (test(x)) {
+    return null
+  }
   if (arguments[0] == 0) {
     return 0
   }
@@ -1564,6 +1587,15 @@ var fib = function() {
   var n = arguments[0];
   return add((fib((subtract(n)(1)))))((fib((subtract(n)(2)))))
 }
+B(assertEqual)(fib)(0)(0)
+B(assertEqual)(fib)(1)(1)
+B(assertEqual)(fib)(2)(1)
+B(assertEqual)(fib)(3)(2)
+B(assertEqual)(fib)(4)(3)
+B(assertEqual)(fib)(5)(5)
+B(assertEqual)(fib)(6)(8)
+B(assertEqual)(fib)(9)(34)
+
 subtract(2)(1)
 var w = function() {
   if (arguments[0] == "keys") {
@@ -1923,7 +1955,7 @@ assertEqual((not(null)))(true)
 // some Math
 assertEqual((min(1)(2)))(1)
 assertEqual((max(1)(2)))(2)
-assertEqual((pow(2)(4)))(8)
+assertEqual((pow(2)(4)))(16)
 
 // try method calls on js object
 // use . to trick lamj into thinking s.length is a variable
@@ -2079,10 +2111,6 @@ assertEqual((toString(1)))("1")
 assertEqual((head((values(one)))))(1)
 assertEqual((head((tail((values(one)))))))(2)
 
-// simple eval of string to function
-var x = "toString"
-assertEqual((this[x](1)))("1")
-
 // build a list without nested cons
 var list1 = function() {
   if (arguments[0] == "keys") {
@@ -2156,5 +2184,10 @@ list4(1)(2)(3)(4)
 //  _:_
 //  x: y: z: cons x (list y) z
 //list 1 2 _
+
+// simple eval of string to function
+var x = "toString"
+var y = (this[x](1))
+assertEqual(y)("1")
 
 // last line can now be a comment

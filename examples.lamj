@@ -42,9 +42,20 @@ rec=
   1: 1
   x: rec (subtract x 1)
 fib=
+  {x: lessThan x 0 }: _
   0:0
   1:1
   n: add (fib (subtract n 1)) (fib (subtract n 2))
+
+B assertEqual fib 0 0
+B assertEqual fib 1 1
+B assertEqual fib 2 1
+B assertEqual fib 3 2
+B assertEqual fib 4 3
+B assertEqual fib 5 5
+B assertEqual fib 6 8
+B assertEqual fib 9 34
+
 subtract 2 1
 w= :4
 x= w: 3
@@ -210,7 +221,7 @@ assertEqual (not _) true
 # some Math
 assertEqual (min 1 2) 1
 assertEqual (max 1 2) 2
-assertEqual (pow 2 4) 8
+assertEqual (pow 2 4) 16
 
 # try method calls on js object
 # use . to trick lamj into thinking s.length is a variable
@@ -273,10 +284,6 @@ assertEqual (toString 1) "1"
 assertEqual (head (values one)) 1
 assertEqual (head (tail (values one))) 2
 
-# simple eval of string to function
-x = "toString"
-assertEqual (`x 1) "1"
-
 # build a list without nested cons
 list1 = x: cons x _
 list2 = x: y: cons x (list1 y)
@@ -290,5 +297,10 @@ list4 1 2 3 4
 #  _:_
 #  x: y: z: cons x (list y) z
 #list 1 2 _
+
+# simple eval of string to function
+x = "toString"
+y = (`x 1)
+assertEqual y "1"
 
 # last line can now be a comment
