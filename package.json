@@ -17,6 +17,9 @@
     "start": "coffee compile.coffee lamj.pegjs",
     "test": "cat examples.lamj | coffee compile.coffee lamj.pegjs examples.js && node --stack-size=6500 examples.js && echo success"
   },
+  "bin": {
+    "lamj": "./bin/lamj"
+  },
   "author": "casper.szy",
   "license": "ISC"
 }

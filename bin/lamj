@@ -1,0 +1,6 @@
+#/bin/sh
+DIR=~/lib/node_modules/lamj
+PEGJS="${DIR}/lamj.pegjs"
+COMPILE="${DIR}/compile.coffee"
+
+coffee ${COMPILE} ${PEGJS} $1 < /dev/stdin

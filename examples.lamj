@@ -1,5 +1,9 @@
 # start examples
 
+# javascript modules
+assert = require "assert"
+assertEqual = actual: expected: (curry assert.equal) actual expected _
+
 "string"
 123
 x=
@@ -119,9 +123,6 @@ assert (equal 1 1)
 assertEqual (add 1 1) 2
 assertEqual (add "ab" "cd") "abcd"
 assert (equal (add "ab" "cd") "abcd")
-
-# javascript modules
-require "./predefined"
 
 exports myFunc= :"nothing"
 
@@ -300,7 +301,6 @@ list4 1 2 3 4
 
 # simple eval of string to function
 x = "toString"
-y = (`x 1)
-assertEqual y "1"
+y = `x 1
 
 # last line can now be a comment

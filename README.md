@@ -17,6 +17,13 @@ I want to explore deriving as much of a useful language as I can from the simple
 - as much as possible of the language is written in itself
 - basic functional tools, map, foldr, cons etc
 
+## runtime dependencies
+lodash.curry
+
+## usage
+npm install -g lamj
+cat source.lamj | bin/lamj compiled.js
+npm install lodash.curry
 
 ## built in constructs
 only very simple constructs are built in

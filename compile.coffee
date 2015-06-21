@@ -21,7 +21,7 @@ exports.readStdIn = (callback) ->
   process.stdin.on 'end', -> callback source
 
 exports.getPrelude = (callback) ->
-  exports.getFile 'prelude.lamj', callback
+  exports.getFile "#{__dirname}/prelude.lamj", callback
 
 exports.parse = (grammerFile, inputFunc, output) ->
   exports.getFile grammerFile, (grammer) ->
@@ -146,12 +146,12 @@ compiledJsFile = process.argv[3]
 
 exports.parse grammerFile, exports.getPrelude, (preludeAst) ->
   #console.log "preludeAst=#{toString preludeAst}"
-  fs.writeFileSync "prelude.ast", toString(preludeAst)
+  #fs.writeFileSync "prelude.ast", toString(preludeAst)
   exports.parse grammerFile, exports.readStdIn, (ast) ->
     #console.log "ast=#{toString ast}"
-    fs.writeFileSync "compiled.ast", toString(ast)
+    #fs.writeFileSync "compiled.ast", toString(ast)
     if compiledJsFile
-      exports.getFile 'predefined.js', (predefined) ->
+      exports.getFile "#{__dirname}/predefined.js", (predefined) ->
         compiled = predefined + exports.compileToJS(preludeAst) + exports.compileToJS(ast)
         jscode = beautify(compiled, { indent_size: 2 })
         #console.log "javascript=#{jscode}"

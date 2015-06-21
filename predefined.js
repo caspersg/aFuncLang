@@ -1,4 +1,3 @@
-var assert = require('assert')
 var curry = require('lodash.curry')
 
 // basic maths

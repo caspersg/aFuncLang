@@ -1,4 +1,3 @@
-var assert = require('assert')
 var curry = require('lodash.curry')
 
 // basic maths
@@ -1390,20 +1389,6 @@ var maybeM_bind = function() {
     return nothing
   }
 }
-var assertEqual = function() {
-    if (arguments[0] == "keys") {
-      return null
-    }
-    var actual = arguments[0];
-    return function() {
-      if (arguments[0] == "keys") {
-        return null
-      }
-      var expected = arguments[0];
-      return (curry(assert.equal))(actual)(expected)(null)
-    }
-  }
-  // maths
 var add = curry(jsPlus)
 var subtract = curry(jsMinus)
 var multiply = curry(jsMultiply)
@@ -1445,6 +1430,22 @@ var values = function() {
       return o(x)
     }))((keys(o)))
   } // start examples
+
+// javascript modules
+var assert = require("assert")
+var assertEqual = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var actual = arguments[0];
+  return function() {
+    if (arguments[0] == "keys") {
+      return null
+    }
+    var expected = arguments[0];
+    return (curry(assert.equal))(actual)(expected)(null)
+  }
+}
 
 "string"
 123
@@ -1802,9 +1803,6 @@ assert((equal(1)(1)))
 assertEqual((add(1)(1)))(2)
 assertEqual((add("ab")("cd")))("abcd")
 assert((equal((add("ab")("cd")))("abcd")))
-
-// javascript modules
-require("./predefined")
 
 exports.myFunc = function() {
   if (arguments[0] == "keys") {
@@ -2187,7 +2185,6 @@ list4(1)(2)(3)(4)
 
 // simple eval of string to function
 var x = "toString"
-var y = (this[x](1))
-assertEqual(y)("1")
+var y = this[x](1)
 
 // last line can now be a comment
