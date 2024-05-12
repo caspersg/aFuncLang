@@ -52,17 +52,17 @@ var toString = function(o) {
 // uncurry, to use with javascript libraries
 // only curried functions can actually be called in lamj though
 var uncurry = function(curriedFunc) {
-    // returns a function which will, for each argument, call the curried function on each.
-    // basically popping each curried argument, depending on the arguments called
-    return function() {
-      var func = curriedFunc;
-      for (var i = 0, j = arguments.length; i < j; i++) {
-        func = func(arguments[i]);
-      }
-      return func;
+  // returns a function which will, for each argument, call the curried function on each.
+  // basically popping each curried argument, depending on the arguments called
+  return function() {
+    var func = curriedFunc;
+    for (var i = 0, j = arguments.length; i < j; i++) {
+      func = func(arguments[i]);
     }
+    return func;
   }
-  // start prelude
+}
+// start prelude
 
 var xor = function() {
   if (arguments[0] == "keys") {
@@ -844,97 +844,97 @@ var W = function() {
   }
 }
 var W1 = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return function() {
     if (arguments[0] == "keys") {
       return null
     }
-    var x = arguments[0];
-    return function() {
-      if (arguments[0] == "keys") {
-        return null
-      }
-      var y = arguments[0];
-      return y(x)(x)
-    }
+    var y = arguments[0];
+    return y(x)(x)
   }
-  // C*
+}
+// C*
 var C1R = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return function() {
     if (arguments[0] == "keys") {
       return null
     }
-    var x = arguments[0];
+    var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
         return null
       }
-      var y = arguments[0];
+      var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
           return null
         }
-        var z = arguments[0];
-        return function() {
-          if (arguments[0] == "keys") {
-            return null
-          }
-          var w = arguments[0];
-          return x(y)(w)(z)
-        }
+        var w = arguments[0];
+        return x(y)(w)(z)
       }
     }
   }
-  // C**
+}
+// C**
 var C2R = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return function() {
     if (arguments[0] == "keys") {
       return null
     }
-    var x = arguments[0];
+    var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
         return null
       }
-      var y = arguments[0];
+      var z = arguments[0];
       return function() {
         if (arguments[0] == "keys") {
           return null
         }
-        var z = arguments[0];
+        var w = arguments[0];
         return function() {
           if (arguments[0] == "keys") {
             return null
           }
-          var w = arguments[0];
-          return function() {
-            if (arguments[0] == "keys") {
-              return null
-            }
-            var v = arguments[0];
-            return x(y)(z)(v)(w)
-          }
+          var v = arguments[0];
+          return x(y)(z)(v)(w)
         }
       }
     }
   }
-  // W*
+}
+// W*
 var W1R = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var x = arguments[0];
+  return function() {
     if (arguments[0] == "keys") {
       return null
     }
-    var x = arguments[0];
+    var y = arguments[0];
     return function() {
       if (arguments[0] == "keys") {
         return null
       }
-      var y = arguments[0];
-      return function() {
-        if (arguments[0] == "keys") {
-          return null
-        }
-        var z = arguments[0];
-        return x(y)(z)(z)
-      }
+      var z = arguments[0];
+      return x(y)(z)(z)
     }
   }
-  // W**
+}
+// W**
 var W2R = function() {
   if (arguments[0] == "keys") {
     return null
@@ -965,7 +965,7 @@ var W2R = function() {
 // derived from B
 var D = B(B)
 var E = B((B(B)(B)))
-  // derived from B and T
+// derived from B and T
 var R = B(B)(T)
 var C = R(R)(R)
 var F = E(T)(T)(E)(T)
@@ -974,8 +974,8 @@ var Q = C(B)
 var Q1 = B(C)(B)
 var Q3 = B(T)
 var G = B(B)(C)
-  // derived from B T M
-  // double mockingbird
+// derived from B T M
+// double mockingbird
 var DM = B(M)
 var L = Q(M)
 var W = C((B(M)(R)))
@@ -984,7 +984,7 @@ var H = B(W)((B(C)))
 var S = B(W1R)(G)
 var O = Q(Q)(W)
 var U = L(O)
-  // derived starred birds
+// derived starred birds
 var C1R = B(C)
 var C2R = B(C1R)
 var W1R = B(W)
@@ -1397,7 +1397,7 @@ var modulus = curry(jsModulus)
 var min = curry(Math.min)
 var max = curry(Math.max)
 var pow = curry(Math.pow)
-  // comparison
+// comparison
 var lessThan = curry(jsLessThan)
 var lessThanEqual = curry(jsLessThanEqual)
 var equal = curry(jsEqual)
@@ -1418,18 +1418,18 @@ var keys = function() {
   }))((o("keys")))
 }
 var values = function() {
+  if (arguments[0] == "keys") {
+    return null
+  }
+  var o = arguments[0];
+  return map((function() {
     if (arguments[0] == "keys") {
       return null
     }
-    var o = arguments[0];
-    return map((function() {
-      if (arguments[0] == "keys") {
-        return null
-      }
-      var x = arguments[0];
-      return o(x)
-    }))((keys(o)))
-  } // start examples
+    var x = arguments[0];
+    return o(x)
+  }))((keys(o)))
+} // start examples
 
 // javascript modules
 var assert = require("assert")
@@ -1932,7 +1932,7 @@ assertEqual((curried(null)(2)))(4)
 // assignment without a lambda
 var curried = compose((add(1)))((add(1)))
 assertEqual((curried(2)))(4)
-  // using combinator
+// using combinator
 var curried = B((add(1)))((add(1)))
 B(assertEqual)(curried)(2)(4)
 
@@ -2014,7 +2014,7 @@ var two = function() {
 }
 B(assertEqual)(two)("a")(1)
 B(assertEqual)(two)("c")(3)
-  // remove key from 'map'
+// remove key from 'map'
 var three = function() {
   if (arguments[0] == "keys") {
     return cons("b")(null)
