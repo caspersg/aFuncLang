@@ -1128,7 +1128,7 @@ var append = function() {
     return foldr(cons)(ys)(xs)
   }
 }
-var concat = function() {
+var flatMap = function() {
   if (arguments[0] == "keys") {
     return null
   }
@@ -1136,7 +1136,7 @@ var concat = function() {
     return null
   }
   var l = arguments[0];
-  return append((head(l)))((concat((tail(l)))))
+  return append((head(l)))((flatMap((tail(l)))))
 }
 var filter = function() {
   if (arguments[0] == "keys") {
@@ -1326,7 +1326,7 @@ var listM_bind = function() {
       return null
     }
     var l = arguments[0];
-    return concat((map(f)(l)))
+    return flatMap((map(f)(l)))
   }
 }
 var nothing = function() {
@@ -1429,7 +1429,9 @@ var values = function() {
     var x = arguments[0];
     return o(x)
   }))((keys(o)))
-} // start examples
+}
+var emptyString = ""
+var concat = foldl(add)(emptyString) // start examples
 
 // javascript modules
 var assert = require("assert")
@@ -2186,5 +2188,10 @@ list4(1)(2)(3)(4)
 // simple eval of string to function
 var x = "toString"
 var y = this[x](1)
+
+assertEqual((concat((list3("hello")(" ")("world")))))("hello world")
+
+// calling js functions
+console.log((concat((list3("hello")(" ")("world")))))
 
 // last line can now be a comment

@@ -303,4 +303,9 @@ list4 1 2 3 4
 x = "toString"
 y = `x 1
 
+assertEqual (concat (list3 "hello" " " "world")) "hello world"
+
+# calling js functions
+console.log (concat (list3 "hello" " " "world"))
+
 # last line can now be a comment

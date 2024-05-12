@@ -210,9 +210,9 @@ append=
 #  case (x::xs) => f(x) ++ flatMap(xs)(f)
 #  case _ => Nil
 #}
-concat=
+flatMap=
   _: _
-  l: append (head l) (concat (tail l))
+  l: append (head l) (flatMap (tail l))
 
 # alternative filter' p xs = foldr (\x xs -> if p x then x : xs else xs) [] xs
 filter=
@@ -259,7 +259,7 @@ listM_unit= x: cons x _
 
 # // bind :: (a -> [a]) -> ([a] -> [a])
 listM_bind=
-  f: l: concat (map f l)
+  f: l: flatMap (map f l)
 
 #maybe
 nothing=
@@ -299,3 +299,6 @@ keys =
 
 values =
   o: map (x: o x) (keys o)
+
+emptyString = ""
+concat = foldl add emptyString
