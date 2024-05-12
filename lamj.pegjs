@@ -138,7 +138,7 @@ bool
     { return false }
 
 comment
-  = "#" comment:(characters)*
+  = "#" comment:[^\n\r]*
     { return { tag:"comment", value:comment.join("") } }
 
 emptyLine
